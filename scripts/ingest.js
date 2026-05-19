@@ -99,7 +99,7 @@ async function loadTsFile(filePath, exportName) {
  * Helper to fetch embeddings from HuggingFace
  */
 async function getEmbedding(text) {
-  const url = "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2";
+  const url = "https://router.huggingface.co/hf-inference/models/sentence-transformers/all-MiniLM-L6-v2/pipeline/feature-extraction";
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -164,7 +164,7 @@ function extractChunks(obj, articleId, lang) {
       if (!section || typeof section !== 'object') continue;
 
       const heading = section.heading || section.title || sectionKey;
-      const sectionAnchor = `#${sectionKey}`;
+      const section_anchor = `#${sectionKey}`;
 
       // Check for deep items (flows, decisions, lessons)
       if (sectionKey === 'e2eFlows' && Array.isArray(section.items)) {
