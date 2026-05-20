@@ -259,7 +259,7 @@ export const careerOpsContent = {
         ctaLabel: 'Prueba career-ops',
         ctaHref: 'https://career-ops.org?utm_source=foliogpt.com&utm_medium=case-study&utm_campaign=career-ops-deep-dive',
         ctaSecondaryLabel: 'Ver el código en GitHub',
-        ctaSecondaryHref: 'https://github.com/foliogpt/career-ops',
+        ctaSecondaryHref: 'https://github.com/karthiksuru06/career-ops',
         communityHeading: '¿Dudas? Pregunta a la comunidad',
         communityBody: '2.700+ builders ya usan Career-Ops y comparten tips, plantillas y configuraciones en Discord.',
         communityLabel: 'Únete al Discord',
@@ -291,7 +291,7 @@ export const careerOpsContent = {
         },
         {
           q: '¿Es replicable?',
-          a: 'Sí — es open source. La landing oficial es career-ops.org (docs, AI chat y guías) y el código vive en github.com/foliogpt/career-ops. Requiere Claude Code con acceso a Playwright. Los skill files definen la lógica de cada modo. 37K+ personas ya lo han visto, forkeado o adaptado.',
+          a: 'Sí — es open source. La landing oficial es career-ops.org (docs, AI chat y guías) y el código vive en github.com/karthiksuru06/career-ops. Requiere Claude Code con acceso a Playwright. Los skill files definen la lógica de cada modo. 37K+ personas ya lo han visto, forkeado o adaptado.',
         },
         {
           q: '¿Cómo se usa Career-Ops?',
@@ -570,7 +570,7 @@ export const careerOpsContent = {
         ctaLabel: 'Try career-ops',
         ctaHref: 'https://career-ops.org?utm_source=foliogpt.com&utm_medium=case-study&utm_campaign=career-ops-deep-dive',
         ctaSecondaryLabel: 'View source on GitHub',
-        ctaSecondaryHref: 'https://github.com/foliogpt/career-ops',
+        ctaSecondaryHref: 'https://github.com/karthiksuru06/career-ops',
         communityHeading: 'Got questions? Ask the community',
         communityBody: '2,700+ builders already use Career-Ops and share tips, templates, and setups on Discord.',
         communityLabel: 'Join Discord',
@@ -602,7 +602,7 @@ export const careerOpsContent = {
         },
         {
           q: 'Is it replicable?',
-          a: 'Yes — it is open source. The official landing is career-ops.org (docs, AI chat and guides) and the code lives at github.com/foliogpt/career-ops. Requires Claude Code with Playwright access. Skill files define the logic for each mode. 37K+ people have already seen, forked, or adapted it.',
+          a: 'Yes — it is open source. The official landing is career-ops.org (docs, AI chat and guides) and the code lives at github.com/karthiksuru06/career-ops. Requires Claude Code with Playwright access. Skill files define the logic for each mode. 37K+ people have already seen, forked, or adapted it.',
         },
         {
           q: 'How do I use Career-Ops?',

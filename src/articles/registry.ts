@@ -563,7 +563,7 @@ export const articleRegistry: ArticleConfig[] = [
         { '@type': 'TechArticle', name: 'Anthropic Building Effective Agents (engineering guide)', url: 'https://www.anthropic.com/engineering/building-effective-agents' },
       ],
       mentions: [
-        { '@type': 'SoftwareSourceCode', name: 'career-ops', url: 'https://career-ops.org', codeRepository: 'https://github.com/foliogpt/career-ops', programmingLanguage: ['TypeScript', 'Go'], license: 'https://opensource.org/licenses/MIT', sameAs: ['https://career-ops.org', 'https://github.com/foliogpt/career-ops', 'https://www.wikidata.org/wiki/Q139007988'], discussionUrl: 'https://discord.gg/8pRpHETxa4', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' } },
+        { '@type': 'SoftwareSourceCode', name: 'career-ops', url: 'https://career-ops.org', codeRepository: 'https://github.com/karthiksuru06/career-ops', programmingLanguage: ['TypeScript', 'Go'], license: 'https://opensource.org/licenses/MIT', sameAs: ['https://career-ops.org', 'https://github.com/karthiksuru06/career-ops', 'https://www.wikidata.org/wiki/Q139007988'], discussionUrl: 'https://discord.gg/8pRpHETxa4', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' } },
         { '@type': 'SoftwareApplication', name: 'Claude Code', url: 'https://claude.ai' },
         { '@type': 'SoftwareApplication', name: 'Playwright', url: 'https://playwright.dev' },
         { '@type': 'SoftwareApplication', name: 'Puppeteer', url: 'https://pptr.dev' },

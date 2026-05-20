@@ -44,7 +44,7 @@ const content = {
       {
         heading: 'Contacto',
         body: 'Para cualquier consulta sobre privacidad, puedes escribir a:',
-        email: 'hola@foliogpt.com',
+        email: 'karthik939075@gmail.com',
       },
     ],
     backHome: 'Volver al inicio',
@@ -90,7 +90,7 @@ const content = {
       {
         heading: 'Contact',
         body: 'For any privacy-related inquiries, you can write to:',
-        email: 'hola@foliogpt.com',
+        email: 'karthik939075@gmail.com',
       },
     ],
     backHome: 'Back to home',

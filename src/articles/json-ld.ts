@@ -71,8 +71,8 @@ const PERSON = {
   url: 'https://foliogpt.com',
   jobTitle: 'Head of Applied AI',
   sameAs: [
-    'https://www.linkedin.com/in/foliogpt',
-    'https://github.com/foliogpt',
+    'https://www.linkedin.com/in/suru-karthik-923766321',
+    'https://github.com/karthiksuru06',
     'https://x.com/foliogpt',
     'https://dev.to/foliogpt',
     'https://foliogpt.substack.com',

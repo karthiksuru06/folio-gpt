@@ -1036,7 +1036,7 @@ export default function ProgrammaticSeo({ lang = 'en' }: { lang?: Lang }) {
           heading={t.cta.heading}
           body={t.cta.body}
           ctaLabel={t.cta.label}
-          ctaHref="mailto:hola@foliogpt.com?subject=Programmatic SEO"
+          ctaHref="mailto:karthik939075@gmail.com?subject=Programmatic SEO"
         />
 
         {/* FAQ */}

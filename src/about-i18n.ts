@@ -66,7 +66,7 @@ export const aboutContent = {
       { q: '¿Qué stacks y tecnologías domina?', a: 'Domina el desarrollo full-stack con React 19, TypeScript, Node.js y FastAPI. En el ámbito de IA, tiene una alta especialización en bases de datos vectoriales (Supabase pgvector), APIs de modelos de lenguaje (OpenRouter, HuggingFace Inference API), automatizaciones complejas (n8n, Make) y pipelines de evaluación y robustez de chatbots.' }
     ],
     connectHeading: 'Conectar',
-    email: 'karthik@example.com',
+    email: 'karthik939075@gmail.com',
   },
   en: {
     slug: 'about',
@@ -133,6 +133,6 @@ export const aboutContent = {
       { q: 'What is Karthik\'s technical toolkit?', a: 'His full-stack tools include React 19, TypeScript, Node.js, and FastAPI. In AI development, he specializes in Vector databases (Supabase pgvector), LLM APIs (OpenRouter, HuggingFace Inference API), complex workflows (n8n, Make), and robust chatbot evaluation pipelines.' }
     ],
     connectHeading: 'Connect',
-    email: 'karthik@example.com',
+    email: 'karthik939075@gmail.com',
   },
 } as const

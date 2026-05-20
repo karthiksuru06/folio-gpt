@@ -513,10 +513,10 @@ export default function SelfHealingChatbot({ lang = 'en' }: { lang?: Lang }) {
           heading={t.cta.heading}
           body={t.cta.body}
           ctaLabel={t.cta.label}
-          ctaHref="https://linkedin.com/in/foliogpt"
+          ctaHref="https://linkedin.com/in/suru-karthik-923766321"
           external
           secondaryLabel={t.cta.labelSecondary}
-          secondaryHref="mailto:hola@foliogpt.com"
+          secondaryHref="mailto:karthik939075@gmail.com"
         />
       </article>
 

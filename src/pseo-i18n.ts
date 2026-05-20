@@ -299,7 +299,7 @@ if (mostrarPrecio === 'exacto' && detail.precioMinCard) {
       },
       decisionEngine: {
         heading: 'El Motor de Decisiones',
-        body: 'El sistema genera miles de páginas (muchas más de las 4.730 que recibieron tráfico), pero no todas merecen ser indexadas. Si nadie busca "reparar cámara delantera iPhone 11", esa página no debería competir en Google — pero sí debe existir para el usuario que navega desde la página del iPhone 11 y necesita esa reparación concreta. La clave es separar SEO de UX. El motor de decisiones consulta DataForSEO para obtener volumen de búsqueda real de cada combinación, y el resultado se almacena en el campo "indexable" de <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/src/lib/airtable.ts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">airtable.ts</a>.',
+        body: 'El sistema genera miles de páginas (muchas más de las 4.730 que recibieron tráfico), pero no todas merecen ser indexadas. Si nadie busca "reparar cámara delantera iPhone 11", esa página no debería competir en Google — pero sí debe existir para el usuario que navega desde la página del iPhone 11 y necesita esa reparación concreta. La clave es separar SEO de UX. El motor de decisiones consulta DataForSEO para obtener volumen de búsqueda real de cada combinación, y el resultado se almacena en el campo "indexable" de <a href="https://github.com/karthiksuru06/foliogpt-irepair/blob/main/src/lib/airtable.ts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">airtable.ts</a>.',
         rules: [
           {
             condition: 'Volumen de búsqueda alto (DataForSEO)',
@@ -416,7 +416,7 @@ ensureCachesLoaded().catch(console.error);`,
       contentAutomation: {
         heading: 'Pipeline de Contenido Automatizado',
         body: 'Generar miles de páginas es solo la mitad. Cada página necesita imágenes, metadata y copy únicos. Un conjunto de 8 scripts Node.js (1.411 líneas) automatiza toda la producción de contenido visual y textual sin intervención manual. Todo conectado a las 12 bases del Business OS en Airtable. Resultado: más de 26.000 imágenes generadas automáticamente.',
-        repoLink: '<a href="https://github.com/foliogpt/foliogpt-irepair/tree/main/scripts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">Explora los scripts del pipeline en GitHub →</a>',
+        repoLink: '<a href="https://github.com/karthiksuru06/foliogpt-irepair/tree/main/scripts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">Explora los scripts del pipeline en GitHub →</a>',
         pipelines: [
           {
             icon: 'camera',
@@ -510,7 +510,7 @@ exifObj['Exif'][piexif.ExifIFD.UserComment] = userComment.toString('binary');`,
         },
         codeSnippet: {
           heading: 'El Código Real',
-          body: 'Este es el fragmento real del script <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/scripts/generarImagenesReparacionesModelos.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">generarImagenesReparacionesModelos.mjs</a> que genera cada imagen de reparación:',
+          body: 'Este es el fragmento real del script <a href="https://github.com/karthiksuru06/foliogpt-irepair/blob/main/scripts/generarImagenesReparacionesModelos.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">generarImagenesReparacionesModelos.mjs</a> que genera cada imagen de reparación:',
           segments: [
             {
               code: `await sharp({
@@ -709,7 +709,7 @@ await base('Reseñas sincronizar Astro')
         },
         codeSnippet: {
           heading: 'El Código Real',
-          body: 'Este es el fragmento real de <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/scripts/CasosExito.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">CasosExito.mjs</a> que procesa cada foto de reparación:',
+          body: 'Este es el fragmento real de <a href="https://github.com/karthiksuru06/foliogpt-irepair/blob/main/scripts/CasosExito.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">CasosExito.mjs</a> que procesa cada foto de reparación:',
           segments: [
             {
               code: `let pipeline = sharp(inputBuffer)
@@ -852,7 +852,7 @@ await pipeline
           },
           {
             title: 'Bridge redirects para descatalogados',
-            detail: 'En lugar de devolver 404 cuando una reparación se descataloga, se redirige 301 a la alternativa más cercana. 700+ reglas de redirección en <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/vercel.json#L27" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">vercel.json</a>. Cero pérdida de autoridad, cero enlaces rotos.',
+            detail: 'En lugar de devolver 404 cuando una reparación se descataloga, se redirige 301 a la alternativa más cercana. 700+ reglas de redirección en <a href="https://github.com/karthiksuru06/foliogpt-irepair/blob/main/vercel.json#L27" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">vercel.json</a>. Cero pérdida de autoridad, cero enlaces rotos.',
           },
         ],
         safeNoindex: {
@@ -1005,7 +1005,7 @@ return records.map(r => ({
     resources: {
       heading: 'Recursos',
       items: [
-        { label: 'Código fuente en GitHub (scripts, layouts, rutas)', url: 'https://github.com/foliogpt/foliogpt-irepair' },
+        { label: 'Código fuente en GitHub (scripts, layouts, rutas)', url: 'https://github.com/karthiksuru06/foliogpt-irepair' },
         { label: 'Folio-GPT (la web programática)', url: 'https://foliogpt.com' },
         { label: 'Case Study: Business OS / ERP que alimenta estas páginas', url: '/business-os-para-airtable' },
         { label: 'Astro, el framework de sitio estático', url: 'https://astro.build' },
@@ -1321,7 +1321,7 @@ if (mostrarPrecio === 'exacto' && detail.precioMinCard) {
       },
       decisionEngine: {
         heading: 'The Decision Engine',
-        body: 'The system generates thousands of pages (well beyond the 4,730 that received traffic), but not all deserve to be indexed. If nobody searches "repair front camera iPhone 11", that page shouldn\'t compete on Google — but it needs to exist for the user browsing from the iPhone 11 page who needs exactly that repair. The key is separating SEO from UX. The decision engine queries DataForSEO for real search volume on each combination, and stores the result in the "indexable" field in <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/src/lib/airtable.ts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">airtable.ts</a>.',
+        body: 'The system generates thousands of pages (well beyond the 4,730 that received traffic), but not all deserve to be indexed. If nobody searches "repair front camera iPhone 11", that page shouldn\'t compete on Google — but it needs to exist for the user browsing from the iPhone 11 page who needs exactly that repair. The key is separating SEO from UX. The decision engine queries DataForSEO for real search volume on each combination, and stores the result in the "indexable" field in <a href="https://github.com/karthiksuru06/foliogpt-irepair/blob/main/src/lib/airtable.ts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">airtable.ts</a>.',
         rules: [
           {
             condition: 'High search volume (DataForSEO)',
@@ -1438,7 +1438,7 @@ ensureCachesLoaded().catch(console.error);`,
       contentAutomation: {
         heading: 'Automated Content Pipeline',
         body: 'Generating thousands of pages is half the job. Each one needs unique images, metadata, and copy. Eight Node.js scripts (1,411 lines total) automate all visual and textual content production — zero manual work. Everything connects back to the 12 Airtable bases in the Business OS. Result: over 26,000 auto-generated images.',
-        repoLink: '<a href="https://github.com/foliogpt/foliogpt-irepair/tree/main/scripts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">Explore the pipeline scripts on GitHub →</a>',
+        repoLink: '<a href="https://github.com/karthiksuru06/foliogpt-irepair/tree/main/scripts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">Explore the pipeline scripts on GitHub →</a>',
         pipelines: [
           {
             icon: 'camera',
@@ -1532,7 +1532,7 @@ exifObj['Exif'][piexif.ExifIFD.UserComment] = userComment.toString('binary');`,
         },
         codeSnippet: {
           heading: 'The Actual Code',
-          body: 'This is the real snippet from <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/scripts/generarImagenesReparacionesModelos.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">generarImagenesReparacionesModelos.mjs</a> that generates each repair image:',
+          body: 'This is the real snippet from <a href="https://github.com/karthiksuru06/foliogpt-irepair/blob/main/scripts/generarImagenesReparacionesModelos.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">generarImagenesReparacionesModelos.mjs</a> that generates each repair image:',
           segments: [
             {
               code: `await sharp({
@@ -1731,7 +1731,7 @@ await base('Reseñas sincronizar Astro')
         },
         codeSnippet: {
           heading: 'The Actual Code',
-          body: 'This is the real snippet from <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/scripts/CasosExito.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">CasosExito.mjs</a> that processes each repair photo:',
+          body: 'This is the real snippet from <a href="https://github.com/karthiksuru06/foliogpt-irepair/blob/main/scripts/CasosExito.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">CasosExito.mjs</a> that processes each repair photo:',
           segments: [
             {
               code: `let pipeline = sharp(inputBuffer)
@@ -1874,7 +1874,7 @@ await pipeline
           },
           {
             title: 'Bridge redirects for discontinued items',
-            detail: 'Instead of returning a 404 when a repair is discontinued, it 301-redirects to the closest alternative. 700+ redirect rules in <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/vercel.json#L27" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">vercel.json</a>. Zero authority loss, zero broken links.',
+            detail: 'Instead of returning a 404 when a repair is discontinued, it 301-redirects to the closest alternative. 700+ redirect rules in <a href="https://github.com/karthiksuru06/foliogpt-irepair/blob/main/vercel.json#L27" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">vercel.json</a>. Zero authority loss, zero broken links.',
           },
         ],
         safeNoindex: {
@@ -2027,7 +2027,7 @@ return records.map(r => ({
     resources: {
       heading: 'Resources',
       items: [
-        { label: 'Source code on GitHub (scripts, layouts, routes)', url: 'https://github.com/foliogpt/foliogpt-irepair' },
+        { label: 'Source code on GitHub (scripts, layouts, routes)', url: 'https://github.com/karthiksuru06/foliogpt-irepair' },
         { label: 'Folio-GPT (the programmatic site)', url: 'https://foliogpt.com' },
         { label: 'Case Study: The Business OS / ERP behind these pages', url: '/business-os-for-airtable' },
         { label: 'Astro, the static site framework', url: 'https://astro.build' },

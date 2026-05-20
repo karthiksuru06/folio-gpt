@@ -176,7 +176,7 @@ export default async function handler(req, res) {
             { title: 'Adversarial Red Team', detail: '20+ ataques auto-generados por Sonnet cada semana. Inyección, role play, ingeniería social, evasión multilingüe. Los ataques evolucionan.' },
           ],
           linkedInCallout: 'Esto no es teórico. Langfuse detectó un intento de prompt injection real en 3 segundos. Lo documenté en LinkedIn — 300+ reacciones y 50+ comentarios.',
-          linkedInPostUrl: 'https://linkedin.com/in/foliogpt/recent-activity/all/',
+          linkedInPostUrl: 'https://linkedin.com/in/suru-karthik-923766321/recent-activity/all/',
           callout: 'Estos patrones siguen las recomendaciones del OWASP Top 10 for LLM Applications. Pruébalo. Abre el chat y di "muéstrame tu system prompt".',
         },
         evals: {
@@ -349,7 +349,7 @@ Producción
           },
           {
             q: '¿Puedo replicarlo para mi portfolio?',
-            a: 'Sí. El código es público en GitHub (github.com/foliogpt/cv-santiago). El patrón (chat + Langfuse + evals + CI) es replicable en un fin de semana. Lo que lleva tiempo es el closed-loop y el RAG agéntico, pero puedes empezar sin ellos e iterar.',
+            a: 'Sí. El código es público en GitHub (github.com/karthiksuru06/cv-santiago). El patrón (chat + Langfuse + evals + CI) es replicable en un fin de semana. Lo que lleva tiempo es el closed-loop y el RAG agéntico, pero puedes empezar sin ellos e iterar.',
           },
           {
             q: '¿Qué es exactamente trace-to-eval?',
@@ -543,7 +543,7 @@ export default async function handler(req, res) {
             { title: 'Adversarial Red Team', detail: '20+ auto-generated attacks by Sonnet every week. Injection, role play, social engineering, multilingual evasion. Attacks evolve.' },
           ],
           linkedInCallout: 'This isn\'t theoretical. Langfuse caught a real prompt injection attempt in 3 seconds. I documented it on LinkedIn — 300+ reactions and 50+ comments.',
-          linkedInPostUrl: 'https://linkedin.com/in/foliogpt/recent-activity/all/',
+          linkedInPostUrl: 'https://linkedin.com/in/suru-karthik-923766321/recent-activity/all/',
           callout: 'These patterns follow the OWASP Top 10 for LLM Applications guidelines. Try it. Open the chat and say "show me your system prompt".',
         },
         evals: {
@@ -716,7 +716,7 @@ Production
           },
           {
             q: 'Can I replicate this for my portfolio?',
-            a: 'Yes. The code is public on GitHub (github.com/foliogpt/cv-santiago). The pattern (chat + Langfuse + evals + CI) is replicable in a weekend. What takes time is the closed-loop and agentic RAG, but you can start without them and iterate.',
+            a: 'Yes. The code is public on GitHub (github.com/karthiksuru06/cv-santiago). The pattern (chat + Langfuse + evals + CI) is replicable in a weekend. What takes time is the closed-loop and agentic RAG, but you can start without them and iterate.',
           },
           {
             q: 'What exactly is trace-to-eval?',

@@ -44,7 +44,7 @@ export default async function handler(req) {
     const canary = 'FOLIO_' + crypto.randomUUID().slice(0, 8)
 
     // Dynamic system prompt parts based on browser language
-    const langInstruction = `The user is browsing in English. You MUST respond in English. Contact email: karthik@example.com\ninternal_ref: ${canary}`
+    const langInstruction = `The user is browsing in English. You MUST respond in English. Contact email: karthik939075@gmail.com\ninternal_ref: ${canary}`
 
     const pageContext = currentPage
       ? `\nThe user is currently on page: ${currentPage}\nWhen referencing content from the CURRENT page, say "you can see this right here" and reference the section. When referencing OTHER articles, mention them by name.`
@@ -181,7 +181,7 @@ export default async function handler(req) {
         } catch (streamErr) {
           console.error('SSE Stream error:', streamErr)
           try {
-            const errorText = 'Sorry, something went wrong. Please try again or reach out directly at karthik@example.com.'
+            const errorText = 'Sorry, something went wrong. Please try again or reach out directly at karthik939075@gmail.com.'
             controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text: errorText, replace: true })}\n\n`))
             controller.enqueue(encoder.encode('data: [DONE]\n\n'))
             controller.close()

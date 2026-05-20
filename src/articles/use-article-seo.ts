@@ -74,7 +74,7 @@ export function useArticleSeo(opts: ArticleSeoOpts) {
     upsertMeta('property', 'og:locale:alternate', lang === 'es' ? 'en_US' : 'es_ES')
     upsertMeta('property', 'article:published_time', publishedTime)
     if (modifiedTime) upsertMeta('property', 'article:modified_time', modifiedTime)
-    upsertMeta('property', 'article:author', 'https://www.linkedin.com/in/foliogpt')
+    upsertMeta('property', 'article:author', 'https://www.linkedin.com/in/suru-karthik-923766321')
     upsertMeta('property', 'article:tag', articleTags)
     if (image) upsertMeta('property', 'og:image', image)
 

@@ -685,10 +685,10 @@ export default function JacoboAgent({ lang = 'en' }: { lang?: Lang }) {
           heading={t.cta.heading}
           body={t.cta.body}
           ctaLabel={`${t.cta.label} →`}
-          ctaHref="https://linkedin.com/in/foliogpt"
+          ctaHref="https://linkedin.com/in/suru-karthik-923766321"
           external
           secondaryLabel={`${(t.cta as any).labelSecondary} →`}
-          secondaryHref="mailto:hola@foliogpt.com"
+          secondaryHref="mailto:karthik939075@gmail.com"
         />
 
         {/* ================================================================ */}
@@ -777,10 +777,10 @@ export default function JacoboAgent({ lang = 'en' }: { lang?: Lang }) {
           heading={(t as any).ctaAfterEnterprise.heading}
           body={t.cta.body}
           ctaLabel={`${t.cta.label} →`}
-          ctaHref="https://linkedin.com/in/foliogpt"
+          ctaHref="https://linkedin.com/in/suru-karthik-923766321"
           external
           secondaryLabel={`${(t.cta as any).labelSecondary} →`}
-          secondaryHref="mailto:hola@foliogpt.com"
+          secondaryHref="mailto:karthik939075@gmail.com"
         />
 
         {/* ================================================================ */}
@@ -801,7 +801,7 @@ export default function JacoboAgent({ lang = 'en' }: { lang?: Lang }) {
         {/* GitHub repo link */}
         <div className="flex justify-center mb-4">
           <a
-            href="https://github.com/foliogpt/jacobo-workflows"
+            href="https://github.com/karthiksuru06/jacobo-workflows"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors text-sm"
@@ -829,10 +829,10 @@ export default function JacoboAgent({ lang = 'en' }: { lang?: Lang }) {
           heading={(t as any).ctaAfterDownloads.heading}
           body=""
           ctaLabel={`${t.cta.label} →`}
-          ctaHref="https://linkedin.com/in/foliogpt"
+          ctaHref="https://linkedin.com/in/suru-karthik-923766321"
           external
           secondaryLabel={`${(t.cta as any).labelSecondary} →`}
-          secondaryHref="mailto:hola@foliogpt.com"
+          secondaryHref="mailto:karthik939075@gmail.com"
         />
 
         {/* ================================================================ */}

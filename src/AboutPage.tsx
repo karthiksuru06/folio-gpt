@@ -7,8 +7,8 @@ import { aboutContent, type AboutLang } from './about-i18n'
 // Used here for cross-domain entity ownership signals (parsed by Mastodon, Bluesky, KG crawlers).
 const SOCIAL_LINKS: { name: string; url: string; rel?: string }[] = [
   { name: 'Career-Ops', url: 'https://career-ops.org', rel: 'me noopener noreferrer' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/foliogpt', rel: 'me noopener noreferrer' },
-  { name: 'GitHub', url: 'https://github.com/foliogpt', rel: 'me noopener noreferrer' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/suru-karthik-923766321', rel: 'me noopener noreferrer' },
+  { name: 'GitHub', url: 'https://github.com/karthiksuru06', rel: 'me noopener noreferrer' },
   { name: 'YouTube', url: 'https://www.youtube.com/@foliogpt_io', rel: 'me noopener noreferrer' },
   { name: 'X / Twitter', url: 'https://x.com/foliogpt', rel: 'me noopener noreferrer' },
   { name: 'Dev.to', url: 'https://dev.to/foliogpt', rel: 'me noopener noreferrer' },

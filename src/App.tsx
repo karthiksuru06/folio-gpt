@@ -1966,7 +1966,7 @@ function App() {
               <p className="text-muted-foreground">{t.experience.lico.desc}</p>
 
               {/* Testimonial */}
-              <a href="https://www.linkedin.com/in/foliogpt/details/recommendations/" target="_blank" rel="noopener noreferrer" className="block group">
+              <a href="https://www.linkedin.com/in/suru-karthik-923766321/details/recommendations/" target="_blank" rel="noopener noreferrer" className="block group">
                 <blockquote className="mt-6 p-4 rounded-xl bg-accent/5 border border-accent/10 group-hover:border-[hsl(var(--linkedin)/0.3)] transition-colors">
                   <p className="text-sm text-muted-foreground italic mb-4">
                     "{t.experience.lico.testimonial.quote}"
@@ -2018,7 +2018,7 @@ function App() {
             </div>
 
             {/* Testimonial */}
-            <a href="https://www.linkedin.com/in/foliogpt/details/recommendations/" target="_blank" rel="noopener noreferrer" className="block group">
+            <a href="https://www.linkedin.com/in/suru-karthik-923766321/details/recommendations/" target="_blank" rel="noopener noreferrer" className="block group">
               <blockquote className="mt-6 p-4 rounded-xl bg-primary/5 border border-primary/10 group-hover:border-[hsl(var(--linkedin)/0.3)] transition-colors">
                 <p className="text-sm text-muted-foreground italic mb-4">
                   "{t.experience.everis.testimonial.quote}"
@@ -2885,7 +2885,7 @@ function App() {
                       </div>
                       {/* Testimonial if exists */}
                       {'testimonial' in item && item.testimonial && (
-                        <a href="https://www.linkedin.com/in/foliogpt/details/recommendations/" target="_blank" rel="noopener noreferrer" className="block group">
+                        <a href="https://www.linkedin.com/in/suru-karthik-923766321/details/recommendations/" target="_blank" rel="noopener noreferrer" className="block group">
                           <blockquote className="mt-4 p-4 rounded-xl bg-primary/5 border border-primary/10 group-hover:border-[hsl(var(--linkedin)/0.3)] transition-colors">
                             <p className="text-sm text-muted-foreground italic mb-4">
                               "{item.testimonial.quote}"
@@ -3046,7 +3046,7 @@ function App() {
                 {t.cta.contact}
               </a>
               <a
-                href="https://linkedin.com/in/karthik/"
+                href="https://linkedin.com/in/suru-karthik-923766321/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border hover:border-primary/50 transition-colors duration-200 hover:bg-primary/5"
