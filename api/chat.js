@@ -35,7 +35,7 @@ export default async function handler(req) {
     const intentTags = classifyIntent(lastUserMessage);
     if (intentTags.includes('jailbreak-attempt')) {
       return new Response(
-        JSON.stringify({ error: 'I can only answer questions about Karthik\\'s professional background.' }),
+        JSON.stringify({ error: "I can only answer questions about Karthik's professional background." }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
