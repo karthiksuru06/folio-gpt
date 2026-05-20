@@ -10,32 +10,41 @@ export function isRagEnabled() {
 // RAG: embed query via HuggingFace Inference API
 // ---------------------------------------------------------------------------
 
-export async function embedQuery(query) {
+export async function embedQuery(query, retries = 3) {
   const t0 = Date.now()
-  const response = await fetch(
-    'https://router.huggingface.co/hf-inference/models/sentence-transformers/all-MiniLM-L6-v2/pipeline/feature-extraction',
-    {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.HUGGINGFACE_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ inputs: query }),
+  for (let i = 0; i < retries; i++) {
+    const response = await fetch(
+      'https://router.huggingface.co/hf-inference/models/sentence-transformers/all-MiniLM-L6-v2/pipeline/feature-extraction',
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.HUGGINGFACE_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ inputs: query }),
+      }
+    )
+
+    if (response.status === 429) {
+      if (i < retries - 1) {
+        await new Promise(r => setTimeout(r, 2000 * (i + 1)));
+        continue;
+      }
     }
-  )
+    
+    if (!response.ok) {
+      throw new Error(`HuggingFace embedding failed: ${response.status}`)
+    }
 
-  if (!response.ok) {
-    throw new Error(`HuggingFace embedding failed: ${response.status}`)
-  }
+    const data = await response.json()
+    // HF may return [f1, f2, ...] or [[f1, f2, ...]]
+    const embedding = Array.isArray(data) && Array.isArray(data[0]) ? data[0] : data
 
-  const data = await response.json()
-  // HF may return [f1, f2, ...] or [[f1, f2, ...]]
-  const embedding = Array.isArray(data) && Array.isArray(data[0]) ? data[0] : data
-
-  return {
-    embedding,
-    latencyMs: Date.now() - t0,
-    totalTokens: query.split(/\s+/).length, // simple estimate
+    return {
+      embedding,
+      latencyMs: Date.now() - t0,
+      totalTokens: query.split(/\s+/).length, // simple estimate
+    }
   }
 }
 

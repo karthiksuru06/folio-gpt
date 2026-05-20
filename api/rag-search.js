@@ -4,7 +4,13 @@ import {
   searchPortfolio, formatChunksForContext, extractSources, calcCost,
   filterSourcesByResponse, detectMentionedArticles, HOME_SOURCE,
 } from './_shared/rag.js'
-import { getSystemPrompt } from './_shared/prompt.js'
+const getSystemPrompt = async (langfuse) => {
+  return {
+    text: `You are an AI assistant representing Karthik.
+Answer questions about his skills, projects, and experience accurately using the provided context.
+Be concise, professional, and friendly.`
+  };
+};
 
 export const config = {
   runtime: 'edge',

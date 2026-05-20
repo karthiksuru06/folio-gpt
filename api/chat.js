@@ -2,7 +2,7 @@ import SYSTEM_PROMPT_FALLBACK from '../chatbot-prompt.txt'
 import {
   isRagEnabled, formatChunksForContext, searchPortfolio,
   filterSourcesByResponse, detectMentionedArticles, HOME_SOURCE,
-  containsFingerprint, LEAK_RESPONSE,
+  containsFingerprint, LEAK_RESPONSE, classifyIntent,
 } from './_shared/rag.js'
 
 export const config = {
@@ -30,6 +30,15 @@ export default async function handler(req) {
 
     const rawLastMessage = messages.filter(m => m.role === 'user').pop()?.content || ''
     const lastUserMessage = rawLastMessage.slice(0, 2000)
+
+    // Wire up intent classification
+    const intentTags = classifyIntent(lastUserMessage);
+    if (intentTags.includes('jailbreak-attempt')) {
+      return new Response(
+        JSON.stringify({ error: 'I can only answer questions about Karthik\\'s professional background.' }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
 
     // Canary word for leak prevention
     const canary = 'FOLIO_' + crypto.randomUUID().slice(0, 8)
