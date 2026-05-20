@@ -209,18 +209,11 @@ function FlagEN({ className = "w-4 h-4" }: { className?: string }) {
 }
 
 /** Shared controls: flag lang pill + theme circle */
-function NavControls({ altPath, altLabel, lang, isDark, toggleTheme }: {
-  altPath: string; altLabel: string; lang: Lang; isDark: boolean; toggleTheme: () => void
+function NavControls({ isDark, toggleTheme }: {
+  altPath?: string; altLabel?: string; lang?: Lang; isDark: boolean; toggleTheme: () => void
 }) {
   return (
     <div className="flex items-center gap-2">
-      <Link
-        to={altPath}
-        className="inline-flex items-center justify-center gap-1.5 w-[4.5rem] h-10 rounded-full bg-card border border-border text-sm font-medium text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors"
-      >
-        {lang === 'es' ? <FlagES className="w-3.5 h-3.5" /> : <FlagEN className="w-3.5 h-3.5" />}
-        {altLabel}
-      </Link>
       <button
         onClick={toggleTheme}
         className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center shadow-lg hover:border-primary/50 hover:shadow-primary/20 hover:shadow-xl transition-colors"
