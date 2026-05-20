@@ -249,7 +249,7 @@ export default function ProgrammaticSeo({ lang = 'en' }: { lang?: Lang }) {
     altSlug: t.altSlug,
     title: t.seo.title,
     description: t.seo.description,
-    image: 'https://santifer.io/pseo/og-programmatic-seo.png',
+    image: 'https://foliogpt.com/pseo/og-programmatic-seo.png',
     publishedTime: '2026-02-25',
     modifiedTime: '2026-05-10',
     articleTags: 'programmatic SEO,Airtable,Astro,DataForSEO,crawl budget,phone repair,ERP,local SEO',
@@ -319,9 +319,9 @@ export default function ProgrammaticSeo({ lang = 'en' }: { lang?: Lang }) {
         {/* Homepage screenshot */}
         <Photo1
           src="/pseo/ss-homepage.webp"
-          alt={lang === 'es' ? 'Homepage de santiferirepair.es' : 'santiferirepair.es homepage'}
+          alt={lang === 'es' ? 'Homepage de foliogpt.com' : 'foliogpt.com homepage'}
           width={1406} height={1345}
-          caption={lang === 'es' ? 'santiferirepair.es: homepage generada con Astro SSG. Buscador de dispositivos, categorías y marcas.' : 'santiferirepair.es: homepage generated with Astro SSG. Device search, categories and brands.'}
+          caption={lang === 'es' ? 'foliogpt.com: homepage generada con Astro SSG. Buscador de dispositivos, categorías y marcas.' : 'foliogpt.com: homepage generated with Astro SSG. Device search, categories and brands.'}
         />
 
         {/* Two Strategies */}
@@ -423,7 +423,7 @@ export default function ProgrammaticSeo({ lang = 'en' }: { lang?: Lang }) {
         {/* Category page screenshot */}
         <Photo1
           src="/pseo/ss-category-samsung.webp"
-          alt={lang === 'es' ? 'Página de categoría Samsung en santiferirepair.es' : 'Samsung category page on santiferirepair.es'}
+          alt={lang === 'es' ? 'Página de categoría Samsung en foliogpt.com' : 'Samsung category page on foliogpt.com'}
           width={1440} height={900}
           caption={lang === 'es' ? 'Página de categoría generada automáticamente. Cada marca tiene su landing con modelos, precios y reseñas.' : 'Auto-generated category page. Each brand gets its own landing with models, pricing, and reviews.'}
         />
@@ -462,7 +462,7 @@ export default function ProgrammaticSeo({ lang = 'en' }: { lang?: Lang }) {
         {/* Repair page hero screenshot */}
         <Photo1
           src="/pseo/ss-repair-page-hero.webp"
-          alt={lang === 'es' ? 'Hero de una página de reparación en santiferirepair.es' : 'Repair page hero on santiferirepair.es'}
+          alt={lang === 'es' ? 'Hero de una página de reparación en foliogpt.com' : 'Repair page hero on foliogpt.com'}
           width={1440} height={900}
           caption={lang === 'es' ? 'Hero de página de reparación: precio dual (original/compatible), CTA de cita, y breadcrumb semántico.' : 'Repair page hero: dual pricing (original/compatible), booking CTA, and semantic breadcrumb.'}
         />
@@ -875,10 +875,10 @@ export default function ProgrammaticSeo({ lang = 'en' }: { lang?: Lang }) {
 
         <Photo2
           items={[
-            { src: '/pseo/ss-squarespace-mobile.webp', alt: lang === 'es' ? 'santifer.me en Squarespace: homepage móvil' : 'santifer.me on Squarespace: mobile homepage', width: 800, height: 1422 },
-            { src: '/pseo/ss-squarespace-pricing.webp', alt: lang === 'es' ? 'santifer.me en Squarespace: página de precios con iconos genéricos' : 'santifer.me on Squarespace: pricing page with generic icons', width: 800, height: 1422 },
+            { src: '/pseo/ss-squarespace-mobile.webp', alt: lang === 'es' ? 'foliogpt.me en Squarespace: homepage móvil' : 'foliogpt.me on Squarespace: mobile homepage', width: 800, height: 1422 },
+            { src: '/pseo/ss-squarespace-pricing.webp', alt: lang === 'es' ? 'foliogpt.me en Squarespace: página de precios con iconos genéricos' : 'foliogpt.me on Squarespace: pricing page with generic icons', width: 800, height: 1422 },
           ]}
-          caption={lang === 'es' ? 'santifer.me en Squarespace. Homepage y página de precios: iconos genéricos, sin fotos reales, sin datos del ERP.' : 'santifer.me on Squarespace. Homepage and pricing page: generic icons, no real photos, no ERP data.'}
+          caption={lang === 'es' ? 'foliogpt.me en Squarespace. Homepage y página de precios: iconos genéricos, sin fotos reales, sin datos del ERP.' : 'foliogpt.me on Squarespace. Homepage and pricing page: generic icons, no real photos, no ERP data.'}
         />
 
         <Callout>{(t.sections as any).migration.duplicateCallout}</Callout>
@@ -890,7 +890,7 @@ export default function ProgrammaticSeo({ lang = 'en' }: { lang?: Lang }) {
 
         <Photo1
           src="/pseo/ss-audit-sistrix.webp"
-          alt={lang === 'es' ? 'SISTRIX: visibilidad orgánica de santifer.me en declive constante desde 2019 hasta 2024' : 'SISTRIX: organic visibility of santifer.me in constant decline from 2019 to 2024'}
+          alt={lang === 'es' ? 'SISTRIX: visibilidad orgánica de foliogpt.me en declive constante desde 2019 hasta 2024' : 'SISTRIX: organic visibility of foliogpt.me in constant decline from 2019 to 2024'}
           width={2000} height={1125}
           caption={lang === 'es' ? 'Índice de visibilidad SISTRIX (2019-2024). Tendencia decreciente durante 5 años, de 0.036 a 0.003.' : 'SISTRIX visibility index (2019-2024). 5-year declining trend, from 0.036 to 0.003.'}
         />
@@ -898,9 +898,9 @@ export default function ProgrammaticSeo({ lang = 'en' }: { lang?: Lang }) {
         <Photo2
           items={[
             { src: '/pseo/ss-audit-gsc-clicks.webp', alt: lang === 'es' ? 'Google Search Console: clics orgánicos reduciéndose a la mitad en 12 meses' : 'Google Search Console: organic clicks halving over 12 months', width: 2000, height: 1125 },
-            { src: '/pseo/ss-audit-sector.webp', alt: lang === 'es' ? 'SISTRIX: comparativa de visibilidad del sector en España — santifer.me invisible frente a competidores' : 'SISTRIX: sector visibility comparison in Spain — santifer.me invisible vs competitors', width: 2000, height: 1125 },
+            { src: '/pseo/ss-audit-sector.webp', alt: lang === 'es' ? 'SISTRIX: comparativa de visibilidad del sector en España — foliogpt.me invisible frente a competidores' : 'SISTRIX: sector visibility comparison in Spain — foliogpt.me invisible vs competitors', width: 2000, height: 1125 },
           ]}
-          caption={lang === 'es' ? 'Izquierda: GSC muestra los clics reduciéndose a la mitad (17,3K clics, posición media 23,1). Derecha: comparativa del sector — santifer.me es la línea roja pegada al eje X.' : 'Left: GSC shows clicks halving (17.3K clicks, avg position 23.1). Right: sector comparison — santifer.me is the red line stuck to the X axis.'}
+          caption={lang === 'es' ? 'Izquierda: GSC muestra los clics reduciéndose a la mitad (17,3K clics, posición media 23,1). Derecha: comparativa del sector — foliogpt.me es la línea roja pegada al eje X.' : 'Left: GSC shows clicks halving (17.3K clicks, avg position 23.1). Right: sector comparison — foliogpt.me is the red line stuck to the X axis.'}
         />
 
         <CardStack
@@ -956,8 +956,8 @@ export default function ProgrammaticSeo({ lang = 'en' }: { lang?: Lang }) {
           alt={lang === 'es' ? 'PageSpeed Insights: Lighthouse 97 en móvil, Accesibilidad 100, SEO 100. Core Web Vitals: Superada' : 'PageSpeed Insights: Lighthouse 97 on mobile, Accessibility 100, SEO 100. Core Web Vitals: Passed'}
           width={2512} height={1312} hdWidth={2512} hdHeight={1312}
           caption={lang === 'es'
-            ? <>Después: Astro + Cloudflare. Lighthouse 97/100 móvil. CWV superada. <a href="https://pagespeed.web.dev/analysis/https-santiferirepair-es/rynn9cjrrs?form_factor=mobile" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Compruébalo tú mismo →</a></>
-            : <>After: Astro + Cloudflare. Lighthouse 97/100 mobile. CWV passed. <a href="https://pagespeed.web.dev/analysis/https-santiferirepair-es/rynn9cjrrs?form_factor=mobile" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Check it yourself →</a></>}
+            ? <>Después: Astro + Cloudflare. Lighthouse 97/100 móvil. CWV superada. <a href="https://pagespeed.web.dev/analysis/https-foliogptirepair-es/rynn9cjrrs?form_factor=mobile" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Compruébalo tú mismo →</a></>
+            : <>After: Astro + Cloudflare. Lighthouse 97/100 mobile. CWV passed. <a href="https://pagespeed.web.dev/analysis/https-foliogptirepair-es/rynn9cjrrs?form_factor=mobile" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Check it yourself →</a></>}
         />
 
         <H3 id="migration">{(t.sections as any).migration.migrationSteps.heading}</H3>
@@ -989,9 +989,9 @@ export default function ProgrammaticSeo({ lang = 'en' }: { lang?: Lang }) {
         <DiagramZoom
           src="/pseo/ss-audit-competitors.webp"
           hdSrc="/pseo/ss-audit-competitors-hd.webp"
-          alt={lang === 'es' ? 'Comparativa AHREFs del sector: santifer.me con DR 0.1 y 23 backlinks vs competidores con miles' : 'AHREFs sector comparison: santifer.me with DR 0.1 and 23 backlinks vs competitors with thousands'}
+          alt={lang === 'es' ? 'Comparativa AHREFs del sector: foliogpt.me con DR 0.1 y 23 backlinks vs competidores con miles' : 'AHREFs sector comparison: foliogpt.me with DR 0.1 and 23 backlinks vs competitors with thousands'}
           width={2000} height={1125} hdWidth={3000} hdHeight={1688}
-          caption={lang === 'es' ? 'Comparativa de fuerza de dominio (AHREFs). santifer.me: DR 0.1, 23 backlinks. El líder (iriparo.com): DR 44, 21.430 backlinks.' : 'Domain strength comparison (AHREFs). santifer.me: DR 0.1, 23 backlinks. Sector leader (iriparo.com): DR 44, 21,430 backlinks.'}
+          caption={lang === 'es' ? 'Comparativa de fuerza de dominio (AHREFs). foliogpt.me: DR 0.1, 23 backlinks. El líder (iriparo.com): DR 44, 21.430 backlinks.' : 'Domain strength comparison (AHREFs). foliogpt.me: DR 0.1, 23 backlinks. Sector leader (iriparo.com): DR 44, 21,430 backlinks.'}
         />
 
         <Prose>{(t.sections as any).migration.migrationCost.closing}</Prose>
@@ -1036,7 +1036,7 @@ export default function ProgrammaticSeo({ lang = 'en' }: { lang?: Lang }) {
           heading={t.cta.heading}
           body={t.cta.body}
           ctaLabel={t.cta.label}
-          ctaHref="mailto:hola@santifer.io?subject=Programmatic SEO"
+          ctaHref="mailto:hola@foliogpt.com?subject=Programmatic SEO"
         />
 
         {/* FAQ */}

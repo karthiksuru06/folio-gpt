@@ -69,7 +69,7 @@ export default function CareerOps({ lang = 'en' }: { lang?: Lang }) {
     altSlug: t.altSlug,
     title: t.seo.title,
     description: t.seo.description,
-    image: 'https://santifer.io/career-ops/og-career-ops.webp',
+    image: 'https://foliogpt.com/career-ops/og-career-ops.webp',
     publishedTime: '2026-03-17',
     modifiedTime: '2026-05-10',
     articleTags: 'multi-agent,job search,Claude Code,ATS,batch processing,HITL,automation',
@@ -110,14 +110,14 @@ export default function CareerOps({ lang = 'en' }: { lang?: Lang }) {
         fetchPriority="high"
       />
 
-      <Manifesto cite="https://santifer.io/career-ops">{t.manifesto}</Manifesto>
+      <Manifesto cite="https://foliogpt.com/career-ops">{t.manifesto}</Manifesto>
       <MetricsGrid items={t.heroMetrics} columns={5} compact />
 
       <div className="mb-12 md:mb-16">
         <PressFeatures lang={lang} />
       </div>
 
-      <GitHubRepoBadge repo="santifer/career-ops" stars="43.8K" forks="9.2K" lang={lang} />
+      <GitHubRepoBadge repo="foliogpt/career-ops" stars="43.8K" forks="9.2K" lang={lang} />
 
       <Callout className="bg-accent/10 border-accent/40">{t.tldr}</Callout>
 

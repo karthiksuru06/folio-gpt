@@ -40,7 +40,7 @@ export default function N8nForPMs({ lang = 'en' }: { lang?: N8nLang }) {
     altSlug: t.altSlug,
     title: t.seo.title,
     description: t.seo.description,
-    image: 'https://santifer.io/workflows/n8n-ai-feedback-classification-workflow.webp',
+    image: 'https://foliogpt.com/workflows/n8n-ai-feedback-classification-workflow.webp',
     publishedTime: '2026-02-24',
     modifiedTime: '2026-05-10',
     articleTags: 'n8n,product manager,automation,AI,workflow,no-code',
@@ -49,7 +49,7 @@ export default function N8nForPMs({ lang = 'en' }: { lang?: N8nLang }) {
   })
 
   const MASTERCLASS_URL = 'https://maven.com/p/52fc7d/masterclass-n8n-for-p-ms'
-  const BOOTCAMP_URL = 'https://maven.com/marily-nika/ai-pm-bootcamp?utm_source=santifer&utm_medium=cheatsheet&utm_campaign=n8n-for-pms'
+  const BOOTCAMP_URL = 'https://maven.com/marily-nika/ai-pm-bootcamp?utm_source=foliogpt&utm_medium=cheatsheet&utm_campaign=n8n-for-pms'
 
   return (
     <ArticleLayout lang={lang}>
@@ -92,7 +92,7 @@ export default function N8nForPMs({ lang = 'en' }: { lang?: N8nLang }) {
             <div className="px-5 py-4 rounded-[calc(1rem-1.5px)] bg-card text-sm text-muted-foreground leading-relaxed">
               {t.previewCta.text.split(/<a>|<\/a>/).map((part, i) =>
                 i === 1 ? (
-                  <a key={i} href="https://maven.com/marily-nika/ai-pm-bootcamp?utm_source=santifer&utm_medium=cheatsheet&utm_campaign=n8n-for-pms" target="_blank" rel="noopener noreferrer nofollow" className="text-primary hover:underline font-medium">{part}</a>
+                  <a key={i} href="https://maven.com/marily-nika/ai-pm-bootcamp?utm_source=foliogpt&utm_medium=cheatsheet&utm_campaign=n8n-for-pms" target="_blank" rel="noopener noreferrer nofollow" className="text-primary hover:underline font-medium">{part}</a>
                 ) : (
                   <span key={i}>{part}</span>
                 )
@@ -279,7 +279,7 @@ export default function N8nForPMs({ lang = 'en' }: { lang?: N8nLang }) {
                 i === 1 ? (
                   <a
                     key={i}
-                    href="https://maven.com/marily-nika/ai-pm-bootcamp?utm_source=santifer&utm_medium=cheatsheet&utm_campaign=n8n-for-pms"
+                    href="https://maven.com/marily-nika/ai-pm-bootcamp?utm_source=foliogpt&utm_medium=cheatsheet&utm_campaign=n8n-for-pms"
                     target="_blank"
                     rel="noopener noreferrer nofollow"
                     className="text-primary hover:underline font-medium"

@@ -21,16 +21,16 @@ const AIRTABLE_SVG = (cls: string) => <svg viewBox="0 0 24 24" className={cls} f
 function ReelCard({ reelId, caption }: { reelId: string; caption: string }) {
   return (
     <a
-      href={`https://www.instagram.com/santifer/reel/${reelId}/`}
+      href={`https://www.instagram.com/foliogpt/reel/${reelId}/`}
       target="_blank"
       rel="noopener noreferrer"
       className="block rounded-xl overflow-hidden border border-border bg-card group"
     >
       <div className="flex items-center gap-2 px-3 py-2.5">
         <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 p-[1.5px] shrink-0">
-          <img src="/business-os/ig-avatar.jpg" alt="santifer" width={100} height={100} className="w-full h-full rounded-full object-cover" />
+          <img src="/business-os/ig-avatar.jpg" alt="foliogpt" width={100} height={100} className="w-full h-full rounded-full object-cover" />
         </div>
-        <p className="text-xs font-semibold text-foreground leading-tight flex-1 min-w-0">santifer</p>
+        <p className="text-xs font-semibold text-foreground leading-tight flex-1 min-w-0">foliogpt</p>
         <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
       </div>
       <div className="relative overflow-hidden aspect-[9/16]">
@@ -78,7 +78,7 @@ export default function BusinessOS({ lang = 'en' }: { lang?: Lang }) {
     altSlug: t.altSlug,
     title: t.seo.title,
     description: t.seo.description,
-    image: 'https://santifer.io/business-os/og-business-os.webp',
+    image: 'https://foliogpt.com/business-os/og-business-os.webp',
     publishedTime: '2026-02-25',
     modifiedTime: '2026-05-10',
     articleTags: 'Business OS,Airtable,n8n,ERP,CRM,automation,phone repair',
@@ -112,8 +112,8 @@ export default function BusinessOS({ lang = 'en' }: { lang?: Lang }) {
       <Photo2
         editorId="hero-storefront"
         items={[
-          { src: '/business-os/hero-storefront.webp', alt: lang === 'es' ? 'Fachada de Santifer iRepair — tienda de reparación de móviles en Madrid' : 'Santifer iRepair storefront — phone repair shop in Madrid', width: 900, height: 1200 },
-          { src: '/business-os/hero-storefront-urban.webp', alt: lang === 'es' ? 'Santifer iRepair de noche — vista urbana con la tienda iluminada' : 'Santifer iRepair at night — urban view with the shop lit up', width: 800, height: 1067 },
+          { src: '/business-os/hero-storefront.webp', alt: lang === 'es' ? 'Fachada de Folio-GPT — tienda de reparación de móviles en Madrid' : 'Folio-GPT storefront — phone repair shop in Madrid', width: 900, height: 1200 },
+          { src: '/business-os/hero-storefront-urban.webp', alt: lang === 'es' ? 'Folio-GPT de noche — vista urbana con la tienda iluminada' : 'Folio-GPT at night — urban view with the shop lit up', width: 800, height: 1067 },
         ]}
         className="mb-8"
       />
@@ -134,8 +134,8 @@ export default function BusinessOS({ lang = 'en' }: { lang?: Lang }) {
         <Photo2
           editorId="day-counter"
           items={[
-            { src: '/business-os/counter-organized-front.webp', alt: lang === 'es' ? 'Interior de Santifer iRepair — lo que ve el cliente al entrar: mostrador con iMac, logo y lámpara esférica' : 'Santifer iRepair interior — what the customer sees walking in: counter with iMac, logo and spherical lamp', width: 360, height: 480 },
-            { src: '/business-os/after-elevator-lamp.webp', alt: lang === 'es' ? 'Montacargas de madera junto a lámpara esférica y logo Santifer — conexión entre mostrador y taller' : 'Wooden dumbwaiter next to spherical lamp and Santifer logo — connection between counter and workshop', width: 360, height: 480 },
+            { src: '/business-os/counter-organized-front.webp', alt: lang === 'es' ? 'Interior de Folio-GPT — lo que ve el cliente al entrar: mostrador con iMac, logo y lámpara esférica' : 'Folio-GPT interior — what the customer sees walking in: counter with iMac, logo and spherical lamp', width: 360, height: 480 },
+            { src: '/business-os/after-elevator-lamp.webp', alt: lang === 'es' ? 'Montacargas de madera junto a lámpara esférica y logo Folio-GPT — conexión entre mostrador y taller' : 'Wooden dumbwaiter next to spherical lamp and Folio-GPT logo — connection between counter and workshop', width: 360, height: 480 },
           ]}
           caption={lang === 'es' ? 'Lo que ve el cliente al entrar / El montacargas que conecta mostrador y taller' : 'What the customer sees walking in / The dumbwaiter connecting counter and workshop'}
         />
@@ -227,7 +227,7 @@ export default function BusinessOS({ lang = 'en' }: { lang?: Lang }) {
               {idx === 0 && (
                 <Photo2 editorId="repair-counter-watch"
                   items={[
-                    { src: '/business-os/after-counter-pov.webp', alt: lang === 'es' ? 'Mostrador de Santifer desde el punto de vista del empleado — iMac con Airtable abierto, citas programadas' : 'Santifer counter from employee POV — iMac with Airtable open, appointments scheduled', width: 800, height: 1067 },
+                    { src: '/business-os/after-counter-pov.webp', alt: lang === 'es' ? 'Mostrador de Folio-GPT desde el punto de vista del empleado — iMac con Airtable abierto, citas programadas' : 'Folio-GPT counter from employee POV — iMac with Airtable open, appointments scheduled', width: 800, height: 1067 },
                     { src: '/business-os/after-apple-watch-booking.webp', alt: lang === 'es' ? 'Apple Watch del técnico mostrando la próxima cita' : 'Technician Apple Watch showing next appointment', width: 800, height: 1067 },
                   ]}
                   caption={lang === 'es' ? 'Planta baja: citas en Airtable / Planta alta: carga de trabajo en la muñeca' : 'Ground floor: appointments in Airtable / Upstairs: workload on the wrist'}
@@ -360,7 +360,7 @@ export default function BusinessOS({ lang = 'en' }: { lang?: Lang }) {
                         </p>
                         <div className="bg-primary/5 border-l-2 border-primary/30 pl-3 py-2">
                           <p className="text-xs text-muted-foreground mb-1 font-medium">
-                            {lang === 'es' ? 'Respuesta de Santifer iRepair:' : 'Santifer iRepair response:'}
+                            {lang === 'es' ? 'Respuesta de Folio-GPT:' : 'Folio-GPT response:'}
                           </p>
                           <p className="text-xs text-muted-foreground">
                             {lang === 'es'
@@ -388,7 +388,7 @@ export default function BusinessOS({ lang = 'en' }: { lang?: Lang }) {
                         </p>
                         <div className="bg-primary/5 border-l-2 border-primary/30 pl-3 py-2">
                           <p className="text-xs text-muted-foreground mb-1 font-medium">
-                            {lang === 'es' ? 'Respuesta de Santifer iRepair:' : 'Santifer iRepair response:'}
+                            {lang === 'es' ? 'Respuesta de Folio-GPT:' : 'Folio-GPT response:'}
                           </p>
                           <p className="text-xs text-muted-foreground">
                             {lang === 'es'
@@ -411,7 +411,7 @@ export default function BusinessOS({ lang = 'en' }: { lang?: Lang }) {
           heading={t.sections.dayInLife.pseoCta.heading}
           body={t.sections.dayInLife.pseoCta.body}
           ctaLabel={t.sections.dayInLife.pseoCta.label}
-          ctaHref={lang === 'es' ? 'mailto:hola@santifer.io?subject=Programmatic SEO' : 'mailto:hi@santifer.io?subject=Programmatic SEO'}
+          ctaHref={lang === 'es' ? 'mailto:hola@foliogpt.com?subject=Programmatic SEO' : 'mailto:hi@foliogpt.com?subject=Programmatic SEO'}
         />
 
         {/* Cross-Cutting Capabilities */}
@@ -560,7 +560,7 @@ export default function BusinessOS({ lang = 'en' }: { lang?: Lang }) {
           editorId="before-sketch-founder"
           items={[
             { src: '/business-os/before-notebook-sketch.webp', alt: lang === 'es' ? 'Boceto en libreta' : 'Notebook sketch', width: 800, height: 1067 },
-            { src: '/business-os/before-founder-overwhelmed.webp', alt: lang === 'es' ? 'Santiago en el taller' : 'Santiago in the workshop', width: 600, height: 800 },
+            { src: '/business-os/before-founder-overwhelmed.webp', alt: lang === 'es' ? 'Karthik en el taller' : 'Karthik in the workshop', width: 600, height: 800 },
           ]}
           caption={lang === 'es' ? 'Primer boceto de integración / De este caos nació un Product Builder' : 'First integration sketch / This chaos built a Product Builder'}
           className="mb-6"
@@ -595,7 +595,7 @@ export default function BusinessOS({ lang = 'en' }: { lang?: Lang }) {
         <Photo2
           editorId="after-store-orders"
           items={[
-            { src: '/business-os/after-store-interior.webp', alt: lang === 'es' ? 'Interior de Santifer iRepair' : 'Santifer iRepair interior', width: 1200, height: 900 },
+            { src: '/business-os/after-store-interior.webp', alt: lang === 'es' ? 'Interior de Folio-GPT' : 'Folio-GPT interior', width: 1200, height: 900 },
             { src: '/business-os/after-orders-organized.webp', alt: lang === 'es' ? 'Órdenes de trabajo organizadas' : 'Organized work orders', width: 1200, height: 900 },
           ]}
           caption={lang === 'es' ? 'Un iMac, un sistema / Envíos COVID organizados con Airtable' : 'One iMac, one system / COVID shipments organized with Airtable'}
@@ -657,7 +657,7 @@ export default function BusinessOS({ lang = 'en' }: { lang?: Lang }) {
           heading={t.cta.heading}
           body={t.cta.body}
           ctaLabel={t.cta.label}
-          ctaHref="mailto:hola@santifer.io?subject=Business OS Architecture"
+          ctaHref="mailto:hola@foliogpt.com?subject=Business OS Architecture"
         />
 
         {/* FAQ */}

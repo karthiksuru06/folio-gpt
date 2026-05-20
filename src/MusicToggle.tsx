@@ -201,7 +201,7 @@ function N7Badge() {
 }
 
 /** Tooltip styled as a comm transmission */
-function CommTooltip({ playing, lang, dismissed }: { playing: boolean; lang: 'es' | 'en'; dismissed?: boolean }) {
+function CommTooltip({ playing, lang, dismissed }: { playing: boolean; lang: 'en' | 'en'; dismissed?: boolean }) {
   const text = playing
     ? 'Uncharted Worlds'
     : dismissed

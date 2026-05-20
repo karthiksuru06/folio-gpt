@@ -9,7 +9,7 @@ import { getAltPaths, getPageTitles, getSectionLabels, getEsSlugs } from './arti
  *
  * The translucent bar is a "contextual message container" that appears
  * when there's something to communicate:
- * - Inner pages: permanent "← santifer.io" back link
+ * - Inner pages: permanent "← foliogpt.com" back link
  * - Any page: temporary language suggestion when browser lang ≠ page lang
  *
  * Language suggestion is right-aligned, next to the lang pill, reinforcing
@@ -81,7 +81,7 @@ function useActiveSection(pathname: string, enabled: boolean) {
 function useLang() {
   const { pathname } = useLocation()
   const isHome = pathname === '/' || pathname === '/en'
-  const lang: 'es' | 'en' = ES_SLUGS.has(pathname) ? 'es' : 'en'
+  const lang: 'en' | 'en' = ES_SLUGS.has(pathname) ? 'es' : 'en'
   const pageTitle = PAGE_TITLE[pathname] ?? null
   return { pathname, isHome, lang, pageTitle }
 }
@@ -312,11 +312,11 @@ export default function GlobalNav() {
                 style={animateBackLink ? fade('0.4s') : undefined}
               >
                 <Link
-                  to={lang === 'en' ? '/en' : '/'}
+                  to={'/'}
                   className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors shrink-0"
                 >
                   <House className="w-4 h-4" />
-                  <span className="hidden sm:inline">santifer.io</span>
+                  <span className="hidden sm:inline">foliogpt.com</span>
                 </Link>
                 {pageTitle && (
                   <>

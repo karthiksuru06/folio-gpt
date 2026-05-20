@@ -1,5 +1,5 @@
 interface PressFeaturesProps {
-  lang: 'es' | 'en'
+  lang: 'en' | 'en'
 }
 
 /**

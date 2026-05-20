@@ -4,7 +4,7 @@ export const pseoContent = {
     altSlug: 'programmatic-seo',
     readingTime: '37 min de lectura',
     seo: {
-      title: 'SEO Programático: 4.000+ Páginas desde un ERP | santifer.io',
+      title: 'SEO Programático: 4.000+ Páginas desde un ERP | foliogpt.com',
       description: 'Case study: cómo generé 4.730 landing pages estáticas con Airtable, DataForSEO y crawl budget optimization. 2M+ impresiones, 19K+ clicks.',
     },
     nav: {
@@ -12,8 +12,8 @@ export const pseoContent = {
       breadcrumbCurrent: 'SEO Programático',
     },
     header: {
-      kicker: 'Case Study — <a>Santifer iRepair</a>',
-      kickerLink: 'https://santiferirepair.es',
+      kicker: 'Case Study — <a>Folio-GPT</a>',
+      kickerLink: 'https://foliogpt.com',
       h1: 'SEO Programático: 4.700+ Páginas desde un ERP',
       subtitle: 'Cómo generé 4.730 landing pages únicas con datos reales de producción, un CMS de 14 tablas en Airtable, y DataForSEO como motor de decisiones. 2,26M impresiones, 19K+ clicks.',
       date: '25 feb 2026',
@@ -21,7 +21,7 @@ export const pseoContent = {
     intro: {
       hook: 'SEO programático es generar miles de páginas automáticamente desde una base de datos, cada una optimizada para una búsqueda long-tail específica. Construí 4.730 landing pages desde un ERP en Airtable. En el sector de reparación de dispositivos en España, nadie más lo estaba haciendo.',
       body: 'La idea era simple: si alguien busca "reparar iPhone batería Sevilla", debería existir una página específica para esa búsqueda, con el precio real, el tiempo estimado y fotos de reparaciones reales. Pero crear esas páginas a mano para miles de combinaciones no era viable. Necesitaba un sistema que generase las páginas automáticamente desde el ERP, y que fuera lo suficientemente inteligente para decidir cuáles indexar y cuáles no.',
-      context: 'Santifer iRepair fue mi negocio de reparación de dispositivos en Sevilla desde 2009. 16 años, más de 30.000 reparaciones. En 2024 decidí que la web del negocio necesitaba dejar de ser un folleto en Squarespace y empezar a capturar la demanda que ya existía en Google. Construí este sistema de SEO programático como ventaja competitiva y vendí el negocio en septiembre 2025, en su punto más alto.',
+      context: 'Folio-GPT fue mi negocio de reparación de dispositivos en Sevilla desde 2009. 16 años, más de 30.000 reparaciones. En 2024 decidí que la web del negocio necesitaba dejar de ser un folleto en Squarespace y empezar a capturar la demanda que ya existía en Google. Construí este sistema de SEO programático como ventaja competitiva y vendí el negocio en septiembre 2025, en su punto más alto.',
       tldr: {
         heading: 'En 10 segundos',
         items: [
@@ -35,7 +35,7 @@ export const pseoContent = {
     sections: {
       migration: {
         heading: 'El Punto de Partida',
-        intro: 'La web del negocio llevaba años en Squarespace. Sin control de URLs, sin canonical tags, sin redirects custom. Lo que venía no era solo un cambio de plataforma — era una triple migración: plataforma (Squarespace → Astro), dominio (santifer.me → santiferirepair.es) y hosting (Squarespace → Vercel/Cloudflare). El primer paso fue documentar exactamente qué había que arreglar: una auditoría técnica completa de 144 páginas, realizada como Trabajo Fin de Máster del programa Big SEO.',
+        intro: 'La web del negocio llevaba años en Squarespace. Sin control de URLs, sin canonical tags, sin redirects custom. Lo que venía no era solo un cambio de plataforma — era una triple migración: plataforma (Squarespace → Astro), dominio (foliogpt.me → foliogpt.com) y hosting (Squarespace → Vercel/Cloudflare). El primer paso fue documentar exactamente qué había que arreglar: una auditoría técnica completa de 144 páginas, realizada como Trabajo Fin de Máster del programa Big SEO.',
         duplicateCallout: 'Squarespace servía la misma página en 4 URLs diferentes (www, non-www, trailing slash, .html). Google veía 4 copias de cada página.',
         audit: {
           heading: 'La Auditoría Técnica',
@@ -299,7 +299,7 @@ if (mostrarPrecio === 'exacto' && detail.precioMinCard) {
       },
       decisionEngine: {
         heading: 'El Motor de Decisiones',
-        body: 'El sistema genera miles de páginas (muchas más de las 4.730 que recibieron tráfico), pero no todas merecen ser indexadas. Si nadie busca "reparar cámara delantera iPhone 11", esa página no debería competir en Google — pero sí debe existir para el usuario que navega desde la página del iPhone 11 y necesita esa reparación concreta. La clave es separar SEO de UX. El motor de decisiones consulta DataForSEO para obtener volumen de búsqueda real de cada combinación, y el resultado se almacena en el campo "indexable" de <a href="https://github.com/santifer/santifer-irepair/blob/main/src/lib/airtable.ts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">airtable.ts</a>.',
+        body: 'El sistema genera miles de páginas (muchas más de las 4.730 que recibieron tráfico), pero no todas merecen ser indexadas. Si nadie busca "reparar cámara delantera iPhone 11", esa página no debería competir en Google — pero sí debe existir para el usuario que navega desde la página del iPhone 11 y necesita esa reparación concreta. La clave es separar SEO de UX. El motor de decisiones consulta DataForSEO para obtener volumen de búsqueda real de cada combinación, y el resultado se almacena en el campo "indexable" de <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/src/lib/airtable.ts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">airtable.ts</a>.',
         rules: [
           {
             condition: 'Volumen de búsqueda alto (DataForSEO)',
@@ -416,7 +416,7 @@ ensureCachesLoaded().catch(console.error);`,
       contentAutomation: {
         heading: 'Pipeline de Contenido Automatizado',
         body: 'Generar miles de páginas es solo la mitad. Cada página necesita imágenes, metadata y copy únicos. Un conjunto de 8 scripts Node.js (1.411 líneas) automatiza toda la producción de contenido visual y textual sin intervención manual. Todo conectado a las 12 bases del Business OS en Airtable. Resultado: más de 26.000 imágenes generadas automáticamente.',
-        repoLink: '<a href="https://github.com/santifer/santifer-irepair/tree/main/scripts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">Explora los scripts del pipeline en GitHub →</a>',
+        repoLink: '<a href="https://github.com/foliogpt/foliogpt-irepair/tree/main/scripts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">Explora los scripts del pipeline en GitHub →</a>',
         pipelines: [
           {
             icon: 'camera',
@@ -510,7 +510,7 @@ exifObj['Exif'][piexif.ExifIFD.UserComment] = userComment.toString('binary');`,
         },
         codeSnippet: {
           heading: 'El Código Real',
-          body: 'Este es el fragmento real del script <a href="https://github.com/santifer/santifer-irepair/blob/main/scripts/generarImagenesReparacionesModelos.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">generarImagenesReparacionesModelos.mjs</a> que genera cada imagen de reparación:',
+          body: 'Este es el fragmento real del script <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/scripts/generarImagenesReparacionesModelos.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">generarImagenesReparacionesModelos.mjs</a> que genera cada imagen de reparación:',
           segments: [
             {
               code: `await sharp({
@@ -709,7 +709,7 @@ await base('Reseñas sincronizar Astro')
         },
         codeSnippet: {
           heading: 'El Código Real',
-          body: 'Este es el fragmento real de <a href="https://github.com/santifer/santifer-irepair/blob/main/scripts/CasosExito.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">CasosExito.mjs</a> que procesa cada foto de reparación:',
+          body: 'Este es el fragmento real de <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/scripts/CasosExito.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">CasosExito.mjs</a> que procesa cada foto de reparación:',
           segments: [
             {
               code: `let pipeline = sharp(inputBuffer)
@@ -852,7 +852,7 @@ await pipeline
           },
           {
             title: 'Bridge redirects para descatalogados',
-            detail: 'En lugar de devolver 404 cuando una reparación se descataloga, se redirige 301 a la alternativa más cercana. 700+ reglas de redirección en <a href="https://github.com/santifer/santifer-irepair/blob/main/vercel.json#L27" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">vercel.json</a>. Cero pérdida de autoridad, cero enlaces rotos.',
+            detail: 'En lugar de devolver 404 cuando una reparación se descataloga, se redirige 301 a la alternativa más cercana. 700+ reglas de redirección en <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/vercel.json#L27" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">vercel.json</a>. Cero pérdida de autoridad, cero enlaces rotos.',
           },
         ],
         safeNoindex: {
@@ -1005,8 +1005,8 @@ return records.map(r => ({
     resources: {
       heading: 'Recursos',
       items: [
-        { label: 'Código fuente en GitHub (scripts, layouts, rutas)', url: 'https://github.com/santifer/santifer-irepair' },
-        { label: 'Santifer iRepair (la web programática)', url: 'https://santiferirepair.es' },
+        { label: 'Código fuente en GitHub (scripts, layouts, rutas)', url: 'https://github.com/foliogpt/foliogpt-irepair' },
+        { label: 'Folio-GPT (la web programática)', url: 'https://foliogpt.com' },
         { label: 'Case Study: Business OS / ERP que alimenta estas páginas', url: '/business-os-para-airtable' },
         { label: 'Astro, el framework de sitio estático', url: 'https://astro.build' },
         { label: 'DataForSEO, API de datos SEO', url: 'https://dataforseo.com' },
@@ -1026,7 +1026,7 @@ return records.map(r => ({
     altSlug: 'seo-programatico',
     readingTime: '37 min read',
     seo: {
-      title: 'Programmatic SEO: 4,000+ Pages from an ERP | santifer.io',
+      title: 'Programmatic SEO: 4,000+ Pages from an ERP | foliogpt.com',
       description: 'Case study: 4,730 static landing pages from Airtable as headless CMS with DataForSEO crawl budget optimization and Astro SSG. 2M+ impressions, 19K+ clicks.',
     },
     nav: {
@@ -1034,8 +1034,8 @@ return records.map(r => ({
       breadcrumbCurrent: 'Programmatic SEO',
     },
     header: {
-      kicker: 'Case Study — <a>Santifer iRepair</a>',
-      kickerLink: 'https://santiferirepair.es',
+      kicker: 'Case Study — <a>Folio-GPT</a>',
+      kickerLink: 'https://foliogpt.com',
       h1: 'Programmatic SEO: 4,700+ Pages from an ERP',
       subtitle: 'How I generated 4,730 unique landing pages with real production data, a 14-table Airtable CMS, and DataForSEO as the decision engine. 2.26M impressions, 19K+ clicks.',
       date: 'Feb 25, 2026',
@@ -1043,7 +1043,7 @@ return records.map(r => ({
     intro: {
       hook: 'In Spain\'s device repair market, nobody was doing programmatic SEO. Every combination of device, brand, model, repair type, and city was an untapped long-tail opportunity.',
       body: 'The thesis: if someone searches "iPhone battery repair Seville", a dedicated page should exist — with the real price, estimated turnaround, and photos from actual repairs. But hand-building thousands of pages wouldn\'t scale. I needed a system that auto-generated them from the ERP, smart enough to decide which ones to index and which to skip.',
-      context: 'Santifer iRepair was my device repair business in Seville since 2009. Sixteen years, over 30,000 repairs. In 2024 I decided the website needed to move beyond a Squarespace brochure and start capturing the demand already sitting in Google. I built this programmatic SEO system as a competitive moat and sold the business in September 2025, at its peak.',
+      context: 'Folio-GPT was my device repair business in Seville since 2009. Sixteen years, over 30,000 repairs. In 2024 I decided the website needed to move beyond a Squarespace brochure and start capturing the demand already sitting in Google. I built this programmatic SEO system as a competitive moat and sold the business in September 2025, at its peak.',
       tldr: {
         heading: 'In 10 seconds',
         items: [
@@ -1057,7 +1057,7 @@ return records.map(r => ({
     sections: {
       migration: {
         heading: 'The Starting Point',
-        intro: 'The business website had been running on Squarespace for years. No URL control, no canonical tags, no custom redirects. What was coming wasn\'t just a platform change — it was a triple migration: platform (Squarespace → Astro), domain (santifer.me → santiferirepair.es), and hosting (Squarespace → Vercel/Cloudflare). The first step was documenting exactly what needed fixing: a 144-page technical audit, completed as the Final Master\'s Project for the Big SEO program.',
+        intro: 'The business website had been running on Squarespace for years. No URL control, no canonical tags, no custom redirects. What was coming wasn\'t just a platform change — it was a triple migration: platform (Squarespace → Astro), domain (foliogpt.me → foliogpt.com), and hosting (Squarespace → Vercel/Cloudflare). The first step was documenting exactly what needed fixing: a 144-page technical audit, completed as the Final Master\'s Project for the Big SEO program.',
         duplicateCallout: 'Squarespace served the same page at 4 different URLs (www, non-www, trailing slash, .html). Google saw 4 copies of every page.',
         audit: {
           heading: 'The Technical Audit',
@@ -1321,7 +1321,7 @@ if (mostrarPrecio === 'exacto' && detail.precioMinCard) {
       },
       decisionEngine: {
         heading: 'The Decision Engine',
-        body: 'The system generates thousands of pages (well beyond the 4,730 that received traffic), but not all deserve to be indexed. If nobody searches "repair front camera iPhone 11", that page shouldn\'t compete on Google — but it needs to exist for the user browsing from the iPhone 11 page who needs exactly that repair. The key is separating SEO from UX. The decision engine queries DataForSEO for real search volume on each combination, and stores the result in the "indexable" field in <a href="https://github.com/santifer/santifer-irepair/blob/main/src/lib/airtable.ts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">airtable.ts</a>.',
+        body: 'The system generates thousands of pages (well beyond the 4,730 that received traffic), but not all deserve to be indexed. If nobody searches "repair front camera iPhone 11", that page shouldn\'t compete on Google — but it needs to exist for the user browsing from the iPhone 11 page who needs exactly that repair. The key is separating SEO from UX. The decision engine queries DataForSEO for real search volume on each combination, and stores the result in the "indexable" field in <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/src/lib/airtable.ts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">airtable.ts</a>.',
         rules: [
           {
             condition: 'High search volume (DataForSEO)',
@@ -1438,7 +1438,7 @@ ensureCachesLoaded().catch(console.error);`,
       contentAutomation: {
         heading: 'Automated Content Pipeline',
         body: 'Generating thousands of pages is half the job. Each one needs unique images, metadata, and copy. Eight Node.js scripts (1,411 lines total) automate all visual and textual content production — zero manual work. Everything connects back to the 12 Airtable bases in the Business OS. Result: over 26,000 auto-generated images.',
-        repoLink: '<a href="https://github.com/santifer/santifer-irepair/tree/main/scripts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">Explore the pipeline scripts on GitHub →</a>',
+        repoLink: '<a href="https://github.com/foliogpt/foliogpt-irepair/tree/main/scripts" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">Explore the pipeline scripts on GitHub →</a>',
         pipelines: [
           {
             icon: 'camera',
@@ -1532,7 +1532,7 @@ exifObj['Exif'][piexif.ExifIFD.UserComment] = userComment.toString('binary');`,
         },
         codeSnippet: {
           heading: 'The Actual Code',
-          body: 'This is the real snippet from <a href="https://github.com/santifer/santifer-irepair/blob/main/scripts/generarImagenesReparacionesModelos.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">generarImagenesReparacionesModelos.mjs</a> that generates each repair image:',
+          body: 'This is the real snippet from <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/scripts/generarImagenesReparacionesModelos.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">generarImagenesReparacionesModelos.mjs</a> that generates each repair image:',
           segments: [
             {
               code: `await sharp({
@@ -1731,7 +1731,7 @@ await base('Reseñas sincronizar Astro')
         },
         codeSnippet: {
           heading: 'The Actual Code',
-          body: 'This is the real snippet from <a href="https://github.com/santifer/santifer-irepair/blob/main/scripts/CasosExito.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">CasosExito.mjs</a> that processes each repair photo:',
+          body: 'This is the real snippet from <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/scripts/CasosExito.mjs" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">CasosExito.mjs</a> that processes each repair photo:',
           segments: [
             {
               code: `let pipeline = sharp(inputBuffer)
@@ -1874,7 +1874,7 @@ await pipeline
           },
           {
             title: 'Bridge redirects for discontinued items',
-            detail: 'Instead of returning a 404 when a repair is discontinued, it 301-redirects to the closest alternative. 700+ redirect rules in <a href="https://github.com/santifer/santifer-irepair/blob/main/vercel.json#L27" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">vercel.json</a>. Zero authority loss, zero broken links.',
+            detail: 'Instead of returning a 404 when a repair is discontinued, it 301-redirects to the closest alternative. 700+ redirect rules in <a href="https://github.com/foliogpt/foliogpt-irepair/blob/main/vercel.json#L27" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80">vercel.json</a>. Zero authority loss, zero broken links.',
           },
         ],
         safeNoindex: {
@@ -2027,8 +2027,8 @@ return records.map(r => ({
     resources: {
       heading: 'Resources',
       items: [
-        { label: 'Source code on GitHub (scripts, layouts, routes)', url: 'https://github.com/santifer/santifer-irepair' },
-        { label: 'Santifer iRepair (the programmatic site)', url: 'https://santiferirepair.es' },
+        { label: 'Source code on GitHub (scripts, layouts, routes)', url: 'https://github.com/foliogpt/foliogpt-irepair' },
+        { label: 'Folio-GPT (the programmatic site)', url: 'https://foliogpt.com' },
         { label: 'Case Study: The Business OS / ERP behind these pages', url: '/business-os-for-airtable' },
         { label: 'Astro, the static site framework', url: 'https://astro.build' },
         { label: 'DataForSEO, SEO data API', url: 'https://dataforseo.com' },

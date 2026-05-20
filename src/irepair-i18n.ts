@@ -53,15 +53,15 @@ interface IRepairContent {
 
 export const irepairContent: Record<IRepairLang, IRepairContent> = {
   es: {
-    slug: 'santifer-irepair',
-    altSlug: 'santifer-irepair-founder',
+    slug: 'foliogpt-irepair',
+    altSlug: 'foliogpt-irepair-founder',
     seo: {
-      title: 'Santifer iRepair Sevilla | Reparación de Móviles desde 2009',
-      description: 'La tienda de reparación de móviles fundada por Santiago en 2009 sigue abierta en Sevilla. 30.000+ reparaciones. Encuentra la tienda o conoce al fundador.',
+      title: 'Folio-GPT Sevilla | Reparación de Móviles desde 2009',
+      description: 'La tienda de reparación de móviles fundada por Karthik en 2009 sigue abierta en Sevilla. 30.000+ reparaciones. Encuentra la tienda o conoce al fundador.',
     },
     nav: {
       breadcrumbHome: 'Inicio',
-      breadcrumbCurrent: 'Santifer iRepair',
+      breadcrumbCurrent: 'Folio-GPT',
     },
     hero: {
       headline: 'Abrí esta tienda con 25 años.\n16 años después, la vendí. Sigue funcionando.',
@@ -75,13 +75,13 @@ export const irepairContent: Record<IRepairLang, IRepairContent> = {
     ],
     cards: {
       shop: {
-        title: '¿Buscas Santifer iRepair?',
+        title: '¿Buscas Folio-GPT?',
         body: 'Sigue abierta, sigue reparando. Con el mismo equipo y mi nombre en el cristal.',
-        cta: 'Ir a santiferirepair.es',
+        cta: 'Ir a foliogpt.com',
         mapLabel: 'Ver ubicación y horarios',
       },
       founder: {
-        title: '¿Buscas a Santiago?',
+        title: '¿Buscas a Karthik?',
         body: 'Un agente IA que atendía el teléfono. Un ERP de 2.100 campos. Miles de landing pages generadas con SEO programático. El comprador no cambió nada. Ahora diseño sistemas de IA y automatización para empresas.',
         cta: 'Ver portfolio',
       },
@@ -103,15 +103,15 @@ export const irepairContent: Record<IRepairLang, IRepairContent> = {
     },
   },
   en: {
-    slug: 'santifer-irepair-founder',
-    altSlug: 'santifer-irepair',
+    slug: 'foliogpt-irepair-founder',
+    altSlug: 'foliogpt-irepair',
     seo: {
-      title: 'Santifer iRepair Seville | Phone Repair since 2009',
-      description: 'The phone repair shop founded by Santiago in 2009 is still open in Seville, Spain. 30,000+ repairs. Find the shop or meet the founder.',
+      title: 'Folio-GPT Seville | Phone Repair since 2009',
+      description: 'The phone repair shop founded by Karthik in 2009 is still open in Seville, Spain. 30,000+ repairs. Find the shop or meet the founder.',
     },
     nav: {
       breadcrumbHome: 'Home',
-      breadcrumbCurrent: 'Santifer iRepair',
+      breadcrumbCurrent: 'Folio-GPT',
     },
     hero: {
       headline: 'I opened this shop at 25.\nSold it 16 years later. It\'s still running.',
@@ -125,13 +125,13 @@ export const irepairContent: Record<IRepairLang, IRepairContent> = {
     ],
     cards: {
       shop: {
-        title: 'Looking for Santifer iRepair?',
+        title: 'Looking for Folio-GPT?',
         body: 'Still open, still fixing phones. Same team and my name still on the glass.',
-        cta: 'Go to santiferirepair.es',
+        cta: 'Go to foliogpt.com',
         mapLabel: 'View location & hours',
       },
       founder: {
-        title: 'Looking for Santiago?',
+        title: 'Looking for Karthik?',
         body: 'An AI agent that answered the phone. A 2,100-field ERP. Thousands of landing pages generated with programmatic SEO. The buyer changed nothing. Now I design AI and automation systems for companies.',
         cta: 'View portfolio',
       },

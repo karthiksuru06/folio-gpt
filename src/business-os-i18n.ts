@@ -4,7 +4,7 @@ export const businessOsContent = {
     altSlug: 'business-os-for-airtable',
     readingTime: '15 min de lectura',
     seo: {
-      title: 'Cómo Construí un Business OS Custom para +30.000 Reparaciones con Airtable (170h/Mes Ahorradas) | santifer.io',
+      title: 'Cómo Construí un Business OS Custom para +30.000 Reparaciones con Airtable (170h/Mes Ahorradas) | foliogpt.com',
       description: 'Case study: cómo construí un Business OS con 12 bases de Airtable, 2.100+ campos y 50+ automatizaciones que ahorra 170h/mes en un negocio de reparación de móviles con +30.000 reparaciones completadas.',
     },
     nav: {
@@ -12,7 +12,7 @@ export const businessOsContent = {
       breadcrumbCurrent: 'Business OS',
     },
     header: {
-      kicker: 'Case Study: Santifer iRepair',
+      kicker: 'Case Study: Folio-GPT',
       h1: 'Business OS para +30.000 Reparaciones',
       subtitle: 'Cómo construí un sistema operativo de negocio completo con Airtable: 12 bases interconectadas, 2.100+ campos y 50+ automatizaciones que ahorran 170h/mes.',
       badge: 'Sistema vendido con el negocio en 2025. Sigue en producción hoy',
@@ -313,7 +313,7 @@ export const businessOsContent = {
       platformEvolution: {
         heading: 'Evolución de la Plataforma',
         tagline: 'Construir con lo mejor disponible. Refactorizar cuando la plataforma lo permita.',
-        bridge: ['Estos sistemas siguen operando bajo la marca Santifer iRepair.', 'Sólo que {sin mí}.', 'Construir este sistema me enseñó hasta dónde podía llegar.', 'Así que vendí el negocio y fui a {por más}.'],
+        bridge: ['Estos sistemas siguen operando bajo la marca Folio-GPT.', 'Sólo que {sin mí}.', 'Construir este sistema me enseñó hasta dónde podía llegar.', 'Así que vendí el negocio y fui a {por más}.'],
         steps: [
           { year: '2019', event: 'Base única + Zapier', detail: 'OTs, inventario, clientes y facturación en una sola base. Zapier conectaba los flujos externos.' },
           { year: '2021', event: 'Sync entre bases → bounded domains', detail: 'Dominios separados en bases independientes (ERP, CRM, Piezas, CMS). Solo se sincroniza lo necesario.' },
@@ -402,7 +402,7 @@ export const businessOsContent = {
     altSlug: 'business-os-para-airtable',
     readingTime: '15 min read',
     seo: {
-      title: 'How I Built a Custom Business OS for 30,000+ Repairs with Airtable (170h/Month Saved) | santifer.io',
+      title: 'How I Built a Custom Business OS for 30,000+ Repairs with Airtable (170h/Month Saved) | foliogpt.com',
       description: 'Case study: how I built a Business OS with 12 Airtable bases, 2,100+ fields and 50+ automations that saves 170h/month at a phone repair business with 30,000+ repairs completed.',
     },
     nav: {
@@ -410,7 +410,7 @@ export const businessOsContent = {
       breadcrumbCurrent: 'Business OS',
     },
     header: {
-      kicker: 'Case Study — Santifer iRepair',
+      kicker: 'Case Study — Folio-GPT',
       h1: 'Business OS for 30,000+ Repairs',
       subtitle: 'How I built a complete business operating system with Airtable — 12 interconnected bases, 2,100+ fields and 50+ automations saving 170h/month.',
       badge: 'Sold with the business in 2025. Still running in production today',
@@ -711,7 +711,7 @@ export const businessOsContent = {
       platformEvolution: {
         heading: 'Platform Evolution',
         tagline: 'Build with the best available tool. Refactor when the platform allows it.',
-        bridge: ['These systems still operate under the Santifer iRepair brand.', 'Just {without me}.', 'Building this system showed me what I could do at scale.', 'So I sold the business and went to {find out}.'],
+        bridge: ['These systems still operate under the Folio-GPT brand.', 'Just {without me}.', 'Building this system showed me what I could do at scale.', 'So I sold the business and went to {find out}.'],
         steps: [
           { year: '2019', event: 'Single base + Zapier', detail: 'Work orders, inventory, customers, and billing in one base. Zapier connected external flows.' },
           { year: '2021', event: 'Base syncing → bounded domains', detail: 'Domains separated into independent bases (ERP, CRM, Parts, CMS). Only sync what\'s needed.' },

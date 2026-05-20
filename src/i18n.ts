@@ -1,13 +1,13 @@
 export const seo = {
   es: {
     title:
-      'santifer | Applied AI Operator · Builder of Career-Ops',
+      'foliogpt | Applied AI Operator · Builder of Career-Ops',
     description:
       'Multi-agent systems builder. Applied AI Operator con 2 case studies en producción. Creador de Career-Ops (43.8K+ ⭐). 16 años llevando IA a producción.',
   },
   en: {
     title:
-      'santifer | Applied AI Operator · Builder of Career-Ops',
+      'foliogpt | Applied AI Operator · Builder of Career-Ops',
     description:
       'Multi-agent systems builder. Applied AI Operator with 2 production case studies live. Creator of Career-Ops (43.8K+ ⭐). 16 years shipping AI at scale.',
   },
@@ -18,7 +18,7 @@ export const translations = {
     greeting: 'que lleva IA a producción',
     greetingRoles: ['Multi-Agent Systems Builder', 'Applied AI Operator', 'Open Source Builder', 'Creador de career-ops'],
     pillLabels: ['Builder', 'Applied AI Operator'],
-    email: 'hola@santifer.io',
+    email: 'hola@foliogpt.com',
     role: '',
     story: {
       context: '+15 años construyendo+ todo desde cero.',
@@ -30,7 +30,7 @@ export const translations = {
           '*Construir* +sistemas que duran+.',
         ],
       ],
-      why: 'En Santifer iRepair automaticé todo lo que pude: desde un agente de IA que atendía el 90% de los clientes hasta un sistema operativo que orquestaba 12 bases de datos.',
+      why: 'En Folio-GPT automaticé todo lo que pude: desde un agente de IA que atendía el 90% de los clientes hasta un sistema operativo que orquestaba 12 bases de datos.',
       seeking: [
         'Siento que esto es sólo el principio.',
         'Equipos grandes. Retos difíciles. End-to-end.',
@@ -149,7 +149,7 @@ export const translations = {
     },
     projects: {
       title: 'Proyectos',
-      githubLink: 'github.com/santifer',
+      githubLink: 'github.com/foliogpt',
       viewCode: 'Ver código',
       viewPrototype: 'Ver prototipo',
       agentInfra: {
@@ -172,7 +172,7 @@ export const translations = {
           badgeBuilding: 'En desarrollo',
           desc: 'Servicio Python + FastAPI para ingestión de contenido con LLM y generación de resúmenes. Prototipo ganador, ahora en producción con mejores prácticas empresariales.',
           tech: ['Python', 'FastAPI', 'OpenAI API', 'LLMOps'],
-          link: 'contentdigest.santifer.io',
+          link: 'contentdigest.foliogpt.com',
         },
         {
           title: 'Life OS',
@@ -189,19 +189,19 @@ export const translations = {
           desc: 'Pipeline HITL de búsqueda de empleo: la IA evalúa ofertas periódicamente con scoring multi-dimensional (A-F), genera CVs PDF optimizados para ATS por oferta, y pre-rellena aplicaciones — yo reviso, filtro y decido cuáles enviar. Procesamiento batch de 48+ ofertas en paralelo (arquitectura conductor + workers), escaneo de portales con deduplicación, y framing adaptativo por arquetipo de rol. Integrado con **Life OS** como skill especializado.',
           tech: ['Claude Code', 'Batch Architecture', 'WebSearch', 'HITL Design'],
           link: 'career-ops.org',
-          linkUrl: 'https://career-ops.org?utm_source=santifer.io&utm_medium=projects-grid&utm_campaign=home',
+          linkUrl: 'https://career-ops.org?utm_source=foliogpt.com&utm_medium=projects-grid&utm_campaign=home',
           stars: '43.8K',
           forks: '9.2K',
           caseStudyUrl: '/career-ops',
           caseStudyLabel: 'Leer: AI Job Search multi-agente',
         },
         {
-          title: 'santifer.io',
+          title: 'foliogpt.com',
           badge: 'Este Portfolio',
           badgeBuilding: '',
           desc: 'CV interactivo con SDLC aumentado con IA. Construido con **Claudeable**, monitorizado con **Claude Pulse**, animaciones debuggeadas con **Claude Eye**. Prerender SSR, i18n bilingüe y SEO automatizado.',
           tech: ['React 19', 'TypeScript', 'Tailwind', 'Vite', 'Motion', 'Vercel'],
-          link: 'github.com/santifer/cv-santiago',
+          link: 'github.com/foliogpt/cv-santiago',
           stars: '549',
           forks: '216',
         },
@@ -221,7 +221,7 @@ export const translations = {
           badgeBuilding: '',
           desc: 'Plugin SwiftBar para monitorización en tiempo real del uso de Claude Code en macOS. Métricas de consumo, predicción de rate limits, y consejos contextuales.',
           tech: ['Bash', 'SwiftBar', 'Anthropic API', 'jq'],
-          link: 'github.com/santifer/claude-pulse',
+          link: 'github.com/foliogpt/claude-pulse',
           stars: '7',
           isDependency: true,
           dependencyRole: 'monitoring',
@@ -232,7 +232,7 @@ export const translations = {
           badgeBuilding: '',
           desc: 'CLI que analiza videos de animaciones web frame por frame con Claude Vision. Detecta desyncs en transiciones CSS y genera reportes con timestamps exactos.',
           tech: ['Node.js', 'TypeScript', 'Claude Vision', 'FFmpeg'],
-          link: 'github.com/santifer/claude-eye',
+          link: 'github.com/foliogpt/claude-eye',
           stars: '11',
           isDependency: true,
           dependencyRole: 'animations',
@@ -243,7 +243,7 @@ export const translations = {
           badgeBuilding: '',
           desc: 'Metaproyecto de Claude Code para desarrollo web profesional. Skills personalizados, templates y MCPs preconfigurados para crear webs al nivel de Lovable.',
           tech: ['Claude Code', 'React', 'Tailwind', 'shadcn/ui', 'MCP'],
-          link: 'github.com/santifer/claudeable',
+          link: 'github.com/foliogpt/claudeable',
           stars: '14',
           isDependency: true,
           dependencyRole: 'framework',
@@ -254,7 +254,7 @@ export const translations = {
           badgeBuilding: '',
           desc: 'Dashboard de predicción de riesgos para portfolios de proyectos. Modelo ML entrenado con datos sintéticos detecta retrasos antes de que ocurran. Segundo capstone del bootcamp de AI PM de Maven (Marily Nika).',
           tech: ['scikit-learn', 'FastAPI', 'React', 'TypeScript'],
-          link: 'projectos-predict.santifer.io',
+          link: 'projectos-predict.foliogpt.com',
         },
       ],
       saPlaybook: {
@@ -312,7 +312,7 @@ export const translations = {
         role: 'Creador & Maintainer',
         period: '2026 - Presente',
         badge: 'Open Source',
-        url: 'https://career-ops.org?utm_source=santifer.io&utm_medium=experience&utm_campaign=link-juice',
+        url: 'https://career-ops.org?utm_source=foliogpt.com&utm_medium=experience&utm_campaign=link-juice',
         urlLabel: 'career-ops.org',
         desc: 'Sistema agéntico open-source para automatizar la búsqueda de empleo con IA.',
         pressLabel: 'Mención en prensa',
@@ -335,8 +335,8 @@ export const translations = {
         caseStudyUrl: '/career-ops',
         caseStudyLabel: 'Leer: cómo construí career-ops',
       },
-      santifer: {
-        company: 'Santifer iRepair',
+      foliogpt: {
+        company: 'Folio-GPT',
         location: 'Sevilla, España',
         role: 'Fundador & Product Lead (AI Automation)',
         period: '2009 - 2025 · Retail / Servicios B2B-B2C',
@@ -409,7 +409,7 @@ export const translations = {
         jacobo: {
           title: 'Agente AI Omnicanal "Jacobo"',
           badge: '~90% autoservicio',
-          github: 'santifer/jacobo-workflows',
+          github: 'foliogpt/jacobo-workflows',
           stars: '135',
           forks: '44',
           desc: 'Voz (ElevenLabs) + WhatsApp (n8n / WATI) + Aircall cloud PBX. Orquestación de sub-agentes especializados vía tool calling.',
@@ -441,7 +441,7 @@ export const translations = {
         webSeo: {
           title: 'Web Programática + SEO Automatizado',
           badge: 'Única en el sector en España',
-          github: 'santifer/santifer-irepair',
+          github: 'foliogpt/foliogpt-irepair',
           stars: '25',
           forks: '11',
           desc: '100% custom-made (2024). Headless CMS en Airtable como fuente de verdad, integrado con ERP, generando web en Astro con SEO programático.',
@@ -536,7 +536,7 @@ export const translations = {
           hook: 'Alguien acaba de intentar hackear mi chatbot. Y me enteré en 3 segundos.',
           reactions: '300+',
           comments: '50+',
-          url: 'https://www.linkedin.com/posts/santifer_llmops-ai-observability-activity-7421984735024816128-Dpl_',
+          url: 'https://www.linkedin.com/posts/foliogpt_llmops-ai-observability-activity-7421984735024816128-Dpl_',
         },
         {
           hook: 'Tu próximo negocio está en este gráfico. Pista: no es la barra grande.',
@@ -551,10 +551,10 @@ export const translations = {
           url: 'https://www.linkedin.com/feed/update/urn:li:activity:7446828799167520768/',
         },
         {
-          hook: 'Acabo de vender mi empresa, Santifer iRepair, tras 16 años (no me he vuelto loco).',
+          hook: 'Acabo de vender mi empresa, Folio-GPT, tras 16 años (no me he vuelto loco).',
           reactions: '65+',
           comments: '15+',
-          url: 'https://www.linkedin.com/posts/santifer_opentowork-solutionarchitecture-hyperautomation-activity-7376346077542768640-8brZ',
+          url: 'https://www.linkedin.com/posts/foliogpt_opentowork-solutionarchitecture-hyperautomation-activity-7376346077542768640-8brZ',
         },
       ],
     },
@@ -577,7 +577,7 @@ export const translations = {
       likes: '3.9K',
       views: '542.9K',
       cta: 'Ver en X',
-      url: 'https://x.com/santifer/status/2041403685696053741',
+      url: 'https://x.com/foliogpt/status/2041403685696053741',
     },
     redditPosts: [
       {
@@ -655,7 +655,7 @@ export const translations = {
           event: 'Empresarios locales · Sevilla',
           eventUrl: '',
           title: 'Hiperautomatiza tu Pyme',
-          desc: 'Taller sobre hiperautomatización para pymes: orquestación, RPA, IA y gobernanza. Caso práctico: Santifer iRepair.',
+          desc: 'Taller sobre hiperautomatización para pymes: orquestación, RPA, IA y gobernanza. Caso práctico: Folio-GPT.',
           pdf: '/slides/Hiperautomatiza tu Pyme (SFVA).pdf',
           featured: false,
         },
@@ -669,7 +669,7 @@ export const translations = {
           org: 'Maven',
           title: 'AI Product Management Bootcamp',
           desc: 'Liderado por Marily Nika (ex-Google PM). AI PRDs, diseño de agentes.',
-          projectLink: 'contentdigest.santifer.io',
+          projectLink: 'contentdigest.foliogpt.com',
           projectLabel: 'Proyecto ganador',
         },
         {
@@ -874,7 +874,7 @@ export const translations = {
     greeting: 'who ships AI at scale',
     greetingRoles: ['Multi-Agent Systems Builder', 'Applied AI Operator', 'Open Source Builder', 'career-ops Creator'],
     pillLabels: ['Builder', 'Applied AI Operator'],
-    email: 'hi@santifer.io',
+    email: 'hi@foliogpt.com',
     role: '',
     story: {
       context: '+15 years building+ everything from scratch.',
@@ -886,7 +886,7 @@ export const translations = {
           '*Building* +systems that last+.',
         ],
       ],
-      why: 'At Santifer iRepair I automated everything I could: from an AI agent that handled 90% of customers to an operating system orchestrating 12 databases.',
+      why: 'At Folio-GPT I automated everything I could: from an AI agent that handled 90% of customers to an operating system orchestrating 12 databases.',
       seeking: [
         'This still feels like day one.',
         'Bigger teams. Harder problems. End-to-end.',
@@ -1018,7 +1018,7 @@ export const translations = {
           { icon: 'briefcase', name: 'applied-ai-ops', desc: 'Onboarding, codebase navigation, specs with AI for my role', tag: 'private' },
         ],
       },
-      githubLink: 'github.com/santifer',
+      githubLink: 'github.com/foliogpt',
       viewCode: 'View code',
       viewPrototype: 'View prototype',
       items: [
@@ -1028,7 +1028,7 @@ export const translations = {
           badgeBuilding: 'Building',
           desc: 'Python + FastAPI service for LLM-powered content ingestion and digest generation. Winning prototype, now in production with enterprise best practices.',
           tech: ['Python', 'FastAPI', 'OpenAI API', 'LLMOps'],
-          link: 'contentdigest.santifer.io',
+          link: 'contentdigest.foliogpt.com',
         },
         {
           title: 'Life OS',
@@ -1045,19 +1045,19 @@ export const translations = {
           desc: "HITL job search pipeline — AI periodically evaluates offers with multi-dimensional A-F scoring, spins up ATS-optimized PDF resumes per listing, and pre-fills applications. I review, filter, and decide which ones to ship. Batch-processes 48+ offers in parallel (conductor + workers), scans portals with dedup, and adapts narrative framing per role archetype. Plugs into **Life OS** as a specialized skill.",
           tech: ['Claude Code', 'Batch Architecture', 'WebSearch', 'HITL Design'],
           link: 'career-ops.org',
-          linkUrl: 'https://career-ops.org?utm_source=santifer.io&utm_medium=projects-grid&utm_campaign=home',
+          linkUrl: 'https://career-ops.org?utm_source=foliogpt.com&utm_medium=projects-grid&utm_campaign=home',
           stars: '43.8K',
           forks: '9.2K',
           caseStudyUrl: '/career-ops-system',
           caseStudyLabel: 'Case Study: AI Job Search',
         },
         {
-          title: 'santifer.io',
+          title: 'foliogpt.com',
           badge: 'This Portfolio',
           badgeBuilding: '',
           desc: 'Interactive CV with AI-augmented SDLC. Built with **Claudeable**, monitored with **Claude Pulse**, animations debugged with **Claude Eye**. SSR prerender, bilingual i18n, and automated SEO.',
           tech: ['React 19', 'TypeScript', 'Tailwind', 'Vite', 'Motion', 'Vercel'],
-          link: 'github.com/santifer/cv-santiago',
+          link: 'github.com/foliogpt/cv-santiago',
           stars: '549',
           forks: '216',
         },
@@ -1077,7 +1077,7 @@ export const translations = {
           badgeBuilding: '',
           desc: 'SwiftBar plugin for real-time Claude Code usage monitoring on macOS. Consumption metrics, rate limit predictions, and context-aware tips.',
           tech: ['Bash', 'SwiftBar', 'Anthropic API', 'jq'],
-          link: 'github.com/santifer/claude-pulse',
+          link: 'github.com/foliogpt/claude-pulse',
           stars: '7',
           isDependency: true,
           dependencyRole: 'monitoring',
@@ -1088,7 +1088,7 @@ export const translations = {
           badgeBuilding: '',
           desc: 'CLI that analyzes web animation videos frame-by-frame using Claude Vision. Detects CSS transition desyncs and generates reports with exact timestamps.',
           tech: ['Node.js', 'TypeScript', 'Claude Vision', 'FFmpeg'],
-          link: 'github.com/santifer/claude-eye',
+          link: 'github.com/foliogpt/claude-eye',
           stars: '11',
           isDependency: true,
           dependencyRole: 'animations',
@@ -1099,7 +1099,7 @@ export const translations = {
           badgeBuilding: '',
           desc: 'Claude Code meta-project for professional web development. Custom skills, templates and pre-configured MCPs to build Lovable-quality websites.',
           tech: ['Claude Code', 'React', 'Tailwind', 'shadcn/ui', 'MCP'],
-          link: 'github.com/santifer/claudeable',
+          link: 'github.com/foliogpt/claudeable',
           stars: '14',
           isDependency: true,
           dependencyRole: 'framework',
@@ -1110,7 +1110,7 @@ export const translations = {
           badgeBuilding: '',
           desc: 'Risk prediction dashboard for project portfolios. ML model trained on synthetic data flags delays before they happen. Second capstone from Maven AI PM bootcamp (Marily Nika).',
           tech: ['scikit-learn', 'FastAPI', 'React', 'TypeScript'],
-          link: 'projectos-predict.santifer.io',
+          link: 'projectos-predict.foliogpt.com',
         },
       ],
       saPlaybook: {
@@ -1168,7 +1168,7 @@ export const translations = {
         role: 'Creator & Maintainer',
         period: '2026 - Present',
         badge: 'Open Source',
-        url: 'https://career-ops.org?utm_source=santifer.io&utm_medium=experience&utm_campaign=link-juice',
+        url: 'https://career-ops.org?utm_source=foliogpt.com&utm_medium=experience&utm_campaign=link-juice',
         urlLabel: 'career-ops.org',
         desc: 'Open-source agentic system to automate job hunting with AI.',
         pressLabel: 'As featured in',
@@ -1191,8 +1191,8 @@ export const translations = {
         caseStudyUrl: '/career-ops-system',
         caseStudyLabel: 'Read: how I built career-ops',
       },
-      santifer: {
-        company: 'Santifer iRepair',
+      foliogpt: {
+        company: 'Folio-GPT',
         location: 'Seville, Spain',
         role: 'Founder & Product Lead (AI Automation)',
         period: '2009 - 2025 · Retail / Services B2B-B2C',
@@ -1261,7 +1261,7 @@ export const translations = {
         jacobo: {
           title: 'Omnichannel AI Agent "Jacobo"',
           badge: '~90% self-service',
-          github: 'santifer/jacobo-workflows',
+          github: 'foliogpt/jacobo-workflows',
           stars: '135',
           forks: '44',
           desc: 'Voice (ElevenLabs) + WhatsApp (n8n / WATI) + Aircall cloud PBX. Sub-agent orchestration via tool calling.',
@@ -1293,7 +1293,7 @@ export const translations = {
         webSeo: {
           title: 'Programmatic Web + Automated SEO',
           badge: 'Only one in sector in Spain',
-          github: 'santifer/santifer-irepair',
+          github: 'foliogpt/foliogpt-irepair',
           stars: '25',
           forks: '11',
           desc: '100% custom-made (2024). Headless CMS in Airtable as source of truth, integrated with ERP, generating Astro website with programmatic SEO.',
@@ -1388,7 +1388,7 @@ export const translations = {
           hook: 'Someone just tried to hack my chatbot. I found out in 3 seconds.',
           reactions: '300+',
           comments: '50+',
-          url: 'https://www.linkedin.com/posts/santifer_llmops-ai-observability-activity-7421984735024816128-Dpl_',
+          url: 'https://www.linkedin.com/posts/foliogpt_llmops-ai-observability-activity-7421984735024816128-Dpl_',
         },
         {
           hook: 'Your next business is in this chart. Hint: it\'s not the big bar.',
@@ -1403,10 +1403,10 @@ export const translations = {
           url: 'https://www.linkedin.com/feed/update/urn:li:activity:7446828799167520768/',
         },
         {
-          hook: "I just sold my company, Santifer iRepair, after 16 years (no, I haven't lost it).",
+          hook: "I just sold my company, Folio-GPT, after 16 years (no, I haven't lost it).",
           reactions: '65+',
           comments: '15+',
-          url: 'https://www.linkedin.com/posts/santifer_opentowork-solutionarchitecture-hyperautomation-activity-7376346077542768640-8brZ',
+          url: 'https://www.linkedin.com/posts/foliogpt_opentowork-solutionarchitecture-hyperautomation-activity-7376346077542768640-8brZ',
         },
       ],
     },
@@ -1429,7 +1429,7 @@ export const translations = {
       likes: '3.9K',
       views: '542.9K',
       cta: 'View on X',
-      url: 'https://x.com/santifer/status/2041403685696053741',
+      url: 'https://x.com/foliogpt/status/2041403685696053741',
     },
     redditPosts: [
       {
@@ -1507,7 +1507,7 @@ export const translations = {
           event: 'Local entrepreneurs · Seville',
           eventUrl: '',
           title: 'Hiperautomatiza tu Pyme',
-          desc: 'Workshop on hyperautomation for SMEs: orchestration, RPA, AI and governance. Case study: Santifer iRepair.',
+          desc: 'Workshop on hyperautomation for SMEs: orchestration, RPA, AI and governance. Case study: Folio-GPT.',
           pdf: '/slides/Hiperautomatiza tu Pyme (SFVA).pdf',
           featured: false,
         },
@@ -1521,7 +1521,7 @@ export const translations = {
           org: 'Maven',
           title: 'AI Product Management Bootcamp',
           desc: 'Led by Marily Nika (ex-Google PM). AI PRDs, agent design.',
-          projectLink: 'contentdigest.santifer.io',
+          projectLink: 'contentdigest.foliogpt.com',
           projectLabel: 'Winning project',
         },
         {
@@ -1537,7 +1537,7 @@ export const translations = {
           desc: 'Technical SEO, content and analytics',
           testimonial: {
             quote:
-              'Santiago stood out — not just for his SEO skills, but for how he brought the cohort together. Everyone respected him by the end.',
+              'Karthik stood out — not just for his SEO skills, but for how he brought the cohort together. Everyone respected him by the end.',
             author: 'Javier Martínez García',
             role: 'CMO @ BIGSEO & BIG School',
             photo: '/javier-martinez.jpeg',

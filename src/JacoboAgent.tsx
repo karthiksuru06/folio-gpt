@@ -115,7 +115,7 @@ export default function JacoboAgent({ lang = 'en' }: { lang?: Lang }) {
     altSlug: t.altSlug,
     title: t.seo.title,
     description: t.seo.description,
-    image: 'https://santifer.io/jacobo/og-jacobo-agent.webp',
+    image: 'https://foliogpt.com/jacobo/og-jacobo-agent.webp',
     publishedTime: '2026-02-25',
     modifiedTime: '2026-05-10',
     articleTags: 'AI agent,multi-agent,n8n,ElevenLabs,HITL,tool calling,WhatsApp,voice AI',
@@ -135,7 +135,7 @@ export default function JacoboAgent({ lang = 'en' }: { lang?: Lang }) {
 
       <MetricsGrid editorId="hero-metrics" items={t.heroMetrics} columns={5} compact />
 
-      <GitHubRepoBadge repo="santifer/jacobo-workflows" stars="135" forks="44" lang={lang} />
+      <GitHubRepoBadge repo="foliogpt/jacobo-workflows" stars="135" forks="44" lang={lang} />
 
       {/* TL;DR */}
       <Callout editorId="tldr-callout" className="-mx-2 sm:mx-0">{t.tldr}</Callout>
@@ -148,8 +148,8 @@ export default function JacoboAgent({ lang = 'en' }: { lang?: Lang }) {
 
       {/* Hero images */}
       <Photo2 editorId="hero-photos" items={[
-        { src: '/jacobo/santiago-headphones-thinking.webp', alt: 'Santiago Fernández de Valderrama', loading: 'eager', width: 360, height: 480 },
-        { src: '/jacobo/shop-microsoldering-station.webp', alt: lang === 'es' ? 'Estación de microsoldadura en Santifer iRepair' : 'Microsoldering station at Santifer iRepair', loading: 'eager', width: 540, height: 720 },
+        { src: '/jacobo/santiago-headphones-thinking.webp', alt: 'Karthik Suru', loading: 'eager', width: 360, height: 480 },
+        { src: '/jacobo/shop-microsoldering-station.webp', alt: lang === 'es' ? 'Estación de microsoldadura en Folio-GPT' : 'Microsoldering station at Folio-GPT', loading: 'eager', width: 540, height: 720 },
       ]} caption={lang === 'es' ? 'Cada llamada interrumpe una reparación en curso: el técnico deja la microsoldadura para atender al teléfono' : 'Every call interrupts a repair in progress: the technician leaves the microsoldering station to answer the phone'} />
 
       <article className="prose-custom">
@@ -170,7 +170,7 @@ export default function JacoboAgent({ lang = 'en' }: { lang?: Lang }) {
 
         {/* Counter + Diagnostic screen */}
         <Photo2 editorId="problem-shop-counter" items={[
-          { src: '/jacobo/shop-counter-smart-displays.webp', alt: lang === 'es' ? 'Mostrador de Santifer iRepair con smart displays' : 'Santifer iRepair counter with smart displays', width: 1024, height: 768 },
+          { src: '/jacobo/shop-counter-smart-displays.webp', alt: lang === 'es' ? 'Mostrador de Folio-GPT con smart displays' : 'Folio-GPT counter with smart displays', width: 1024, height: 768 },
           { src: '/jacobo/shop-diagnostic-screen.webp', alt: lang === 'es' ? 'Pantalla de diagnóstico en la tienda' : 'Diagnostic screen in the shop', width: 1024, height: 768 },
         ]} caption={lang === 'es' ? 'El mostrador con smart displays y la pantalla de diagnóstico: el negocio que necesitaba un agente IA' : 'The counter with smart displays and the diagnostic screen: the business that needed an AI agent'} />
 
@@ -396,7 +396,7 @@ export default function JacoboAgent({ lang = 'en' }: { lang?: Lang }) {
         <ScreenshotGrid editorId="email-formal-flow" lang={lang} items={[
           { src: 'email-formal-1.webp', altEs: 'Jacobo responde como email formal: asunto, saludo, presupuesto Huawei P20 Pro', altEn: 'Jacobo responds as formal email: subject line, greeting, Huawei P20 Pro quote', width: 1170, height: 2532 },
           { src: 'email-formal-2.webp', altEs: 'Email: desglose batería + puerto carga = 85,80€ → descuento combo 70,80€', altEn: 'Email: battery + charging port = €85.80 → combo discount €70.80', width: 1170, height: 2532 },
-          { src: 'email-formal-3.webp', altEs: 'Firma: "Un saludo, Jacobo — Santifer iRepair — dirección + teléfono + email"', altEn: 'Signature: "Best regards, Jacobo — Santifer iRepair — address + phone + email"', width: 1170, height: 2532 },
+          { src: 'email-formal-3.webp', altEs: 'Firma: "Un saludo, Jacobo — Folio-GPT — dirección + teléfono + email"', altEn: 'Signature: "Best regards, Jacobo — Folio-GPT — address + phone + email"', width: 1170, height: 2532 },
         ]} />
         <ScreenshotCaption editorId="email-formal-flow-caption" lang={lang} es="Adaptabilidad: el cliente pide formato email y Jacobo responde con asunto, presupuesto desglosado, descuento combo y firma corporativa" en="Adaptability: customer asks for email format and Jacobo responds with subject line, itemized quote, combo discount and corporate signature" />
 
@@ -597,7 +597,7 @@ export default function JacoboAgent({ lang = 'en' }: { lang?: Lang }) {
         <Prose editorId="calculator-body" className="mb-2">{t.sections.deepDiveOthers.calculator.body}</Prose>
         <NodeLabel editorId="calculator-nodes">{t.sections.deepDiveOthers.calculator.nodes}</NodeLabel>
         <DiagramZoom editorId="calculator-n8n-workflow" src="/jacobo/n8n-calculadora.webp" hdSrc="/jacobo/calculator-n8n-workflow-2x.webp" alt={lang === 'es' ? 'Workflow de la Calculadora de Descuentos en n8n: Webhook → Code (lógica de descuentos) → Response' : 'Discount Calculator workflow in n8n: Webhook → Code (discount logic) → Response'} width={1392} height={912} hdWidth={2512} hdHeight={1312} className="mb-4" />
-        <InlineWorkflowDownload href={wfById['calculadora-santifer'].href} label={t.downloads.inlineLabel} fileSize={wfById['calculadora-santifer'].fileSize} />
+        <InlineWorkflowDownload href={wfById['calculadora-foliogpt'].href} label={t.downloads.inlineLabel} fileSize={wfById['calculadora-foliogpt'].fileSize} />
 
         <BulletList editorId="calculator-details" items={t.sections.deepDiveOthers.calculator.details} className="mb-4" />
         <CodeBlock editorId="calculator-code" segments={t.sections.deepDiveOthers.calculator.segments} />
@@ -685,10 +685,10 @@ export default function JacoboAgent({ lang = 'en' }: { lang?: Lang }) {
           heading={t.cta.heading}
           body={t.cta.body}
           ctaLabel={`${t.cta.label} →`}
-          ctaHref="https://linkedin.com/in/santifer"
+          ctaHref="https://linkedin.com/in/foliogpt"
           external
           secondaryLabel={`${(t.cta as any).labelSecondary} →`}
-          secondaryHref="mailto:hola@santifer.io"
+          secondaryHref="mailto:hola@foliogpt.com"
         />
 
         {/* ================================================================ */}
@@ -777,10 +777,10 @@ export default function JacoboAgent({ lang = 'en' }: { lang?: Lang }) {
           heading={(t as any).ctaAfterEnterprise.heading}
           body={t.cta.body}
           ctaLabel={`${t.cta.label} →`}
-          ctaHref="https://linkedin.com/in/santifer"
+          ctaHref="https://linkedin.com/in/foliogpt"
           external
           secondaryLabel={`${(t.cta as any).labelSecondary} →`}
-          secondaryHref="mailto:hola@santifer.io"
+          secondaryHref="mailto:hola@foliogpt.com"
         />
 
         {/* ================================================================ */}
@@ -801,7 +801,7 @@ export default function JacoboAgent({ lang = 'en' }: { lang?: Lang }) {
         {/* GitHub repo link */}
         <div className="flex justify-center mb-4">
           <a
-            href="https://github.com/santifer/jacobo-workflows"
+            href="https://github.com/foliogpt/jacobo-workflows"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors text-sm"
@@ -829,10 +829,10 @@ export default function JacoboAgent({ lang = 'en' }: { lang?: Lang }) {
           heading={(t as any).ctaAfterDownloads.heading}
           body=""
           ctaLabel={`${t.cta.label} →`}
-          ctaHref="https://linkedin.com/in/santifer"
+          ctaHref="https://linkedin.com/in/foliogpt"
           external
           secondaryLabel={`${(t.cta as any).labelSecondary} →`}
-          secondaryHref="mailto:hola@santifer.io"
+          secondaryHref="mailto:hola@foliogpt.com"
         />
 
         {/* ================================================================ */}

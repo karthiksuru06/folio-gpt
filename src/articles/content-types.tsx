@@ -1022,7 +1022,7 @@ export function StoryBridge({ lines, className, editorId }: StoryBridgeProps) {
 // 17. ScreenshotGrid + ScreenshotCaption (moved from JacoboAgent)
 // ---------------------------------------------------------------------------
 
-function ScreenshotFigure({ src, alt, summaryEn, lang, width, height, className }: { src: string; alt: string; summaryEn: string; lang: 'es' | 'en'; width?: number; height?: number; className?: string }) {
+function ScreenshotFigure({ src, alt, summaryEn, lang, width, height, className }: { src: string; alt: string; summaryEn: string; lang: 'en' | 'en'; width?: number; height?: number; className?: string }) {
   const showOverlay = lang === 'en'
   const [hovered, setHovered] = useState(false)
   return (
@@ -1055,7 +1055,7 @@ export interface ScreenshotItem {
 
 interface ScreenshotGridProps {
   items: readonly ScreenshotItem[]
-  lang: 'es' | 'en'
+  lang: 'en' | 'en'
   basePath?: string
   editorId?: string
 }
@@ -1103,7 +1103,7 @@ export function ScreenshotGrid({ items, lang, basePath = '/jacobo/screenshots', 
 interface ScreenshotCaptionProps {
   es: string
   en: string
-  lang: 'es' | 'en'
+  lang: 'en' | 'en'
   editorId?: string
 }
 

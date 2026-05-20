@@ -34,7 +34,7 @@ interface Message {
 }
 
 interface FloatingChatProps {
-  lang: 'es' | 'en';
+  lang: 'en' | 'en';
 }
 
 const PromptIcon = ({ icon }: { icon: string }) => {

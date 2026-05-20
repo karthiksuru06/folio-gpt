@@ -13,7 +13,7 @@ const PrivacyPolicy = lazy(() => import('./PrivacyPolicy'))
 const AboutPage = lazy(() => import('./AboutPage'))
 
 // Lazy-load article components from registry
-const articleComponents: Record<string, React.LazyExoticComponent<ComponentType<{ lang: 'es' | 'en' }>>> = {}
+const articleComponents: Record<string, React.LazyExoticComponent<ComponentType<{ lang: 'en' | 'en' }>>> = {}
 for (const article of articleRegistry) {
   articleComponents[article.id] = lazy(article.component)
 }
@@ -166,14 +166,14 @@ const app = (
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/en" element={<App />} />
-            <Route path="/sobre-mi" element={<AboutPage lang="es" />} />
+            <Route path="/sobre-mi" element={<AboutPage lang="en" />} />
             <Route path="/about" element={<AboutPage lang="en" />} />
-            <Route path="/privacidad" element={<PrivacyPolicy lang="es" />} />
+            <Route path="/privacidad" element={<PrivacyPolicy lang="en" />} />
             <Route path="/privacy" element={<PrivacyPolicy lang="en" />} />
             {articleRegistry.map((article) => {
               const ArticleComponent = articleComponents[article.id]
               return [
-                <Route key={`${article.id}-es`} path={`/${article.slugs.es}`} element={<ArticleComponent lang="es" />} />,
+                <Route key={`${article.id}-es`} path={`/${article.slugs.es}`} element={<ArticleComponent lang="en" />} />,
                 <Route key={`${article.id}-en`} path={`/${article.slugs.en}`} element={<ArticleComponent lang="en" />} />,
               ]
             })}

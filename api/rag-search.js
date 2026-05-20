@@ -36,7 +36,7 @@ function getLangfuse() {
 // Claude reasoning layer — turns raw RAG chunks into a verified answer
 // ---------------------------------------------------------------------------
 
-const VOICE_OVERRIDE = `Respuesta para conversación hablada. Max 2-3 frases. Sin markdown ni links. Lenguaje natural hablado. Sé preciso con datos del contexto — nunca inventes. SIEMPRE habla en PRIMERA PERSONA como Santiago — nunca en tercera persona ("Santiago hizo..."), sino "Yo hice...", "Construí...", "Mi proyecto...".`
+const VOICE_OVERRIDE = `Respuesta para conversación hablada. Max 2-3 frases. Sin markdown ni links. Lenguaje natural hablado. Sé preciso con datos del contexto — nunca inventes. SIEMPRE habla en PRIMERA PERSONA como Karthik — nunca en tercera persona ("Karthik hizo..."), sino "Yo hice...", "Construí...", "Mi proyecto...".`
 
 async function reasonWithClaude(query, formattedChunks, span, langfuse) {
   const t0 = Date.now()

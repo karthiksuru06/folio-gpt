@@ -33,11 +33,11 @@ export const n8nContent = {
     altSlug: 'n8n-for-pms',
     readingTime: '5 min de lectura',
     seo: {
-      title: 'n8n para PMs: Cheat Sheet + Templates IA Gratis | santifer.io',
+      title: 'n8n para PMs: Cheat Sheet + Templates IA Gratis | foliogpt.com',
       description: 'Cheat sheet de n8n para Product Managers: automatiza sprint reports y clasifica feedback con IA. 2 templates importables gratis. Tutorial paso a paso.',
     },
     nav: {
-      back: 'santifer.io',
+      back: 'foliogpt.com',
       breadcrumbHome: 'Inicio',
       breadcrumbCurrent: 'n8n para PMs',
     },
@@ -250,11 +250,11 @@ export const n8nContent = {
     altSlug: 'n8n-para-pms',
     readingTime: '5 min read',
     seo: {
-      title: 'n8n for PMs: Cheat Sheet + Free AI Templates | santifer.io',
+      title: 'n8n for PMs: Cheat Sheet + Free AI Templates | foliogpt.com',
       description: 'n8n cheat sheet for Product Managers: automate sprint reports and classify feedback with AI. 2 free importable workflow templates. Step-by-step tutorial.',
     },
     nav: {
-      back: 'santifer.io',
+      back: 'foliogpt.com',
       breadcrumbHome: 'Home',
       breadcrumbCurrent: 'n8n for PMs',
     },

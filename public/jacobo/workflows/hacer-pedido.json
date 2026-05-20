@@ -25,7 +25,7 @@
           "__rl": true,
           "value": "appXXXXXXXXXXXXXXX",
           "mode": "list",
-          "cachedResultName": "santifer iRepair",
+          "cachedResultName": "foliogpt iRepair",
           "cachedResultUrl": "https://airtable.com/appXXXXXXXXXXXXXXX"
         },
         "table": {
@@ -1007,8 +1007,8 @@
               "removed": true
             },
             {
-              "id": "URL santifer",
-              "displayName": "URL santifer",
+              "id": "URL foliogpt",
+              "displayName": "URL foliogpt",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -2470,8 +2470,8 @@
               "removed": true
             },
             {
-              "id": "URLSantiferNuevaPieza",
-              "displayName": "URLSantiferNuevaPieza",
+              "id": "URLFolio-GPTNuevaPieza",
+              "displayName": "URLFolio-GPTNuevaPieza",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,

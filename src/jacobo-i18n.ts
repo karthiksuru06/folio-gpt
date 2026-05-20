@@ -4,7 +4,7 @@ export const jacoboContent = {
       altSlug: 'ai-agent-jacobo',
       readingTime: '35 min de lectura',
       seo: {
-        title: 'Jacobo: Agente IA Multi-Agente con Tool Calling y Voice AI · Case Study de Producción | santifer.io',
+        title: 'Jacobo: Agente IA Multi-Agente con Tool Calling y Voice AI · Case Study de Producción | foliogpt.com',
         description: 'Case study: cómo un FDE construyó un agente IA omnicanal con sub-agentes, tool calling, HITL y Voice AI (n8n + ElevenLabs) que logra 90% de autoservicio. Workflows descargables.',
       },
       nav: {
@@ -12,7 +12,7 @@ export const jacoboContent = {
         breadcrumbCurrent: 'Agente IA Jacobo',
       },
       header: {
-        kicker: 'Case Study: Santifer iRepair (búscalo en Google, sigue operando hoy)',
+        kicker: 'Case Study: Folio-GPT (búscalo en Google, sigue operando hoy)',
         h1: 'Jacobo: Agente IA Omnicanal con Sub-agentes y Tool Calling',
         subtitle: 'Cómo construí un agente IA que atiende por WhatsApp y teléfono fijo, orquesta sub-agentes especializados vía webhooks y logra ~90% de autoservicio en un negocio de reparación de móviles.',
         badge: 'Sistema vendido con el negocio en 2025. Sigue en producción hoy',
@@ -340,7 +340,7 @@ export const jacoboContent = {
           },
           parseUrl: {
             heading: 'ParseURL',
-            body: 'Un nodo Code que extrae el subdomain de la URL de YouCanBookMe para determinar qué perfil de reservas usar. Parsea el query string para campos dinámicos del formulario (tipo de reparación, datos del cliente). Diferentes calendarios para diferentes servicios: santifer-citav2-componentes para reparaciones de componentes, santifer-citav2-diagnostico para diagnósticos. El subdomain determina el flujo completo que seguirá la reserva.',
+            body: 'Un nodo Code que extrae el subdomain de la URL de YouCanBookMe para determinar qué perfil de reservas usar. Parsea el query string para campos dinámicos del formulario (tipo de reparación, datos del cliente). Diferentes calendarios para diferentes servicios: foliogpt-citav2-componentes para reparaciones de componentes, foliogpt-citav2-diagnostico para diagnósticos. El subdomain determina el flujo completo que seguirá la reserva.',
           },
           analizarDisponibilidad: {
             heading: 'AnalizarDisponibilidad (LLM)',
@@ -466,7 +466,7 @@ export const jacoboContent = {
               'ASR de alta calidad (provider: ElevenLabs, PCM 16kHz) + turn_timeout de 7s + silence_end_call de 20s para manejar pausas naturales en conversación',
               'LLM: GPT-4.1 (temp 0.0) para máxima precisión en tool calling por voz. Latencia optimizada (optimize_streaming_latency: 4)',
               'Voice model: eleven_flash_v2_5, velocidad 1.2x, stability 0.6, similarity 0.8. Conversaciones de hasta 5 minutos (300s)',
-              'Knowledge base con 3 fuentes (Google Maps, web de Santifer iRepair, resumen del negocio) aprovechando el RAG nativo de ElevenLabs (e5_mistral_7b_instruct). No construí RAG custom: la plataforma lo ofrecía y suponía alto impacto con zero effort. Priorización RICE pura. En n8n no lo necesitaba: el agente de WhatsApp ya accedía al contexto de negocio vía tool calling directo a Airtable',
+              'Knowledge base con 3 fuentes (Google Maps, web de Folio-GPT, resumen del negocio) aprovechando el RAG nativo de ElevenLabs (e5_mistral_7b_instruct). No construí RAG custom: la plataforma lo ofrecía y suponía alto impacto con zero effort. Priorización RICE pura. En n8n no lo necesitaba: el agente de WhatsApp ya accedía al contexto de negocio vía tool calling directo a Airtable',
               '5 tools webhook compartidos con n8n: presupuestoModelo, subagenteCitas, Calculadora, contactarAgenteHumano y enviarMensajeWati. Timeout de 20s por tool, ejecución inmediata',
               'enviarMensajeWati era la magia cross-channel: mientras hablaba por teléfono, Jacobo enviaba enlaces y presupuestos por WhatsApp en paralelo usando el caller_id como variable dinámica. A los clientes les encantaba recibir la info en el móvil mientras seguían hablando',
             ],
@@ -501,12 +501,12 @@ export const jacoboContent = {
               {
                 src: '/jacobo/pbx-welcome.mp3',
                 label: 'Bienvenida',
-                transcript: '"A continuación, atenderemos tu llamada. Gracias por llamar a Santifer iRepair. Para asegurar la calidad del servicio, tu llamada puede ser grabada."',
+                transcript: '"A continuación, atenderemos tu llamada. Gracias por llamar a Folio-GPT. Para asegurar la calidad del servicio, tu llamada puede ser grabada."',
               },
               {
                 src: '/jacobo/pbx-ivr.mp3',
                 label: 'Menú IVR',
-                transcript: '"Marca 1 para solicitar una nueva reparación. Marca 2 para consultar el estado de tu reparación. Marca 3 para hablar conmigo, Jacobo. Tu asistente virtual 24/7 en Santifer iRepair. Obtendrás presupuesto y cita al instante."',
+                transcript: '"Marca 1 para solicitar una nueva reparación. Marca 2 para consultar el estado de tu reparación. Marca 3 para hablar conmigo, Jacobo. Tu asistente virtual 24/7 en Folio-GPT. Obtendrás presupuesto y cita al instante."',
                 highlight: 'Marca 3 para hablar conmigo, Jacobo',
               },
             ],
@@ -830,7 +830,7 @@ return [{ json: { isBH } }];`,
             segments: [
               {
                 code: `## ROL
-Te llamas Jacobo y trabajas en Santifer iRepair, tienda de reparación
+Te llamas Jacobo y trabajas en Folio-GPT, tienda de reparación
 de móviles, tablets, smartwatches en Sevilla. Eres un experto comercial
 y en electrónica, que sabe diagnosticar los problemas que tienen los
 usuarios en sus dispositivos móviles.`,
@@ -915,7 +915,7 @@ smartwatch, dar ayuda general pero no invitar a dejarlo en tienda.`,
 5. Enlaces planos, sin markdown (Meta rechaza [text](url))
 6. Solo llamar a subagenteCitas TRAS presupuestoModelo
 7. Diagnóstico: 19€, solo se cobra si no acepta la reparación
-8. Correo: contacto@santiferirepair.es (no info@)`,
+8. Correo: contacto@foliogpt.com (no info@)`,
                 annotations: [
                   {
                     label: 'Hard rules como guardrails de producción',
@@ -941,7 +941,7 @@ smartwatch, dar ayuda general pero no invitar a dejarlo en tienda.`,
             segments: [
               {
                 code: `## ROL
-Te llamas Jacobo y trabajas en Santifer iRepair, tienda de reparación
+Te llamas Jacobo y trabajas en Folio-GPT, tienda de reparación
 de móviles, tablets, smartwatches en Sevilla. Sé conciso, amigable y
 resolutivo.`,
                 annotations: [
@@ -967,7 +967,7 @@ Objetivo: que el cliente tome cita (si hay stock) o genere pedido.`,
                 code: `## Instrucciones
 1. Obtener modelo y avería
 2. Indicar que estás haciendo la consulta → llamar a "presupuestoModelo"
-3. Enviar "urlSantifer" vía "EnviarMensajeWati" (WhatsApp en paralelo)
+3. Enviar "urlFolio-GPT" vía "EnviarMensajeWati" (WhatsApp en paralelo)
 4. Si varias reparaciones → llamar a "Calculadora"
 5. Informar precio + disponibilidad + "te he mandado la info por WhatsApp"`,
                 annotations: [
@@ -1115,7 +1115,7 @@ Input: "lunes a las 10"
               },
               {
                 rule: 'Atribución del creador como lead gen',
-                origin: 'Un reclutador preguntó a Jacobo "¿quién te ha diseñado?" y no supo responder. Ahora el prompt de producción incluye reglas que mencionan a Santiago como creador con enlace a LinkedIn. El agente se convierte en un canal pasivo de generación de leads.',
+                origin: 'Un reclutador preguntó a Jacobo "¿quién te ha diseñado?" y no supo responder. Ahora el prompt de producción incluye reglas que mencionan a Karthik como creador con enlace a LinkedIn. El agente se convierte en un canal pasivo de generación de leads.',
               },
             ],
           },
@@ -1151,7 +1151,7 @@ Input: "lunes a las 10"
             tools: [
               {
                 label: 'BuscarModelo',
-                detail: 'Busca por campo modeloLimpio en tabla Modelos → devuelve RECORD_ID, Name, URLSantiferNueva, Cita diagnóstico.',
+                detail: 'Busca por campo modeloLimpio en tabla Modelos → devuelve RECORD_ID, Name, URLFolio-GPTNueva, Cita diagnóstico.',
               },
               {
                 label: 'BuscarReparacionesModelo',
@@ -1159,14 +1159,14 @@ Input: "lunes a las 10"
               },
               {
                 label: 'Structured Output Parser',
-                detail: 'Formatea a JSON con schema: modelo, reparación, precio, stock, urlSantifer, urlCita, urlPresupuesto, urlDiagnostico, idPiezaAirtable, idModeloAirtable.',
+                detail: 'Formatea a JSON con schema: modelo, reparación, precio, stock, urlFolio-GPT, urlCita, urlPresupuesto, urlDiagnostico, idPiezaAirtable, idModeloAirtable.',
               },
             ],
             fallback: 'Si no encuentra coincidencia, el system prompt instruye: "tienes que ir acotando el modelo para obtener más resultados, hasta que te quedes con el que corresponda", replicando el razonamiento de un humano experimentado.',
           },
           filtrarRespuesta: {
             heading: 'FiltrarRespuesta: Post-procesado determinista',
-            body: 'Nodo Code que valida y limpia la respuesta del AI Agent antes de devolverla al router. Valida que urlSantifer apunte al dominio correcto (si no contiene "santiferirepair.es" → "NO DISPONIBLE EN WEB AUN"). Después aplica 3 paths de eliminación de campos según estado:',
+            body: 'Nodo Code que valida y limpia la respuesta del AI Agent antes de devolverla al router. Valida que urlFolio-GPT apunte al dominio correcto (si no contiene "foliogpt.com" → "NO DISPONIBLE EN WEB AUN"). Después aplica 3 paths de eliminación de campos según estado:',
             rules: [
               {
                 condition: 'stock === true',
@@ -1189,7 +1189,7 @@ Input: "lunes a las 10"
             segments: [
               {
                 code: `## ROL
-Eres un sub-agente de presupuestos para Santifer iRepair.
+Eres un sub-agente de presupuestos para Folio-GPT.
 Tu trabajo: recibir un modelo y una reparación, buscarlos en Airtable
 y devolver un presupuesto estructurado.`,
                 annotations: [
@@ -1452,7 +1452,7 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
             name: 'Jacobo Chatbot V2',
             subtitle: 'Central Router',
             description: 'El cerebro del canal WhatsApp. Clasifica intent, elige sub-agente, mantiene ventana de memoria de 20 mensajes.',
-            href: 'https://github.com/santifer/jacobo-workflows/blob/main/jacobo-chatbot-v2.json',
+            href: 'https://github.com/foliogpt/jacobo-workflows/blob/main/jacobo-chatbot-v2.json',
             fileSize: '~66 KB',
             nodes: '37 nodos',
             llm: 'GPT-4.1',
@@ -1463,7 +1463,7 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
             name: 'subagenteCitas',
             subtitle: 'Appointment Booking',
             description: 'Convierte "mañana por la mañana" en una cita confirmada. Parsea preferencias temporales en lenguaje natural.',
-            href: 'https://github.com/santifer/jacobo-workflows/blob/main/subagente-citas.json',
+            href: 'https://github.com/foliogpt/jacobo-workflows/blob/main/subagente-citas.json',
             fileSize: '~24 KB',
             nodes: '18 nodos',
             llm: 'MiniMax M2.5',
@@ -1474,7 +1474,7 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
             name: 'Presupuesto Modelo',
             subtitle: 'Quote Agent',
             description: 'Busca modelo y reparación en Airtable, devuelve precio real con estado de stock.',
-            href: 'https://github.com/santifer/jacobo-workflows/blob/main/presupuesto-modelo.json',
+            href: 'https://github.com/foliogpt/jacobo-workflows/blob/main/presupuesto-modelo.json',
             fileSize: '~15 KB',
             nodes: '11 nodos',
             llm: 'GPT-4.1 mini',
@@ -1485,17 +1485,17 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
             name: 'hacerPedido',
             subtitle: 'Order Creation',
             description: 'Crea órdenes de reparación en Airtable cuando la pieza no tiene stock.',
-            href: 'https://github.com/santifer/jacobo-workflows/blob/main/hacer-pedido.json',
+            href: 'https://github.com/foliogpt/jacobo-workflows/blob/main/hacer-pedido.json',
             fileSize: '~79 KB',
             nodes: '3 nodos',
           },
           {
-            id: 'calculadora-santifer',
+            id: 'calculadora-foliogpt',
             icon: '🧮',
-            name: 'CalculadoraSantifer',
+            name: 'CalculadoraFolio-GPT',
             subtitle: 'Discount Calculator',
             description: 'Lógica pura de negocio. Calcula descuentos combo cuando el cliente agrupa varias reparaciones.',
-            href: 'https://github.com/santifer/jacobo-workflows/blob/main/calculadora-santifer.json',
+            href: 'https://github.com/foliogpt/jacobo-workflows/blob/main/calculadora-foliogpt.json',
             fileSize: '~2.7 KB',
             nodes: '3 nodos',
           },
@@ -1505,7 +1505,7 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
             name: 'contactarAgenteHumano',
             subtitle: 'HITL Handoff',
             description: 'La válvula de escape. Escala a humano vía Slack con deep-link directo a la conversación.',
-            href: 'https://github.com/santifer/jacobo-workflows/blob/main/contactar-agente-humano.json',
+            href: 'https://github.com/foliogpt/jacobo-workflows/blob/main/contactar-agente-humano.json',
             fileSize: '~2.3 KB',
             nodes: '5 nodos',
           },
@@ -1515,7 +1515,7 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
             name: 'EnviarMensajeWati',
             subtitle: 'WhatsApp Sender',
             description: 'Puente cross-channel: el agente de voz envía mensajes por WhatsApp vía la API de WATI.',
-            href: 'https://github.com/santifer/jacobo-workflows/blob/main/enviar-mensaje-wati.json',
+            href: 'https://github.com/foliogpt/jacobo-workflows/blob/main/enviar-mensaje-wati.json',
             fileSize: '~2.5 KB',
             nodes: '3 nodos',
           },
@@ -1536,7 +1536,7 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
       altSlug: 'agente-ia-jacobo',
       readingTime: '35 min read',
       seo: {
-        title: 'Jacobo: Multi-Agent AI with Tool Calling & Voice AI — Production Case Study | santifer.io',
+        title: 'Jacobo: Multi-Agent AI with Tool Calling & Voice AI — Production Case Study | foliogpt.com',
         description: 'Case study: how an FDE built an omnichannel AI agent with sub-agents, tool calling, HITL, and Voice AI (n8n + ElevenLabs) achieving 90% self-service. Downloadable workflows.',
       },
       nav: {
@@ -1544,7 +1544,7 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
         breadcrumbCurrent: 'AI Agent Jacobo',
       },
       header: {
-        kicker: 'Case Study: Santifer iRepair (Google it — still operating today)',
+        kicker: 'Case Study: Folio-GPT (Google it — still operating today)',
         h1: 'Jacobo: Multi-Agent AI with Sub-Agent Orchestration & Tool Calling',
         subtitle: 'How I built an AI agent that handles WhatsApp and landline calls, orchestrates specialized sub-agents via webhooks, and achieves ~90% self-service at a phone repair business.',
         badge: 'Sold with the business in 2025 — still running in production today',
@@ -1872,7 +1872,7 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
           },
           parseUrl: {
             heading: 'ParseURL',
-            body: 'A Code node that extracts the subdomain from the YouCanBookMe URL to determine which booking profile to use. Parses the query string for dynamic form fields (repair type, customer data). Different calendars for different services: santifer-citav2-componentes for component repairs, santifer-citav2-diagnostico for diagnostics. The subdomain determines the entire booking flow downstream.',
+            body: 'A Code node that extracts the subdomain from the YouCanBookMe URL to determine which booking profile to use. Parses the query string for dynamic form fields (repair type, customer data). Different calendars for different services: foliogpt-citav2-componentes for component repairs, foliogpt-citav2-diagnostico for diagnostics. The subdomain determines the entire booking flow downstream.',
           },
           analizarDisponibilidad: {
             heading: 'AnalizarDisponibilidad (LLM)',
@@ -1998,7 +1998,7 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
               'High-quality ASR (provider: ElevenLabs, PCM 16kHz) + 7s turn_timeout + 20s silence_end_call to handle natural conversational pauses',
               'LLM: GPT-4.1 (temp 0.0) for maximum precision in voice tool calling. Optimized latency (optimize_streaming_latency: 4)',
               'Voice model: eleven_flash_v2_5, speed 1.2x, stability 0.6, similarity 0.8. Conversations up to 5 minutes (300s)',
-              'Knowledge base with 3 sources (Google Maps, Santifer iRepair website, business summary) leveraging ElevenLabs\' native RAG (e5_mistral_7b_instruct). Didn\'t build custom RAG: the platform offered it and it was high impact with zero effort. Pure RICE prioritization. n8n didn\'t need it: the WhatsApp agent already accessed business context via direct tool calling to Airtable',
+              'Knowledge base with 3 sources (Google Maps, Folio-GPT website, business summary) leveraging ElevenLabs\' native RAG (e5_mistral_7b_instruct). Didn\'t build custom RAG: the platform offered it and it was high impact with zero effort. Pure RICE prioritization. n8n didn\'t need it: the WhatsApp agent already accessed business context via direct tool calling to Airtable',
               '5 shared webhook tools with n8n: presupuestoModelo, subagenteCitas, Calculadora, contactarAgenteHumano, and enviarMensajeWati. 20s timeout per tool, immediate execution',
               'enviarMensajeWati was the cross-channel magic: while talking on the phone, Jacobo sent links and quotes via WhatsApp in parallel using the caller_id as a dynamic variable. Customers loved getting the info on their phone while still on the call',
             ],
@@ -2033,14 +2033,14 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
               {
                 src: '/jacobo/pbx-welcome.mp3',
                 label: 'Welcome',
-                transcript: '"We\'ll be right with you. Thank you for calling Santifer iRepair. For quality assurance, your call may be recorded."',
-                transcriptOriginal: '"A continuación, atenderemos tu llamada. Gracias por llamar a Santifer iRepair. Para asegurar la calidad del servicio, tu llamada puede ser grabada."',
+                transcript: '"We\'ll be right with you. Thank you for calling Folio-GPT. For quality assurance, your call may be recorded."',
+                transcriptOriginal: '"A continuación, atenderemos tu llamada. Gracias por llamar a Folio-GPT. Para asegurar la calidad del servicio, tu llamada puede ser grabada."',
               },
               {
                 src: '/jacobo/pbx-ivr.mp3',
                 label: 'IVR Menu',
-                transcript: '"Press 1 for a new repair. Press 2 to check your repair status. Press 3 to talk to me, Jacobo. Your 24/7 virtual assistant at Santifer iRepair. Get a quote and book an appointment instantly."',
-                transcriptOriginal: '"Marca 1 para solicitar una nueva reparación. Marca 2 para consultar el estado de tu reparación. Marca 3 para hablar conmigo, Jacobo. Tu asistente virtual 24/7 en Santifer iRepair. Obtendrás presupuesto y cita al instante."',
+                transcript: '"Press 1 for a new repair. Press 2 to check your repair status. Press 3 to talk to me, Jacobo. Your 24/7 virtual assistant at Folio-GPT. Get a quote and book an appointment instantly."',
+                transcriptOriginal: '"Marca 1 para solicitar una nueva reparación. Marca 2 para consultar el estado de tu reparación. Marca 3 para hablar conmigo, Jacobo. Tu asistente virtual 24/7 en Folio-GPT. Obtendrás presupuesto y cita al instante."',
                 highlight: 'Press 3 to talk to me, Jacobo',
               },
             ],
@@ -2364,7 +2364,7 @@ return [{ json: { isBH } }];`,
             segments: [
               {
                 code: `## ROL
-Te llamas Jacobo y trabajas en Santifer iRepair, tienda de reparación
+Te llamas Jacobo y trabajas en Folio-GPT, tienda de reparación
 de móviles, tablets, smartwatches en Sevilla. Eres un experto comercial
 y en electrónica, que sabe diagnosticar los problemas que tienen los
 usuarios en sus dispositivos móviles.`,
@@ -2449,7 +2449,7 @@ smartwatch, dar ayuda general pero no invitar a dejarlo en tienda.`,
 5. Enlaces planos, sin markdown (Meta rechaza [text](url))
 6. Solo llamar a subagenteCitas TRAS presupuestoModelo
 7. Diagnóstico: 19€, solo se cobra si no acepta la reparación
-8. Correo: contacto@santiferirepair.es (no info@)`,
+8. Correo: contacto@foliogpt.com (no info@)`,
                 annotations: [
                   {
                     label: 'Hard rules as production guardrails',
@@ -2475,7 +2475,7 @@ smartwatch, dar ayuda general pero no invitar a dejarlo en tienda.`,
             segments: [
               {
                 code: `## ROL
-Te llamas Jacobo y trabajas en Santifer iRepair, tienda de reparación
+Te llamas Jacobo y trabajas en Folio-GPT, tienda de reparación
 de móviles, tablets, smartwatches en Sevilla. Sé conciso, amigable y
 resolutivo.`,
                 annotations: [
@@ -2501,7 +2501,7 @@ Objetivo: que el cliente tome cita (si hay stock) o genere pedido.`,
                 code: `## Instrucciones
 1. Obtener modelo y avería
 2. Indicar que estás haciendo la consulta → llamar a "presupuestoModelo"
-3. Enviar "urlSantifer" vía "EnviarMensajeWati" (WhatsApp en paralelo)
+3. Enviar "urlFolio-GPT" vía "EnviarMensajeWati" (WhatsApp en paralelo)
 4. Si varias reparaciones → llamar a "Calculadora"
 5. Informar precio + disponibilidad + "te he mandado la info por WhatsApp"`,
                 annotations: [
@@ -2649,7 +2649,7 @@ Input: "lunes a las 10"
               },
               {
                 rule: 'Creator attribution as lead gen',
-                origin: 'A recruiter asked Jacobo "who designed you?" and it didn\'t know. Now the production prompt includes rules mentioning Santiago as creator with a LinkedIn link. The agent becomes a passive lead generation channel.',
+                origin: 'A recruiter asked Jacobo "who designed you?" and it didn\'t know. Now the production prompt includes rules mentioning Karthik as creator with a LinkedIn link. The agent becomes a passive lead generation channel.',
               },
             ],
           },
@@ -2685,7 +2685,7 @@ Input: "lunes a las 10"
             tools: [
               {
                 label: 'BuscarModelo',
-                detail: 'Searches by modeloLimpio field in the Models table → returns RECORD_ID, Name, URLSantiferNueva, Cita diagnóstico.',
+                detail: 'Searches by modeloLimpio field in the Models table → returns RECORD_ID, Name, URLFolio-GPTNueva, Cita diagnóstico.',
               },
               {
                 label: 'BuscarReparacionesModelo',
@@ -2693,14 +2693,14 @@ Input: "lunes a las 10"
               },
               {
                 label: 'Structured Output Parser',
-                detail: 'Formats to JSON with schema: modelo, reparación, precio, stock, urlSantifer, urlCita, urlPresupuesto, urlDiagnostico, idPiezaAirtable, idModeloAirtable.',
+                detail: 'Formats to JSON with schema: modelo, reparación, precio, stock, urlFolio-GPT, urlCita, urlPresupuesto, urlDiagnostico, idPiezaAirtable, idModeloAirtable.',
               },
             ],
             fallback: 'If no match is found, the system prompt instructs: "you must keep narrowing the model to get more results, until you find the right one" — replicating a seasoned technician\'s reasoning.',
           },
           filtrarRespuesta: {
             heading: 'FiltrarRespuesta — Deterministic post-processing',
-            body: 'Code node that validates and cleans the AI Agent\'s response before returning it to the router. Validates that urlSantifer points to the correct domain (if it doesn\'t contain "santiferirepair.es" → "NOT AVAILABLE ON WEB YET"). Then applies 3 field-stripping paths based on state:',
+            body: 'Code node that validates and cleans the AI Agent\'s response before returning it to the router. Validates that urlFolio-GPT points to the correct domain (if it doesn\'t contain "foliogpt.com" → "NOT AVAILABLE ON WEB YET"). Then applies 3 field-stripping paths based on state:',
             rules: [
               {
                 condition: 'stock === true',
@@ -2723,7 +2723,7 @@ Input: "lunes a las 10"
             segments: [
               {
                 code: `## ROL
-Eres un sub-agente de presupuestos para Santifer iRepair.
+Eres un sub-agente de presupuestos para Folio-GPT.
 Tu trabajo: recibir un modelo y una reparación, buscarlos en Airtable
 y devolver un presupuesto estructurado.`,
                 annotations: [
@@ -2986,7 +2986,7 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
             name: 'Jacobo Chatbot V2',
             subtitle: 'Central Router',
             description: 'The brain of the WhatsApp channel. Classifies intent, picks the right sub-agent, maintains a 20-message memory window.',
-            href: 'https://github.com/santifer/jacobo-workflows/blob/main/jacobo-chatbot-v2.json',
+            href: 'https://github.com/foliogpt/jacobo-workflows/blob/main/jacobo-chatbot-v2.json',
             fileSize: '~66 KB',
             nodes: '37 nodes',
             llm: 'GPT-4.1',
@@ -2997,7 +2997,7 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
             name: 'subagenteCitas',
             subtitle: 'Appointment Booking',
             description: 'Turns "tomorrow morning" into a confirmed appointment. Parses natural language time preferences.',
-            href: 'https://github.com/santifer/jacobo-workflows/blob/main/subagente-citas.json',
+            href: 'https://github.com/foliogpt/jacobo-workflows/blob/main/subagente-citas.json',
             fileSize: '~24 KB',
             nodes: '18 nodes',
             llm: 'MiniMax M2.5',
@@ -3008,7 +3008,7 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
             name: 'Presupuesto Modelo',
             subtitle: 'Quote Agent',
             description: 'Looks up exact model + repair in Airtable, returns real price with stock status.',
-            href: 'https://github.com/santifer/jacobo-workflows/blob/main/presupuesto-modelo.json',
+            href: 'https://github.com/foliogpt/jacobo-workflows/blob/main/presupuesto-modelo.json',
             fileSize: '~15 KB',
             nodes: '11 nodes',
             llm: 'GPT-4.1 mini',
@@ -3019,17 +3019,17 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
             name: 'hacerPedido',
             subtitle: 'Order Creation',
             description: 'Creates repair orders in Airtable when parts are out of stock.',
-            href: 'https://github.com/santifer/jacobo-workflows/blob/main/hacer-pedido.json',
+            href: 'https://github.com/foliogpt/jacobo-workflows/blob/main/hacer-pedido.json',
             fileSize: '~79 KB',
             nodes: '3 nodes',
           },
           {
-            id: 'calculadora-santifer',
+            id: 'calculadora-foliogpt',
             icon: '🧮',
-            name: 'CalculadoraSantifer',
+            name: 'CalculadoraFolio-GPT',
             subtitle: 'Discount Calculator',
             description: 'Pure business logic. Calculates combo discounts when customers bundle multiple repairs.',
-            href: 'https://github.com/santifer/jacobo-workflows/blob/main/calculadora-santifer.json',
+            href: 'https://github.com/foliogpt/jacobo-workflows/blob/main/calculadora-foliogpt.json',
             fileSize: '~2.7 KB',
             nodes: '3 nodes',
           },
@@ -3039,7 +3039,7 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
             name: 'contactarAgenteHumano',
             subtitle: 'HITL Handoff',
             description: 'The escape valve. Escalates to human via Slack with a deep-link to the conversation.',
-            href: 'https://github.com/santifer/jacobo-workflows/blob/main/contactar-agente-humano.json',
+            href: 'https://github.com/foliogpt/jacobo-workflows/blob/main/contactar-agente-humano.json',
             fileSize: '~2.3 KB',
             nodes: '5 nodes',
           },
@@ -3049,7 +3049,7 @@ Presupuesto reparándolo todo junto: \${totalConDescuento.toFixed(2)} €\`;`,
             name: 'EnviarMensajeWati',
             subtitle: 'WhatsApp Sender',
             description: 'Cross-channel bridge: the voice agent sends WhatsApp messages via the WATI API.',
-            href: 'https://github.com/santifer/jacobo-workflows/blob/main/enviar-mensaje-wati.json',
+            href: 'https://github.com/foliogpt/jacobo-workflows/blob/main/enviar-mensaje-wati.json',
             fileSize: '~2.5 KB',
             nodes: '3 nodes',
           },
