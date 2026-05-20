@@ -323,3 +323,12 @@ export function containsFingerprint(text) {
   const lower = text.toLowerCase()
   return PROMPT_FINGERPRINTS.some(fp => lower.includes(fp.toLowerCase()))
 }
+export function calcCost(model, inputTokens, outputTokens) {
+  // Rough cost estimation (USD) per 1k tokens.
+  const pricing = {
+    'claude-sonnet-4-6': 0.003,
+  };
+  const rate = pricing[model] ?? 0;
+  const totalTokens = (inputTokens ?? 0) + (outputTokens ?? 0);
+  return (totalTokens / 1000) * rate;
+}
