@@ -26,10 +26,10 @@ export interface ArticleSeoMeta {
 
 export interface ArticleConfig {
   id: string
-  slugs: { es: string; en: string }
-  titles: { es: string; en: string }
-  seo: { es: ArticleSeo; en: ArticleSeo }
-  sectionLabels: { es: Record<string, string>; en: Record<string, string> }
+  slugs: { en: string }
+  titles: { en: string }
+  seo: { en: ArticleSeo }
+  sectionLabels: { en: Record<string, string> }
   type: 'collab' | 'case-study' | 'bridge'
   /** Absolute OG image URL for prerender (social cards: LinkedIn, Twitter) */
   ogImage?: string
@@ -49,30 +49,15 @@ export interface ArticleConfig {
 export const articleRegistry: ArticleConfig[] = [
   {
     id: 'n8n-for-pms',
-    slugs: { es: 'n8n-para-pms', en: 'n8n-for-pms' },
-    titles: { es: 'n8n para PMs', en: 'n8n for PMs' },
+    slugs: { en: 'n8n-for-pms' },
+    titles: { en: 'n8n for PMs' },
     seo: {
-      es: {
-        title: 'n8n para PMs: Cheat Sheet + Templates IA Gratis | foliogpt.com',
-        description: 'Cheat sheet de n8n para Product Managers: automatiza sprint reports y clasifica feedback con IA. 2 templates importables gratis. Tutorial paso a paso.',
-      },
       en: {
         title: 'n8n for PMs: Cheat Sheet + Free AI Templates | foliogpt.com',
         description: 'n8n cheat sheet for Product Managers: automate sprint reports and classify feedback with AI. 2 free importable workflow templates. Step-by-step tutorial.',
       },
     },
     sectionLabels: {
-      es: {
-        'time-sinks': 'Tareas que Roban Tiempo',
-        'workflow-1': 'Workflow 1',
-        'workflow-2': 'Workflow 2',
-        'the-pattern': 'El Patrón',
-        'get-started': 'Empieza',
-        'lessons': 'Lecciones',
-        'faq': 'FAQ',
-        'import': 'Importar',
-        'resources': 'Recursos',
-      },
       en: {
         'time-sinks': 'Time Sinks',
         'workflow-1': 'Workflow 1',
@@ -143,36 +128,15 @@ export const articleRegistry: ArticleConfig[] = [
   },
   {
     id: 'jacobo',
-    slugs: { es: 'agente-ia-jacobo', en: 'ai-agent-jacobo' },
-    titles: { es: 'Agente IA Jacobo', en: 'AI Agent Jacobo' },
+    slugs: { en: 'ai-agent-jacobo' },
+    titles: { en: 'AI Agent Jacobo' },
     seo: {
-      es: {
-        title: 'Jacobo: Agente IA Omnicanal — 90% Autoservicio',
-        description: 'Case study: agente IA omnicanal con sub-agentes, tool calling y orquestación multi-modelo (n8n + ElevenLabs). 90% autoservicio.',
-      },
       en: {
         title: 'Jacobo: Multi-Agent AI — 90% Self-Service',
         description: 'Case study: omnichannel AI agent with sub-agents, tool calling & multi-model orchestration (n8n + ElevenLabs). 90% self-service.',
       },
     },
     sectionLabels: {
-      es: {
-        'the-problem': 'El Problema',
-        'architecture': 'Arquitectura',
-        'e2e-flows': 'Flujos E2E',
-        'main-router': 'Los Dos Cerebros',
-        'natural-language-booking': 'Deep Dive: Citas',
-        'deep-dive-quotes': 'Deep Dive: Presupuestos',
-        'deep-dive-others': 'Deep Dive: Tools',
-        'results': 'Resultados',
-        'decisions': 'ADRs',
-        'platform-evolution': 'Evolución',
-        'what-id-do-differently': 'Lecciones',
-        'enterprise-patterns': 'Patrones',
-        'run-it-yourself': 'Workflows',
-        'faq': 'FAQ',
-        'resources': 'Recursos',
-      },
       en: {
         'the-problem': 'The Problem',
         'architecture': 'Architecture',
@@ -228,34 +192,15 @@ export const articleRegistry: ArticleConfig[] = [
   },
   {
     id: 'business-os',
-    slugs: { es: 'business-os-para-airtable', en: 'business-os-for-airtable' },
-    titles: { es: 'Business OS', en: 'Business OS' },
+    slugs: { en: 'business-os-for-airtable' },
+    titles: { en: 'Business OS' },
     seo: {
-      es: {
-        title: 'Business OS Custom: Airtable + n8n — 170h/Mes',
-        description: 'Case study: Business OS custom con 12 bases Airtable, 2100 campos y n8n que ahorra 170h/mes en reparación de móviles.',
-      },
       en: {
         title: 'Custom Business OS: Airtable + n8n — 170h/Mo',
         description: 'Case study: custom Business OS with 12 Airtable bases, 2100 fields, and n8n saving 170h/month at a phone repair business.',
       },
     },
     sectionLabels: {
-      es: {
-        'why-custom': '¿Por Qué Custom?',
-        'overview': 'Vista General',
-        'e2e-flows': 'Flujos E2E',
-        'cross-cutting': 'Transversales',
-        'day-in-life': 'Un Día',
-        'before-after': 'Antes/Después',
-        'impact': 'Impacto',
-        'decisions': 'ADRs',
-        'platform-evolution': 'Evolución',
-        'lessons': 'Lecciones',
-        'replicability': 'Patrones',
-        'faq': 'FAQ',
-        'resources': 'Recursos',
-      },
       en: {
         'why-custom': 'Why Custom?',
         'overview': 'Overview',
@@ -307,42 +252,15 @@ export const articleRegistry: ArticleConfig[] = [
   },
   {
     id: 'programmatic-seo',
-    slugs: { es: 'seo-programatico', en: 'programmatic-seo' },
-    titles: { es: 'SEO Programático', en: 'Programmatic SEO' },
+    slugs: { en: 'programmatic-seo' },
+    titles: { en: 'Programmatic SEO' },
     seo: {
-      es: {
-        title: 'SEO Programático: 4.000+ Páginas desde un ERP | foliogpt.com',
-        description: 'Case study: cómo generé 4.730 landing pages estáticas con Airtable, DataForSEO y crawl budget optimization. 2M+ impresiones, 19K+ clicks.',
-      },
       en: {
         title: 'Programmatic SEO: 4,000+ Pages from an ERP | foliogpt.com',
         description: 'Case study: 4,730 static landing pages from Airtable as headless CMS with DataForSEO crawl budget optimization and Astro SSG. 2M+ impressions, 19K+ clicks.',
       },
     },
     sectionLabels: {
-      es: {
-        'opportunity': 'La Oportunidad',
-        'the-numbers': 'Los Números',
-        'two-strategies': 'Dos Estrategias',
-        'architecture': 'La Arquitectura',
-        'url-taxonomy': 'Taxonomía URLs',
-        'cms-deep-dive': 'El CMS',
-        'page-anatomy': 'Anatomía de Página',
-        'decision-engine': 'Motor de Decisión',
-        'crawl-budget': 'Crawl Budget',
-        'pipeline': 'Pipeline',
-        'content-automation': 'Automatización',
-        'image-pipeline': 'Pipeline de Imágenes',
-        'reviews-pipeline': 'Pipeline de Reseñas',
-        'before-after-pipeline': 'Pipeline Antes/Después',
-        'growth': 'Crecimiento',
-        'results': 'Resultados',
-        'starting-point': 'El Punto de Partida',
-        'stack': 'Stack',
-        'lessons': 'Lecciones',
-        'faq': 'FAQ',
-        'resources': 'Recursos',
-      },
       en: {
         'opportunity': 'The Opportunity',
         'the-numbers': 'The Numbers',
@@ -402,34 +320,15 @@ export const articleRegistry: ArticleConfig[] = [
   },
   {
     id: 'self-healing-chatbot',
-    slugs: { es: 'chatbot-que-se-cura-solo', en: 'self-healing-chatbot' },
-    titles: { es: 'El Chatbot Que Se Cura Solo', en: 'The Self-Healing Chatbot' },
+    slugs: { en: 'self-healing-chatbot' },
+    titles: { en: 'The Self-Healing Chatbot' },
     seo: {
-      es: {
-        title: 'El Chatbot Que Se Cura Solo: De Widget a LLMOps en Producción',
-        description: 'Case study: cómo evolucioné un chatbot de 50 líneas a un sistema LLMOps con RAG agéntico, defensa de jailbreak en 6 capas, 71 evals y closed-loop automático.',
-      },
       en: {
         title: 'The Self-Healing Chatbot: From Widget to Production LLMOps',
         description: 'Case study: production LLMOps with agentic observability, 6-layer defense, 71 evals, voice mode, and a closed-loop that generates tests from real failures.',
       },
     },
     sectionLabels: {
-      es: {
-        'genesis': 'La Génesis',
-        'evolution': 'La Evolución',
-        'architecture': 'Arquitectura',
-        'how-it-was-built': 'Cómo Se Construyó',
-        'rag': 'RAG Agéntico',
-        'defense': 'Defensa',
-        'agentic-observability': 'Observabilidad Agéntica',
-        'evals': 'Los 71 Tests',
-        'closed-loop': 'El Loop Cerrado',
-        'cost': 'Coste Real',
-        'voice': 'Modo Voz',
-        'lessons': 'Lecciones',
-        'faq': 'FAQ',
-      },
       en: {
         'genesis': 'The Genesis',
         'evolution': 'The Evolution',
@@ -486,31 +385,15 @@ export const articleRegistry: ArticleConfig[] = [
   },
   {
     id: 'career-ops',
-    slugs: { es: 'career-ops', en: 'career-ops-system' },
-    titles: { es: 'Career-Ops', en: 'Career-Ops' },
+    slugs: { en: 'career-ops-system' },
+    titles: { en: 'Career-Ops' },
     seo: {
-      es: {
-        title: 'Career-Ops: Agente IA que Automatiza Mi Búsqueda de Empleo',
-        description: 'Case study: agente IA multi-agente que evalúa ofertas con scoring multi-dimensional, crea CV con IA personalizados por oferta y automatiza aplicaciones. 631 evaluaciones.',
-      },
       en: {
         title: 'Career-Ops: How I Built My Own AI Job Search Tool',
         description: 'Case study: AI job search tool built as a multi-agent system. AI resume builder, multi-dimensional scoring, automated job application with HITL. 631 evaluations.',
       },
     },
     sectionLabels: {
-      es: {
-        'the-problem': 'El Problema',
-        'architecture': 'Multi-Agent System',
-        'scoring': 'Scoring A-F',
-        'pipeline': 'El Pipeline',
-        'pdf': 'AI Resume Builder',
-        'before-after': 'Antes/Después',
-        'results': 'Resultados',
-        'lessons': 'Lecciones',
-        'faq': 'FAQ',
-        'related': 'Relacionados',
-      },
       en: {
         'the-problem': 'The Problem',
         'architecture': 'Multi-Agent System',
@@ -576,19 +459,15 @@ export const articleRegistry: ArticleConfig[] = [
   },
   {
     id: 'foliogpt-irepair',
-    slugs: { es: 'foliogpt-irepair', en: 'foliogpt-irepair-founder' },
-    titles: { es: 'Folio-GPT', en: 'Folio-GPT' },
+    slugs: { en: 'foliogpt-irepair-founder' },
+    titles: { en: 'Folio-GPT' },
     seo: {
-      es: {
-        title: 'Folio-GPT Sevilla | Reparación de Móviles desde 2009',
-        description: 'La tienda de reparación de móviles fundada por Karthik en 2009 sigue abierta en Sevilla. 30.000+ reparaciones. Encuentra la tienda o conoce al fundador.',
-      },
       en: {
         title: 'Folio-GPT Seville | Phone Repair since 2009',
         description: 'The phone repair shop founded by Karthik in 2009 is still open in Seville, Spain. 30,000+ repairs. Find the shop or meet the founder.',
       },
     },
-    sectionLabels: { es: {}, en: {} },
+    sectionLabels: { en: {} },
     type: 'bridge',
     component: () => import('../FolioGptRepair.tsx'),
     xDefaultSlug: 'foliogpt-irepair',
@@ -597,30 +476,15 @@ export const articleRegistry: ArticleConfig[] = [
 
 // Derived maps for GlobalNav and routing
 export function getAltPaths(): Record<string, string> {
-  const map: Record<string, string> = {
-    '/': '/en',
-    '/en': '/',
-    '/sobre-mi': '/about',
-    '/about': '/sobre-mi',
-    '/privacidad': '/privacy',
-    '/privacy': '/privacidad',
-  }
-  for (const article of articleRegistry) {
-    map[`/${article.slugs.es}`] = `/${article.slugs.en}`
-    map[`/${article.slugs.en}`] = `/${article.slugs.es}`
-  }
-  return map
+  return {}
 }
 
 export function getPageTitles(): Record<string, string> {
   const map: Record<string, string> = {
-    '/': 'Portfolio de Karthik',
-    '/en': "Karthik's Portfolio",
-    '/sobre-mi': 'Sobre Mí',
+    '/': "Karthik's Portfolio",
     '/about': 'About',
   }
   for (const article of articleRegistry) {
-    map[`/${article.slugs.es}`] = article.titles.es
     map[`/${article.slugs.en}`] = article.titles.en
   }
   return map
@@ -629,17 +493,7 @@ export function getPageTitles(): Record<string, string> {
 export function getSectionLabels(): Record<string, Record<string, string>> {
   const map: Record<string, Record<string, string>> = {}
   for (const article of articleRegistry) {
-    map[`/${article.slugs.es}`] = article.sectionLabels.es
     map[`/${article.slugs.en}`] = article.sectionLabels.en
   }
   return map
-}
-
-/** All ES slugs (for lang detection: if pathname matches an ES slug → lang is 'es') */
-export function getEsSlugs(): Set<string> {
-  const slugs = new Set<string>(['/', '/privacidad', '/sobre-mi'])
-  for (const article of articleRegistry) {
-    slugs.add(`/${article.slugs.es}`)
-  }
-  return slugs
 }

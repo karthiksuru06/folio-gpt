@@ -19,7 +19,7 @@ const SOCIAL_LINKS: { name: string; url: string; rel?: string }[] = [
   { name: 'Wikidata', url: 'https://www.wikidata.org/wiki/Q138710224' },
 ]
 
-export default function AboutPage({ lang = 'es' }: { lang?: AboutLang }) {
+export default function AboutPage({ lang = 'en' }: { lang?: AboutLang }) {
   const t = aboutContent[lang]
   const altSlug = t.altSlug
 
@@ -66,8 +66,8 @@ export default function AboutPage({ lang = 'es' }: { lang?: AboutLang }) {
         {/* Header */}
         <header className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-10">
           <img
-            src="/foto-avatar-sm.webp"
-            srcSet="/foto-avatar-sm.webp 192w, /foto-avatar.webp 384w"
+            src="/foto-avatar.jpg"
+            srcSet="/foto-avatar.jpg"
             sizes="96px"
             alt="Karthik Suru"
             className="w-24 h-24 rounded-full border-2 border-border shadow-lg"
@@ -296,14 +296,14 @@ export default function AboutPage({ lang = 'es' }: { lang?: AboutLang }) {
             to={`/${altSlug}`}
             className="text-sm text-muted-foreground hover:text-primary transition-colors"
           >
-            {lang === 'es' ? 'Read in English →' : 'Leer en Español →'}
+            {'Leer en Español →'}
           </Link>
         </div>
 
         {/* Footer */}
         <footer className="mt-8 text-center">
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Karthik Suru. {lang === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
+            &copy; {new Date().getFullYear()} Karthik Suru. {'All rights reserved.'}
           </p>
         </footer>
       </main>

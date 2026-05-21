@@ -5,10 +5,9 @@ import { Analytics } from '@vercel/analytics/react'
 import './index.css'
 import App from './App.tsx'
 import GlobalNav from './GlobalNav.tsx'
-import { articleRegistry, getEsSlugs } from './articles/registry'
+import { articleRegistry } from './articles/registry'
 
 const FloatingChat = lazy(() => import('./FloatingChat'))
-const MusicToggle = lazy(() => import('./MusicToggle'))
 const PrivacyPolicy = lazy(() => import('./PrivacyPolicy'))
 const AboutPage = lazy(() => import('./AboutPage'))
 
@@ -67,14 +66,12 @@ function PageTransition({ children }: { children: ReactNode }) {
 }
 
 function GlobalChat() {
-  const { pathname } = useLocation()
   const [hydrated, setHydrated] = useState(false)
   useEffect(() => setHydrated(true), [])
 
   if (!hydrated) return null
 
-  const esSlugs = getEsSlugs()
-  const lang = esSlugs.has(pathname) ? 'es' : 'en'
+  const lang = 'en'
 
   return (
     <ChatErrorBoundary>
@@ -82,17 +79,6 @@ function GlobalChat() {
         <FloatingChat lang={lang} />
       </Suspense>
     </ChatErrorBoundary>
-  )
-}
-
-function GlobalMusic() {
-  const [hydrated, setHydrated] = useState(false)
-  useEffect(() => setHydrated(true), [])
-  if (!hydrated) return null
-  return (
-    <Suspense fallback={null}>
-      <MusicToggle />
-    </Suspense>
   )
 }
 
@@ -172,17 +158,15 @@ const app = (
             <Route path="/privacy" element={<PrivacyPolicy lang="en" />} />
             {articleRegistry.map((article) => {
               const ArticleComponent = articleComponents[article.id]
-              return [
-                <Route key={`${article.id}-es`} path={`/${article.slugs.es}`} element={<ArticleComponent lang="en" />} />,
-                <Route key={`${article.id}-en`} path={`/${article.slugs.en}`} element={<ArticleComponent lang="en" />} />,
-              ]
+              return (
+                <Route key={`${article.id}-en`} path={`/${article.slugs.en}`} element={<ArticleComponent lang="en" />} />
+              )
             })}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </PageTransition>
       <GlobalChat />
-      <GlobalMusic />
       <Analytics />
     </BrowserRouter>
   </StrictMode>

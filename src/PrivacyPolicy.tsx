@@ -104,7 +104,7 @@ interface PrivacySection {
   email?: string
 }
 
-export default function PrivacyPolicy({ lang = 'es' }: { lang?: 'es' | 'en' }) {
+export default function PrivacyPolicy({ lang = 'en' }: { lang?: 'en' }) {
   const t = content[lang]
 
   useEffect(() => {
@@ -121,13 +121,11 @@ export default function PrivacyPolicy({ lang = 'es' }: { lang?: 'es' | 'en' }) {
 
     // Fix canonical (SPA fallback serves homepage canonical — override it)
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement
-    if (canonical) canonical.href = `https://foliogpt.com/${lang === 'es' ? 'privacidad' : 'privacy'}`
+    if (canonical) canonical.href = `https://foliogpt.com/${'privacy'}`
 
     // Fix meta description
     let desc = document.querySelector('meta[name="description"]') as HTMLMetaElement
-    if (desc) desc.content = lang === 'es'
-      ? 'Politica de privacidad de foliogpt.com. Como se recopilan y utilizan los datos del chatbot y la web.'
-      : 'Privacy policy for foliogpt.com. How chatbot and website data is collected and used.'
+    if (desc) desc.content = 'Privacy policy for foliogpt.com. How chatbot and website data is collected and used.'
 
     return () => {
       robots.content = 'index, follow'
@@ -135,7 +133,7 @@ export default function PrivacyPolicy({ lang = 'es' }: { lang?: 'es' | 'en' }) {
   }, [lang, t.title])
 
   return (
-    <ArticleLayout lang={lang}>
+    <ArticleLayout>
       <header className="mb-10">
         <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-2">
           {t.title}
@@ -186,7 +184,7 @@ export default function PrivacyPolicy({ lang = 'es' }: { lang?: 'es' | 'en' }) {
 
         <div className="mt-12 pt-8 border-t border-border">
           <Link
-            to={lang === 'es' ? '/' : '/en'}
+            to={'/en'}
             className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
           >
             {'← '}{t.backHome}

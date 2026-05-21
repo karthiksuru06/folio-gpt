@@ -1,17 +1,5 @@
-interface PressFeaturesProps {
-  lang: 'en' | 'en'
-}
-
-/**
- * Hero "As featured in" press attribution.
- *
- * Uses official brand SVG logos served from /public/press-logos/. CSS filter
- * (brightness(0) invert) renders them as pure foreground tone so they integrate
- * with the dark theme regardless of the source SVG's original fill colors.
- * WIRED first per editorial preference (first interview, better article).
- */
-export function PressFeatures({ lang }: PressFeaturesProps) {
-  const caption = lang === 'es' ? 'Aparezco en' : 'As featured in'
+export function PressFeatures() {
+  const caption = 'As featured in'
   return (
     <div className="mt-12 md:mt-16 flex flex-col items-center gap-3">
       <span className="press-caption text-[10px] uppercase tracking-[0.35em] font-medium">

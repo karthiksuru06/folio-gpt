@@ -62,7 +62,7 @@ export default function FolioGptRepair({ lang }: { lang: IRepairLang }) {
   const pseoPath = '/programmatic-seo'
 
   return (
-    <ArticleLayout lang={lang}>
+    <ArticleLayout>
       {/* Hero — storefront photo with glassmorphism text card */}
       <div className="relative -mx-4 sm:-mx-6 lg:-mx-8 -mt-8 md:-mt-12 mb-8 rounded-b-2xl overflow-hidden">
         <img
@@ -131,7 +131,7 @@ export default function FolioGptRepair({ lang }: { lang: IRepairLang }) {
         <div className="bg-card border border-border rounded-xl overflow-hidden grid grid-rows-[auto_1fr_auto]">
           <div className="flex items-center gap-4 p-6 pb-0">
             <img
-              src="/foto-avatar-sm.webp"
+              src="/foto-avatar.jpg"
               alt="Karthik Suru"
               className="w-16 h-16 rounded-full border-2 border-primary/20 shrink-0"
               width={64}

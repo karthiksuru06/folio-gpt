@@ -45,10 +45,10 @@ export { H2 as AnchorHeading } from './content-types'
 // Layout shells
 // ---------------------------------------------------------------------------
 
-export function ArticleLayout({ lang, children }: { lang?: 'es' | 'en'; children: React.ReactNode }) {
+export function ArticleLayout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    if (lang) document.documentElement.lang = lang
-  }, [lang])
+    document.documentElement.lang = 'en'
+  }, [])
 
   return (
     <EditorModeProvider>
@@ -84,13 +84,12 @@ interface ArticleHeaderProps {
   editorId?: string
 }
 
-const MONTHS_ES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic']
 const MONTHS_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-function formatDateHuman(iso: string, lang: 'en' | 'en'): string {
+function formatDateHuman(iso: string): string {
   const [y, m, d] = iso.split('-').map(Number)
   if (!y || !m || !d) return iso
-  const month = (lang === 'es' ? MONTHS_ES : MONTHS_EN)[m - 1]
-  return lang === 'es' ? `${d} ${month} ${y}` : `${month} ${d}, ${y}`
+  const month = MONTHS_EN[m - 1]
+  return `${month} ${d}, ${y}`
 }
 
 export function ArticleHeader({
@@ -105,10 +104,10 @@ export function ArticleHeader({
   authorName = 'Karthik Suru',
   authorUrl,
   authorBio,
-  avatarSrc = '/foto-avatar-sm.webp',
-  lang,
+  avatarSrc = '/foto-avatar.jpg',
+  
 }: ArticleHeaderProps) {
-  const resolvedAuthorUrl = authorUrl ?? (lang === 'es' ? '/sobre-mi' : '/about')
+  const resolvedAuthorUrl = authorUrl ?? ('/about')
   return (
     <header className="mb-10">
       <p className="text-primary font-medium text-sm mb-3 tracking-wide uppercase">
@@ -152,7 +151,7 @@ export function ArticleHeader({
             <span className="inline-flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{readingTime}</span>
             {dateModifiedISO && dateModifiedISO !== dateISO && (
               <span className="text-xs text-muted-foreground/80">
-                · {lang === 'es' ? 'Actualizado' : 'Updated'} <time dateTime={dateModifiedISO}>{formatDateHuman(dateModifiedISO, lang ?? 'es')}</time>
+                · {'Updated'} <time dateTime={dateModifiedISO}>{formatDateHuman(dateModifiedISO)}</time>
               </span>
             )}
           </div>
@@ -167,7 +166,6 @@ export function ArticleHeader({
 // ---------------------------------------------------------------------------
 
 interface ArticleFooterProps {
-  lang: 'en' | 'en'
   utmCampaign: string
   editorId?: string
 }
@@ -187,14 +185,14 @@ const FOOTER_I18N = {
   },
 } as const
 
-export function ArticleFooter({ lang, utmCampaign }: ArticleFooterProps) {
-  const f = FOOTER_I18N[lang]
+export function ArticleFooter({ utmCampaign }: ArticleFooterProps) {
+  const f = FOOTER_I18N.en
   const fellowUrl = `https://maven.com/marily-nika/ai-pm-bootcamp?utm_source=foliogpt&utm_medium=casestudy&utm_campaign=${utmCampaign}`
   return (
     <footer className="mt-16 pt-8 border-t border-border">
       <div className="flex items-start gap-3 mb-6">
         <img
-          src="/foto-avatar-sm.webp"
+          src="/foto-avatar.jpg"
           alt="Karthik Suru"
           className="w-12 h-12 rounded-full shrink-0"
           width={48}
@@ -218,10 +216,10 @@ export function ArticleFooter({ lang, utmCampaign }: ArticleFooterProps) {
       </div>
       <p className="text-sm text-muted-foreground leading-relaxed mb-1">{f.bio}</p>
       <Link
-        to={lang === 'es' ? '/sobre-mi' : '/about'}
+        to={'/about'}
         className="inline-block text-sm text-primary hover:underline transition-colors mb-6"
       >
-        {lang === 'es' ? 'Más sobre el autor →' : 'More about the author →'}
+        {'More about the author →'}
       </Link>
       <div className="flex gap-3 mb-8">
         <a href="https://linkedin.com/in/suru-karthik-923766321" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0A66C2]/10 border border-[#0A66C2]/20 text-sm font-medium text-[#0A66C2] hover:bg-[#0A66C2]/20 transition-colors">
@@ -236,8 +234,8 @@ export function ArticleFooter({ lang, utmCampaign }: ArticleFooterProps) {
       <div className="flex items-center gap-3 text-xs text-muted-foreground">
         <span>&copy; {new Date().getFullYear()} Karthik Suru. {f.copyright}</span>
         <span className="text-border">|</span>
-        <Link to={lang === 'es' ? '/privacidad' : '/privacy'} className="hover:text-primary transition-colors">
-          {lang === 'es' ? 'Privacidad' : 'Privacy'}
+        <Link to={'/privacy'} className="hover:text-primary transition-colors">
+          {'Privacy'}
         </Link>
       </div>
     </footer>
@@ -594,10 +592,9 @@ interface GitHubRepoBadgeProps {
   repo: string
   stars: string
   forks: string
-  lang: 'en' | 'en'
 }
 
-export function GitHubRepoBadge({ repo, stars, forks, lang }: GitHubRepoBadgeProps) {
+export function GitHubRepoBadge({ repo, stars, forks }: GitHubRepoBadgeProps) {
   return (
     <a
       href={`https://github.com/${repo}`}
@@ -616,7 +613,7 @@ export function GitHubRepoBadge({ repo, stars, forks, lang }: GitHubRepoBadgePro
       </span>
       <span className="w-px h-4 bg-border/50" />
       <span className="text-sm text-primary group-hover:underline flex items-center gap-1">
-        {lang === 'es' ? 'Ver en GitHub' : 'View on GitHub'}
+        {'View on GitHub'}
         <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7V17" /></svg>
       </span>
     </a>

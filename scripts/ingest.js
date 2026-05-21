@@ -31,21 +31,21 @@ if (!HUGGINGFACE_API_KEY) {
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
 const ARTICLE_SLUGS = {
-  'n8n-for-pms':          { es: 'n8n-para-pms', en: 'n8n-for-pms' },
-  'jacobo':               { es: 'agente-ia-jacobo', en: 'ai-agent-jacobo' },
-  'business-os':          { es: 'business-os-para-airtable', en: 'business-os-for-airtable' },
-  'programmatic-seo':     { es: 'seo-programatico', en: 'programmatic-seo' },
-  'self-healing-chatbot': { es: 'chatbot-que-se-cura-solo', en: 'self-healing-chatbot' },
-  'career-ops':          { es: 'career-ops', en: 'career-ops-system' },
+  'n8n-for-pms':          { en: 'n8n-for-pms' },
+  'jacobo':               { en: 'ai-agent-jacobo' },
+  'business-os':          { en: 'business-os-for-airtable' },
+  'programmatic-seo':     { en: 'programmatic-seo' },
+  'self-healing-chatbot': { en: 'self-healing-chatbot' },
+  'career-ops':          { en: 'career-ops-system' },
 };
 
 const ARTICLE_ROUTES = {
-  'n8n-for-pms':          { page_path_es: '/n8n-para-pms', page_path_en: '/n8n-for-pms' },
-  'jacobo':               { page_path_es: '/agente-ia-jacobo', page_path_en: '/ai-agent-jacobo' },
-  'business-os':          { page_path_es: '/business-os-para-airtable', page_path_en: '/business-os-for-airtable' },
-  'programmatic-seo':     { page_path_es: '/seo-programatico', page_path_en: '/programmatic-seo' },
-  'self-healing-chatbot': { page_path_es: '/chatbot-que-se-cura-solo', page_path_en: '/self-healing-chatbot' },
-  'career-ops':          { page_path_es: '/career-ops', page_path_en: '/career-ops-system' },
+  'n8n-for-pms':          { page_path_en: '/n8n-for-pms' },
+  'jacobo':               { page_path_en: '/ai-agent-jacobo' },
+  'business-os':          { page_path_en: '/business-os-for-airtable' },
+  'programmatic-seo':     { page_path_en: '/programmatic-seo' },
+  'self-healing-chatbot': { page_path_en: '/self-healing-chatbot' },
+  'career-ops':          { page_path_en: '/career-ops-system' },
 };
 
 // 6 files to ingest
@@ -126,16 +126,14 @@ async function getEmbedding(text) {
  */
 function extractChunks(obj, articleId, lang) {
   const chunks = [];
-  const slugs = ARTICLE_SLUGS[articleId] || { es: articleId, en: articleId };
-  const routes = ARTICLE_ROUTES[articleId] || { page_path_es: '/' + slugs.es, page_path_en: '/' + slugs.en };
+  const slugs = ARTICLE_SLUGS[articleId] || { en: articleId };
+  const routes = ARTICLE_ROUTES[articleId] || { page_path_en: '/' + slugs.en };
 
   const baseMeta = {
     article_id: articleId,
     lang: lang,
     page_path_en: routes.page_path_en,
-    page_path_es: routes.page_path_es,
     article_slug_en: slugs.en,
-    article_slug_es: slugs.es
   };
 
   // 1. Intro chunk
@@ -294,11 +292,6 @@ async function main() {
     try {
       const content = await loadTsFile(article.i18nFile, article.exportName);
       
-      if (content.es) {
-        const esChunks = extractChunks(content.es, article.id, 'es');
-        allChunks.push(...esChunks);
-        console.log(`  - Extracted ${esChunks.length} Spanish chunks.`);
-      }
       if (content.en) {
         const enChunks = extractChunks(content.en, article.id, 'en');
         allChunks.push(...enChunks);

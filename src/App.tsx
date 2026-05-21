@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo, useReducer, useRef } from 'react'
-import { useLocation, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'motion/react'
 import { Mail, ExternalLink, Briefcase, GraduationCap, Award, Code, Users, Globe, Bot, Zap, Database, Layout, BadgeCheck, FolderGit2, Sparkles, Download, Github, Package, MessageSquare, Receipt, CalendarCheck, FileText, GitBranch, GitFork, Star, Network, Calendar, Percent, UserCheck, Image, TrendingUp, Timer, SkipForward, ThumbsUp, MessageCircle, Share2, ChevronRight, List, ArrowUp, Brain, Target, Inbox, Compass, GitMerge } from 'lucide-react'
 import { translations, seo, type Lang } from './i18n'
@@ -1431,8 +1431,8 @@ function CertLogo({ logo }: { logo: string }) {
 }
 
 function App() {
-  const location = useLocation()
-  const lang: Lang = location.pathname === '/en' ? 'en' : 'es'
+  
+  const lang: Lang = 'en'
   const t = translations[lang]
   const hydrated = useHydrated()
   useHeroStyles()
@@ -1479,7 +1479,7 @@ function App() {
                 {/* Inner border */}
                 <div className="absolute inset-2 rounded-full bg-gradient-theme-50 p-[2px]">
                   <div className="w-full h-full rounded-full overflow-hidden">
-                    <img src="/foto-avatar-sm.webp" srcSet="/foto-avatar-sm.webp 192w, /foto-avatar.webp 384w" sizes="(max-width: 768px) 160px, 192px" alt="Karthik" className="w-full h-full object-cover" width={192} height={192} fetchPriority="high" />
+                    <img src="/foto-avatar.jpg" srcSet="/foto-avatar.jpg" sizes="(max-width: 768px) 160px, 192px" alt="Karthik" className="w-full h-full object-cover" width={192} height={192} fetchPriority="high" />
                   </div>
                 </div>
               </div>
@@ -1500,7 +1500,7 @@ function App() {
               className="text-center md:text-left"
             >
               <p className="text-lg text-muted-foreground mb-2">
-                {lang === 'es' ? 'Hola, soy' : "Hi, I'm"} <Link to={lang === 'es' ? '/sobre-mi' : '/about'} className="text-gradient-theme font-semibold hover:opacity-80 transition-opacity">@karthik</Link>,
+                {"Hi, I'm"} <Link to={'/about'} className="text-gradient-theme font-semibold hover:opacity-80 transition-opacity">@karthik</Link>,
               </p>
               <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 leading-tight">
                 <span className="text-gradient-theme">{hydrated ? roleText : t.greetingRoles[0]}</span>
@@ -1521,7 +1521,7 @@ function App() {
                 <br />
                 {t.greeting}
                 <br />
-                {lang === 'es' ? 'con ' : 'with '}<BeamPill>Evals <span className="opacity-60">+</span> LLMOps <span className="opacity-60">+</span> HITL</BeamPill>
+                {'with '}<BeamPill>Evals <span className="opacity-60">+</span> LLMOps <span className="opacity-60">+</span> HITL</BeamPill>
               </h1>
 
               <div className="flex flex-wrap justify-center md:justify-start gap-3">
@@ -1538,7 +1538,7 @@ function App() {
                   </span>
                 ))}
                 <Link
-                  to={lang === 'es' ? '/career-ops' : '/career-ops-system'}
+                  to={'/career-ops-system'}
                   className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-sm ${
                     hydrated && (roleIndex === 2 || roleIndex === 3)
                       ? 'border border-[#20d6ee] bg-[#20d6ee]/15 text-foreground scale-105'
@@ -1557,7 +1557,7 @@ function App() {
             </motion.div>
           </div>
 
-          <PressFeatures lang={lang} />
+          <PressFeatures />
 
         </div>
       </header>
@@ -1639,31 +1639,33 @@ function App() {
               <p className="text-muted-foreground whitespace-pre-line mb-6">{t.experience.careerOps.desc}</p>
 
               {/* As Featured In - Press Logos */}
-              <div className="pt-4 border-t border-border/50">
-                <p className="text-xs text-muted-foreground/60 uppercase tracking-wider mb-4">{t.experience.careerOps.pressLabel}</p>
-                <div className="flex flex-wrap items-center gap-x-8 gap-y-3 md:gap-x-10">
-                  {t.experience.careerOps.press.map((p) => (
-                    <a
-                      key={p.name}
-                      href={p.url}
-                      target="_blank"
-                      rel="noopener noreferrer nofollow"
-                      aria-label={`${p.name} — featured article on career-ops`}
-                      className="group inline-flex items-center"
-                    >
-                      <img
-                        src={p.src}
-                        alt={p.name}
-                        width={p.width}
-                        height={p.height}
-                        style={{ height: `${p.height}px` }}
-                        className="press-logo w-auto opacity-55 group-hover:opacity-100 transition-opacity duration-300"
-                        loading="lazy"
-                      />
-                    </a>
-                  ))}
+              {t.experience.careerOps.press && t.experience.careerOps.press.length > 0 && (
+                <div className="pt-4 border-t border-border/50">
+                  <p className="text-xs text-muted-foreground/60 uppercase tracking-wider mb-4">{t.experience.careerOps.pressLabel}</p>
+                  <div className="flex flex-wrap items-center gap-x-8 gap-y-3 md:gap-x-10">
+                    {(t.experience.careerOps.press as any[]).map((p) => (
+                      <a
+                        key={p.name}
+                        href={p.url}
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                        aria-label={`${p.name} — featured article on career-ops`}
+                        className="group inline-flex items-center"
+                      >
+                        <img
+                          src={p.src}
+                          alt={p.name}
+                          width={p.width}
+                          height={p.height}
+                          style={{ height: `${p.height}px` }}
+                          className="press-logo w-auto opacity-55 group-hover:opacity-100 transition-opacity duration-300"
+                          loading="lazy"
+                        />
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Deep dive CTA */}
               <Link to={lang === 'en' ? '/career-ops-system' : '/career-ops'} className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-primary hover:text-primary/80 transition-colors duration-200 group/cta">
@@ -1815,7 +1817,7 @@ function App() {
                 <div className="flex items-center gap-3 pt-4">
                   <a href={`https://github.com/${t.experience.foliogpt.jacobo.github}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs text-primary hover:underline">
                     <Github className="w-4 h-4" />
-                    {lang === 'es' ? 'Ver código' : 'View code'}
+                    {'View code'}
                   </a>
                   <span className="flex items-center gap-1 text-xs text-muted-foreground"><Star className="w-3.5 h-3.5 text-yellow-500" />{t.experience.foliogpt.jacobo.stars}</span>
                   <span className="flex items-center gap-1 text-xs text-muted-foreground"><GitFork className="w-3.5 h-3.5" />{t.experience.foliogpt.jacobo.forks}</span>
@@ -1858,7 +1860,7 @@ function App() {
                 <div className="flex items-center gap-3 pt-4">
                   <a href={`https://github.com/${t.experience.foliogpt.webSeo.github}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs text-accent hover:underline">
                     <Github className="w-4 h-4" />
-                    {lang === 'es' ? 'Ver código' : 'View code'}
+                    {'View code'}
                   </a>
                   <span className="flex items-center gap-1 text-xs text-muted-foreground"><Star className="w-3.5 h-3.5 text-yellow-500" />{t.experience.foliogpt.webSeo.stars}</span>
                   <span className="flex items-center gap-1 text-xs text-muted-foreground"><GitFork className="w-3.5 h-3.5" />{t.experience.foliogpt.webSeo.forks}</span>
@@ -2167,19 +2169,7 @@ function App() {
               forks?: string
             }
 
-            // Separar proyectos
             const allProjects = t.projects.items as readonly Project[]
-            const contentDigest = allProjects.find(p => p.title === 'Content Digest')!
-            const lifeOS = allProjects.find(p => p.title === 'Life OS')!
-            const careerOps = allProjects.find(p => p.title === 'Career Ops')!
-            const foliogptIo = allProjects.find(p => p.title === 'foliogpt.com')!
-            const selfHealingChatbot = allProjects.find(p => p.title === 'Self-Healing Chatbot')!
-            // Tools que dependen de foliogpt.com
-            const claudeEye = allProjects.find(p => p.title === 'Claude Eye')!
-            const claudeable = allProjects.find(p => p.title === 'Claudeable')!
-            // Fila 4: Claude Pulse + ProjectOS Predict
-            const claudePulse = allProjects.find(p => p.title === 'Claude Pulse')!
-            const projectOSPredict = allProjects.find(p => p.title === 'ProjectOS Predict')!
 
             // Helper para parsear **bold** a elementos con estilo
             const parseBold = (text: string): React.ReactNode[] => {
@@ -2187,130 +2177,6 @@ function App() {
                 i % 2 === 1 ? <strong key={i} className="text-tool font-semibold">{part}</strong> : part
               )
             }
-
-            // Refs para cada tarjeta (para calcular posiciones de conexiones)
-            const containerRef = useRef<HTMLDivElement>(null)
-            const cardRefs = {
-              contentDigest: useRef<HTMLDivElement>(null),
-              lifeOS: useRef<HTMLDivElement>(null),
-              careerOps: useRef<HTMLDivElement>(null),
-              foliogptIo: useRef<HTMLDivElement>(null),
-              selfHealingChatbot: useRef<HTMLDivElement>(null),
-              claudeEye: useRef<HTMLDivElement>(null),
-              claudeable: useRef<HTMLDivElement>(null),
-              claudePulse: useRef<HTMLDivElement>(null),
-              projectOSPredict: useRef<HTMLDivElement>(null),
-            }
-
-            // Hook para calcular líneas de conexión SVG
-            const [lines, setLines] = useState<string[]>([])
-            const { ref: visibilityRef, isInView: isVisible } = useInView(0.1)
-
-            useEffect(() => {
-              if (!isVisible || !containerRef.current) return
-
-              const calculate = () => {
-                const container = containerRef.current!.getBoundingClientRect()
-                const isMobile = window.innerWidth < 768 // Tailwind md breakpoint
-
-                type Edge = 'top' | 'bottom' | 'left' | 'right'
-                const getPoint = (ref: React.RefObject<HTMLDivElement | null>, edge: Edge, ratio = 0.5) => {
-                  const rect = ref.current?.getBoundingClientRect()
-                  if (!rect) return null
-                  const x = rect.left - container.left
-                  const y = rect.top - container.top
-                  switch (edge) {
-                    case 'top': return { x: x + rect.width * ratio, y }
-                    case 'bottom': return { x: x + rect.width * ratio, y: y + rect.height }
-                    case 'left': return { x, y: y + rect.height * ratio }
-                    case 'right': return { x: x + rect.width, y: y + rect.height * ratio }
-                  }
-                }
-
-                // Definir conexiones según el grafo
-                type Connection = {
-                  from: React.RefObject<HTMLDivElement | null>
-                  fromEdge: Edge
-                  fromRatio?: number
-                  to: React.RefObject<HTMLDivElement | null>
-                  toEdge: Edge
-                  toRatio?: number
-                }
-
-                // En móvil: conexiones verticales simples (tarjetas apiladas)
-                // En desktop: grafo complejo con conexiones horizontales y diagonales
-                const connections: Connection[] = isMobile ? [
-                  // Móvil: flujo vertical simple
-                  { from: cardRefs.lifeOS, fromEdge: 'bottom', to: cardRefs.careerOps, toEdge: 'top' },
-                  { from: cardRefs.careerOps, fromEdge: 'bottom', to: cardRefs.foliogptIo, toEdge: 'top' },
-                  { from: cardRefs.foliogptIo, fromEdge: 'bottom', to: cardRefs.selfHealingChatbot, toEdge: 'top' },
-                  { from: cardRefs.selfHealingChatbot, fromEdge: 'bottom', to: cardRefs.claudeEye, toEdge: 'top' },
-                  { from: cardRefs.claudeEye, fromEdge: 'bottom', to: cardRefs.claudeable, toEdge: 'top' },
-                  { from: cardRefs.claudeable, fromEdge: 'bottom', to: cardRefs.claudePulse, toEdge: 'top' },
-                  { from: cardRefs.claudePulse, fromEdge: 'bottom', to: cardRefs.contentDigest, toEdge: 'top' },
-                  { from: cardRefs.contentDigest, fromEdge: 'bottom', to: cardRefs.projectOSPredict, toEdge: 'top' },
-                ] : [
-                  // Desktop: grafo complejo
-                  // Fila 1: Life OS ↔ Career Ops (horizontal)
-                  { from: cardRefs.lifeOS, fromEdge: 'right', to: cardRefs.careerOps, toEdge: 'left' },
-                  // Fila 1 → Fila 2: diagonales hacia foliogpt.com + chatbot
-                  { from: cardRefs.lifeOS, fromEdge: 'bottom', to: cardRefs.foliogptIo, toEdge: 'top' },
-                  { from: cardRefs.careerOps, fromEdge: 'bottom', to: cardRefs.selfHealingChatbot, toEdge: 'top' },
-                  // Fila 2: foliogpt.com ↔ chatbot (horizontal)
-                  { from: cardRefs.foliogptIo, fromEdge: 'right', to: cardRefs.selfHealingChatbot, toEdge: 'left' },
-                  // Fila 2 → Fila 3: hacia tools
-                  { from: cardRefs.foliogptIo, fromEdge: 'bottom', to: cardRefs.claudeEye, toEdge: 'top' },
-                  { from: cardRefs.selfHealingChatbot, fromEdge: 'bottom', to: cardRefs.claudeable, toEdge: 'top' },
-                  // Fila 3 → Fila 4
-                  { from: cardRefs.claudeEye, fromEdge: 'bottom', to: cardRefs.claudePulse, toEdge: 'top' },
-                  { from: cardRefs.claudeable, fromEdge: 'bottom', to: cardRefs.contentDigest, toEdge: 'top' },
-                  // Fila 4 → Fila 5: diagonales hacia ProjectOS
-                  { from: cardRefs.claudePulse, fromEdge: 'bottom', to: cardRefs.projectOSPredict, toEdge: 'top', toRatio: 0.25 },
-                  { from: cardRefs.contentDigest, fromEdge: 'bottom', to: cardRefs.projectOSPredict, toEdge: 'top', toRatio: 0.75 },
-                ]
-
-                const paths = connections.map(conn => {
-                  const start = getPoint(conn.from, conn.fromEdge, conn.fromRatio ?? 0.5)
-                  const end = getPoint(conn.to, conn.toEdge, conn.toRatio ?? 0.5)
-                  if (!start || !end) return ''
-
-                  // Móvil: líneas rectas simples | Desktop: curvas Bézier
-                  if (isMobile) {
-                    return `M ${start.x} ${start.y} L ${end.x} ${end.y}`
-                  }
-
-                  // Determinar si es conexión horizontal o vertical
-                  const isHorizontal = conn.fromEdge === 'left' || conn.fromEdge === 'right'
-                  if (isHorizontal) {
-                    // Curva Bézier horizontal
-                    const midX = (start.x + end.x) / 2
-                    return `M ${start.x} ${start.y} C ${midX} ${start.y}, ${midX} ${end.y}, ${end.x} ${end.y}`
-                  } else {
-                    // Curva Bézier vertical
-                    const midY = (start.y + end.y) / 2
-                    return `M ${start.x} ${start.y} C ${start.x} ${midY}, ${end.x} ${midY}, ${end.x} ${end.y}`
-                  }
-                }).filter(Boolean)
-
-                setLines(paths)
-              }
-
-              // Delay para dar tiempo a las animaciones de entrada (AnimatedSection ~0.6s)
-              const initialTimeout = setTimeout(calculate, 700)
-
-              // Debounce para resize
-              let resizeTimeout: ReturnType<typeof setTimeout>
-              const debouncedCalc = () => {
-                clearTimeout(resizeTimeout)
-                resizeTimeout = setTimeout(calculate, 100)
-              }
-              window.addEventListener('resize', debouncedCalc)
-              return () => {
-                window.removeEventListener('resize', debouncedCalc)
-                clearTimeout(initialTimeout)
-                clearTimeout(resizeTimeout)
-              }
-            }, [isVisible, lang])
 
             // Componente de tarjeta de proyecto
             const ProjectCard = ({ project, variant = 'default', cardRef }: {
@@ -2325,15 +2191,24 @@ function App() {
               return (
                 <div
                   ref={cardRef}
-                  className={`h-full p-6 rounded-2xl transition-colors duration-200 flex flex-col ${hasHover ? 'group' : ''} ${
+                  className={`relative overflow-hidden h-full p-6 rounded-2xl transition-all duration-300 flex flex-col ${hasHover ? 'group hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/20' : ''} ${
                     isHighlight
-                      ? 'bg-gradient-to-br from-accent/5 to-transparent border-2 border-accent/50 hover:border-accent/70'
+                      ? 'bg-gradient-to-br from-accent/10 to-card/40 backdrop-blur-xl border-2 border-accent/50 hover:border-accent/80'
                       : isTool
-                      ? `bg-card border border-tool/30 ${hasHover ? 'hover:border-tool/50' : ''}`
-                      : 'bg-card border border-border hover:border-primary/30'
+                      ? `bg-card/40 backdrop-blur-xl border border-tool/40 ${hasHover ? 'hover:border-tool/70' : ''}`
+                      : 'bg-card/40 backdrop-blur-xl border border-border/50 hover:border-primary/50'
                   }`}
                 >
-                  <div className="flex items-start justify-between mb-3">
+                  {/* Backdrop of numbers */}
+                  <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none overflow-hidden font-mono text-[0.6rem] leading-none break-all select-none flex items-center justify-center">
+                    {Array.from({ length: 40 }).map(() => '01001101 01100001 01100011 01101000 01101001 01101110 01100101 ').join('')}
+                  </div>
+                  {/* Big decorative number/letter in the corner */}
+                  <div className="absolute -bottom-8 -right-4 text-9xl font-black text-foreground/[0.02] select-none pointer-events-none z-0">
+                    {project.title.substring(0, 2).toUpperCase()}
+                  </div>
+                  
+                  <div className="relative z-10 flex items-start justify-between mb-3">
                     <h3 className={`font-display text-xl font-bold transition-colors ${
                       isTool ? 'group-hover:text-tool' : 'group-hover:text-primary'
                     }`}>{project.title}</h3>
@@ -2353,10 +2228,10 @@ function App() {
                       )}
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="relative z-10 text-sm text-muted-foreground mb-4">
                     {parseBold(project.desc)}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="relative z-10 flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech) => (
                       <span key={tech} className={`px-2 py-1 rounded-md text-xs ${
                         isTool
@@ -2365,7 +2240,7 @@ function App() {
                       }`}>{tech}</span>
                     ))}
                   </div>
-                  <div className="flex flex-col gap-3 mt-auto">
+                  <div className="relative z-10 flex flex-col gap-3 mt-auto">
                     {project.caseStudyUrl && (
                       <Link
                         to={project.caseStudyUrl}
@@ -2376,39 +2251,42 @@ function App() {
                       </Link>
                     )}
                     {project.link && (
-                      <div className="flex items-center gap-3">
+                      <div className="flex flex-col gap-3 pt-4 mt-2 border-t border-border/30">
+                        <div className="flex items-center gap-4 text-muted-foreground">
+                          {project.stars && (
+                            <span className="flex items-center gap-1.5 text-xs font-medium">
+                              <Star className="w-4 h-4 text-yellow-500" />
+                              {project.stars} Stars
+                            </span>
+                          )}
+                          {project.forks && (
+                            <span className="flex items-center gap-1.5 text-xs font-medium">
+                              <GitFork className="w-4 h-4" />
+                              {project.forks} Forks
+                            </span>
+                          )}
+                        </div>
                         <a
                           href={(project as { linkUrl?: string }).linkUrl ?? `https://${project.link}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 text-xs ${
-                            isTool ? 'text-tool hover:text-tool' : 'text-primary'
-                          } hover:underline`}
+                          className="group/btn relative w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-primary/10 hover:bg-primary/20 text-primary text-sm font-semibold rounded-xl transition-all duration-300 overflow-hidden shadow-[0_0_0_1px_rgba(var(--primary-rgb),0.1)] hover:shadow-[0_0_15px_rgba(var(--primary-rgb),0.3)]"
                         >
+                          {/* Shimmer effect on hover */}
+                          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary/20 to-transparent group-hover/btn:animate-[shimmer_1.5s_infinite]"></div>
+                          
                           {project.link.includes('github.com') ? (
                             <>
                               <Github className="w-4 h-4" />
-                              {t.projects.viewCode}
+                              View Source Code
                             </>
                           ) : (
                             <>
-                              <ExternalLink className="w-4 h-4" aria-hidden="true" />
-                              {project.link}
+                              <ExternalLink className="w-4 h-4" />
+                              View Live Deployment
                             </>
                           )}
                         </a>
-                        {project.stars && (
-                          <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                            <Star className="w-3.5 h-3.5 text-yellow-500" />
-                            {project.stars}
-                          </span>
-                        )}
-                        {project.forks && (
-                          <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                            <GitFork className="w-3.5 h-3.5" />
-                            {project.forks}
-                          </span>
-                        )}
                       </div>
                     )}
                   </div>
@@ -2418,74 +2296,13 @@ function App() {
 
 
             return (
-              <div ref={(el) => { containerRef.current = el; visibilityRef(el) }} className="mb-12 relative">
-                {/* SVG de conexiones - absoluto, z-0 para quedar detrás */}
-                <svg
-                  className="absolute inset-0 pointer-events-none"
-                  style={{ zIndex: 0, overflow: 'visible' }}
-                >
-                  {lines.map((d, i) => (
-                    <path
-                      key={i}
-                      d={d}
-                      className="dependency-line"
-                      stroke="hsl(var(--primary))"
-                      strokeWidth="1.5"
-                      fill="none"
-                      strokeDasharray="4 4"
-                      style={{
-                        opacity: isVisible ? 0.6 : 0,
-                        transition: `opacity 0.6s ease-out ${i * 0.1}s`
-                      }}
-                    />
+              <div className="mb-12 relative z-10">
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  {allProjects.map((project, index) => (
+                    <AnimatedSection key={project.title} delay={0.1 + (index * 0.05)}>
+                      <ProjectCard project={project} />
+                    </AnimatedSection>
                   ))}
-                </svg>
-
-                {/* Fila 1: Life OS + Career Ops */}
-                <div className="grid md:grid-cols-2 gap-6 mb-6 relative z-10">
-                  <AnimatedSection delay={0.1}>
-                    <ProjectCard project={lifeOS} cardRef={cardRefs.lifeOS} />
-                  </AnimatedSection>
-                  <AnimatedSection delay={0.15}>
-                    <ProjectCard project={careerOps} cardRef={cardRefs.careerOps} />
-                  </AnimatedSection>
-                </div>
-
-                {/* Fila 2: foliogpt.com + Self-Healing Chatbot (highlight) */}
-                <div className="grid md:grid-cols-2 gap-6 mb-6 relative z-10">
-                  <AnimatedSection delay={0.2}>
-                    <ProjectCard project={foliogptIo} variant="highlight" cardRef={cardRefs.foliogptIo} />
-                  </AnimatedSection>
-                  <AnimatedSection delay={0.25}>
-                    <ProjectCard project={selfHealingChatbot} variant="highlight" cardRef={cardRefs.selfHealingChatbot} />
-                  </AnimatedSection>
-                </div>
-
-                {/* Fila 3: Claude Eye + Claudeable — tools */}
-                <div className="grid md:grid-cols-2 gap-6 mb-6 relative z-10">
-                  <AnimatedSection delay={0.25}>
-                    <ProjectCard project={claudeEye} variant="tool-static" cardRef={cardRefs.claudeEye} />
-                  </AnimatedSection>
-                  <AnimatedSection delay={0.3}>
-                    <ProjectCard project={claudeable} variant="tool-static" cardRef={cardRefs.claudeable} />
-                  </AnimatedSection>
-                </div>
-
-                {/* Fila 4: Claude Pulse + Content Digest */}
-                <div className="grid md:grid-cols-2 gap-6 mb-6 relative z-10">
-                  <AnimatedSection delay={0.35}>
-                    <ProjectCard project={claudePulse} variant="tool-static" cardRef={cardRefs.claudePulse} />
-                  </AnimatedSection>
-                  <AnimatedSection delay={0.4}>
-                    <ProjectCard project={contentDigest} cardRef={cardRefs.contentDigest} />
-                  </AnimatedSection>
-                </div>
-
-                {/* Fila 5: ProjectOS Predict (full width) */}
-                <div className="relative z-10">
-                  <AnimatedSection delay={0.45}>
-                    <ProjectCard project={projectOSPredict} cardRef={cardRefs.projectOSPredict} />
-                  </AnimatedSection>
                 </div>
               </div>
             )
@@ -2559,7 +2376,7 @@ function App() {
                 >
                   {/* Karthik — two column layout like Garry Tan */}
                   <div className="flex gap-4 mb-8">
-                    <img src="/foto-avatar.webp" alt="foliogpt" role="presentation" width={384} height={384} className="w-16 h-16 md:w-20 md:h-20 rounded-full shrink-0" />
+                    <img src="/foto-avatar.jpg" alt="foliogpt" role="presentation" width={384} height={384} className="w-16 h-16 md:w-20 md:h-20 rounded-full shrink-0" />
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5 flex-wrap mb-1">
                         <span className="text-base md:text-lg font-bold text-foreground">foliogpt | AI Builder</span>
@@ -2669,7 +2486,7 @@ function App() {
                   className="flex flex-col p-5 rounded-2xl bg-card border border-border/50 border-t-2 border-t-[#FF4500] hover:border-border transition-colors group h-full"
                 >
                   <div className="flex gap-3">
-                    <img src="/foto-avatar.webp" alt="" role="presentation" width={384} height={384} className="w-10 h-10 rounded-full shrink-0 mt-0.5" />
+                    <img src="/foto-avatar.jpg" alt="" role="presentation" width={384} height={384} className="w-10 h-10 rounded-full shrink-0 mt-0.5" />
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-start gap-2">
                         <p className="text-sm text-foreground leading-relaxed">{rp.hook}<span className="text-muted-foreground">...</span> <span className="text-[#FF4500] group-hover:text-[#FF4500] transition-colors">ver más</span></p>
@@ -2713,7 +2530,7 @@ function App() {
                   className="flex flex-col p-5 rounded-2xl bg-card border border-border/50 border-t-2 border-t-[hsl(var(--linkedin))] hover:border-border transition-colors group h-full"
                 >
                   <div className="flex gap-3 flex-1">
-                    <img src="/foto-avatar.webp" alt="" role="presentation" width={384} height={384} className="w-10 h-10 rounded-full shrink-0 mt-0.5" />
+                    <img src="/foto-avatar.jpg" alt="" role="presentation" width={384} height={384} className="w-10 h-10 rounded-full shrink-0 mt-0.5" />
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-start gap-2">
                         <p className="text-sm text-foreground leading-relaxed">{post.hook}<span className="text-muted-foreground">...</span> <span className="text-[hsl(var(--linkedin))] group-hover:text-[hsl(var(--linkedin))] transition-colors">ver más</span></p>
@@ -2992,8 +2809,32 @@ function App() {
               </div>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.2} className="md:col-span-3">
-              <h3 className="font-display font-semibold mb-4">{t.techStack.title}</h3>
+            <AnimatedSection delay={0.2} className="md:col-span-3 overflow-hidden">
+              <h3 className="font-display font-semibold mb-6 text-xl">{t.techStack.title}</h3>
+              
+              {/* Cinematic Tech Marquee */}
+              <div 
+                className="relative w-full flex items-center mb-12 py-2"
+                style={{ maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}
+              >
+                <div className="flex w-max animate-marquee gap-6">
+                  {/* Map through twice for seamless infinite loop */}
+                  {[...t.techStack.categories.flatMap(c => c.items), ...t.techStack.categories.flatMap(c => c.items)].map((item, idx) => {
+                    const icon = getTechIcon(item)
+                    return (
+                      <div key={`${item}-${idx}`} className="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-card/50 backdrop-blur-xl border border-white/10 shadow-lg hover:bg-card hover:-translate-y-1 transition-all duration-300">
+                        {icon && (
+                          <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0" fill={icon.color} aria-hidden="true">
+                            <path d={icon.path} />
+                          </svg>
+                        )}
+                        <span className="font-medium text-foreground whitespace-nowrap">{item}</span>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {t.techStack.categories.map((cat) => (
                   <div key={cat.name} className="p-4 rounded-xl bg-card border border-border">
@@ -3060,8 +2901,8 @@ function App() {
           <p className="mt-12 text-xs text-muted-foreground">
             &copy; {new Date().getFullYear()} Karthik
             <span className="mx-2 text-border">|</span>
-            <Link to={lang === 'es' ? '/privacidad' : '/privacy'} className="hover:text-primary transition-colors">
-              {lang === 'es' ? 'Privacidad' : 'Privacy'}
+            <Link to={'/privacy'} className="hover:text-primary transition-colors">
+              {'Privacy'}
             </Link>
           </p>
         </div>

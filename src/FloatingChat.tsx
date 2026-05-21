@@ -508,9 +508,9 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
               className="relative w-full h-full"
             >
               <picture>
-                <source srcSet="/foto-avatar-sm.webp" type="image/webp" />
+                <source srcSet="/foto-avatar.jpg" type="image/webp" />
                 <img
-                  src="/foto-avatar-sm.webp"
+                  src="/foto-avatar.jpg"
                   alt={lang === 'en' ? 'Chat' : 'Chat'}
                   className="w-full h-full rounded-full object-cover"
                   width={56}
@@ -564,9 +564,9 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
             >
               <div className="flex items-center gap-3">
                 <picture>
-                  <source srcSet="/foto-avatar-sm.webp" type="image/webp" />
+                  <source srcSet="/foto-avatar.jpg" type="image/webp" />
                   <img
-                    src="/foto-avatar-sm.webp"
+                    src="/foto-avatar.jpg"
                     alt="avatar"
                     className="w-10 h-10 rounded-full object-cover ring-2 ring-primary/20"
                     width={40}
@@ -683,7 +683,7 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
                       {message.role === 'assistant' && message.ragSources && message.ragSources.length > 0 && !isLoading && !isStreaming && (
                         <div className="flex flex-wrap gap-1.5 mt-2 px-1">
                           {message.ragSources.map((source, si) => {
-                            const targetPath = lang === 'es' ? source.page_path_es : source.page_path_en;
+                            const targetPath = source.page_path_en;
                             const sectionLabels = getSectionLabels()[targetPath] || {};
                             const anchorId = source.section_anchor.replace(/^#/, '');
                             const sectionName = sectionLabels[anchorId] || '';

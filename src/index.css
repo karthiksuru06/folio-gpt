@@ -26,6 +26,23 @@ button, a, [role="button"], summary { cursor: pointer; }
   border-radius: 0.5rem;
 }
 
+/* Cinematic loop scrolling / Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 1rem)); }
+}
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(400%); }
+}
+
+
 /* Self-hosted fonts — eliminates Google Fonts CDN round trips */
 @font-face {
   font-family: 'Space Grotesk';

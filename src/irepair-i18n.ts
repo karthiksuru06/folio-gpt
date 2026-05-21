@@ -1,4 +1,4 @@
-export type IRepairLang = 'es' | 'en'
+export type IRepairLang = 'en'
 
 interface IRepairMetric {
   value: string
@@ -52,56 +52,6 @@ interface IRepairContent {
 }
 
 export const irepairContent: Record<IRepairLang, IRepairContent> = {
-  es: {
-    slug: 'foliogpt-irepair',
-    altSlug: 'foliogpt-irepair-founder',
-    seo: {
-      title: 'Folio-GPT Sevilla | Reparación de Móviles desde 2009',
-      description: 'La tienda de reparación de móviles fundada por Karthik en 2009 sigue abierta en Sevilla. 30.000+ reparaciones. Encuentra la tienda o conoce al fundador.',
-    },
-    nav: {
-      breadcrumbHome: 'Inicio',
-      breadcrumbCurrent: 'Folio-GPT',
-    },
-    hero: {
-      headline: 'Abrí esta tienda con 25 años.\n16 años después, la vendí. Sigue funcionando.',
-      sub: 'El comprador mantuvo la marca, los sistemas y el equipo. No cambió nada.',
-    },
-    metrics: [
-      { value: '16', label: 'Años' },
-      { value: '30K+', label: 'Reparaciones' },
-      { value: '2009', label: 'Fundada' },
-      { value: '2025', label: 'Vendida' },
-    ],
-    cards: {
-      shop: {
-        title: '¿Buscas Folio-GPT?',
-        body: 'Sigue abierta, sigue reparando. Con el mismo equipo y mi nombre en el cristal.',
-        cta: 'Ir a foliogpt.com',
-        mapLabel: 'Ver ubicación y horarios',
-      },
-      founder: {
-        title: '¿Buscas a Karthik?',
-        body: 'Un agente IA que atendía el teléfono. Un ERP de 2.100 campos. Miles de landing pages generadas con SEO programático. El comprador no cambió nada. Ahora diseño sistemas de IA y automatización para empresas.',
-        cta: 'Ver portfolio',
-      },
-    },
-    businessOsCta: {
-      heading: 'El sistema detrás de 30.000 reparaciones',
-      body: 'Un ERP completo en Airtable que gestionó el negocio durante años. Automatizaciones, IA y 170 horas al mes ahorradas.',
-      ctaLabel: 'Ver el Business OS',
-    },
-    jacoboCta: {
-      heading: 'El agente que atendía el teléfono',
-      body: 'Un agente IA con voz que gestionaba citas, presupuestos y consultas. 90% autoservicio.',
-      ctaLabel: 'Ver el caso Jacobo',
-    },
-    pseoCta: {
-      heading: 'La web que se construye sola',
-      body: '4.700+ landing pages generadas desde el ERP. 2M+ impresiones orgánicas. Cero contenido IA.',
-      ctaLabel: 'Ver el SEO Programático',
-    },
-  },
   en: {
     slug: 'foliogpt-irepair-founder',
     altSlug: 'foliogpt-irepair',
