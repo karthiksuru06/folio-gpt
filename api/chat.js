@@ -90,7 +90,7 @@ export default async function handler(req) {
         'X-Title': 'folio-gpt',
       },
       body: JSON.stringify({
-        model: 'meta-llama/llama-3.3-70b-instruct:free',
+        model: 'meta-llama/llama-3.3-70b-instruct',
         messages: [
           { role: 'system', content: fullSystemPrompt },
           ...cleanMessages
