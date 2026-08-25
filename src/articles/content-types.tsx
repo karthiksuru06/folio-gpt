@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect, useCallback, useMemo, Fragment, type ReactNode } from 'react'
 import { motion } from 'motion/react'
 import { ChevronRight, List, Copy, Check, ZoomIn, X, Rocket } from 'lucide-react'
+import DOMPurify from 'dompurify'
 
 // ---------------------------------------------------------------------------
 // Editor Mode
@@ -280,7 +281,7 @@ export function CardStack({ items, className, editorId }: CardStackProps) {
         {items.map((item, i) => (
           <div key={i} className="bg-card border border-border rounded-lg p-4 hover:border-primary/20 transition-colors">
             <p className="font-medium text-foreground text-sm mb-1">{item.title}</p>
-            <p className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: String(item.detail) }} />
+            <p className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(String(item.detail)) }} />
           </div>
         ))}
       </div>
@@ -1172,6 +1173,7 @@ function useAutoToc(): TocItem[] {
       }
     }
     tree.forEach(s => { if (s.children?.length === 0) delete s.children })
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSections(tree)
   }, [])
 

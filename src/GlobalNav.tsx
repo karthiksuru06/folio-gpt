@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/refs */
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Sun, Moon, ChevronRight } from 'lucide-react'
@@ -206,3 +207,4 @@ export default function GlobalNav() {
     </div>
   )
 }
+

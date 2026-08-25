@@ -13,8 +13,10 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
     "@supabase/supabase-js": "^2.99.1",
+    "@types/dompurify": "^3.0.5",
     "@vercel/analytics": "^1.6.1",
     "@vercel/functions": "^3.3.6",
+    "dompurify": "^3.4.14",
     "langfuse": "^3.38.6",
     "lucide-react": "^0.563.0",
     "mammoth": "^1.12.1",

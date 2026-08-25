@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { StrictMode, lazy, Suspense, useState, useEffect, useRef, Component, type ReactNode } from 'react'
 import { hydrateRoot, createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, useLocation, Link } from 'react-router-dom'
@@ -25,6 +26,7 @@ function PageTransition({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (pathname !== initialPathname.current) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setHasNavigated(true)
     }
 
@@ -60,6 +62,7 @@ function PageTransition({ children }: { children: ReactNode }) {
 
 function GlobalChat() {
   const [hydrated, setHydrated] = useState(false)
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setHydrated(true), [])
 
   if (!hydrated) return null
