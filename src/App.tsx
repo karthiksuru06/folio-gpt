@@ -1491,7 +1491,7 @@ function App() {
             </span>
             <span className="hidden sm:inline text-border" aria-hidden="true">|</span>
             <span className="inline-flex flex-wrap justify-center gap-2">
-              {['Vercel Edge', 'Supabase', 'pgvector', 'Hugging Face', 'Llama 3.3 70B', 'SSE streaming'].map(chip => (
+              {['Vercel Edge', 'Supabase', 'pgvector', 'Hugging Face', 'Llama 3.3 0.5 billion', 'SSE streaming'].map(chip => (
                 <span key={chip} className="px-2 py-0.5 rounded-md border border-border/70 bg-card/50 font-mono text-[11px] tracking-tight">{chip}</span>
               ))}
             </span>
