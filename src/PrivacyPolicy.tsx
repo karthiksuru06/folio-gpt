@@ -6,7 +6,7 @@ const content = {
   es: {
     title: 'Politica de Privacidad',
     lastUpdated: 'Ultima actualizacion: 15 de marzo de 2026',
-    intro: 'Esta politica describe como se recopilan y utilizan los datos cuando visitas foliogpt.com.',
+    intro: 'Esta politica describe como se recopilan y utilizan los datos cuando visitas karthiksuru.dev.',
     sections: [
       {
         heading: 'Que datos se recopilan',
@@ -44,7 +44,7 @@ const content = {
       {
         heading: 'Contacto',
         body: 'Para cualquier consulta sobre privacidad, puedes escribir a:',
-        email: 'karthik939075@gmail.com',
+        email: 'karthiksuru06@gmail.com',
       },
     ],
     backHome: 'Volver al inicio',
@@ -52,7 +52,7 @@ const content = {
   en: {
     title: 'Privacy Policy',
     lastUpdated: 'Last updated: March 15, 2026',
-    intro: 'This policy describes how data is collected and used when you visit foliogpt.com.',
+    intro: 'This policy describes how data is collected and used when you visit karthiksuru.dev.',
     sections: [
       {
         heading: 'What data is collected',
@@ -90,7 +90,7 @@ const content = {
       {
         heading: 'Contact',
         body: 'For any privacy-related inquiries, you can write to:',
-        email: 'karthik939075@gmail.com',
+        email: 'karthiksuru06@gmail.com',
       },
     ],
     backHome: 'Back to home',
@@ -108,7 +108,7 @@ export default function PrivacyPolicy({ lang = 'en' }: { lang?: 'en' }) {
   const t = content[lang]
 
   useEffect(() => {
-    document.title = `${t.title} | foliogpt.com`
+    document.title = `${t.title} | karthiksuru.dev`
 
     // noindex
     let robots = document.querySelector('meta[name="robots"]') as HTMLMetaElement
@@ -121,11 +121,11 @@ export default function PrivacyPolicy({ lang = 'en' }: { lang?: 'en' }) {
 
     // Fix canonical (SPA fallback serves homepage canonical — override it)
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement
-    if (canonical) canonical.href = `https://foliogpt.com/${'privacy'}`
+    if (canonical) canonical.href = `https://karthiksuru.dev/${'privacy'}`
 
     // Fix meta description
     let desc = document.querySelector('meta[name="description"]') as HTMLMetaElement
-    if (desc) desc.content = 'Privacy policy for foliogpt.com. How chatbot and website data is collected and used.'
+    if (desc) desc.content = 'Privacy policy for karthiksuru.dev. How chatbot and website data is collected and used.'
 
     return () => {
       robots.content = 'index, follow'

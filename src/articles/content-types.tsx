@@ -1059,7 +1059,7 @@ interface ScreenshotGridProps {
   editorId?: string
 }
 
-export function ScreenshotGrid({ items, basePath = '/jacobo/screenshots', editorId }: ScreenshotGridProps) {
+export function ScreenshotGrid({ items, basePath = '', editorId }: ScreenshotGridProps) {
   if (items.length < 3) {
     return (
       <EditorLabel name="ScreenshotGrid" id={editorId}>
@@ -1253,7 +1253,6 @@ export function FloatingToc({ ctas }: { ctas?: TocCta[] } = {}) {
               rel="noopener noreferrer"
               className="flex items-center gap-2 w-full px-3 py-2 rounded-lg bg-[#FFDD00] text-black text-sm font-semibold hover:bg-[#FFE433] transition-colors shadow-sm"
             >
-              <img src="/bmc-logo.svg" alt="" role="presentation" aria-hidden="true" className="w-3.5 h-auto flex-shrink-0" width="27" height="39" />
               <span className="truncate">{cta.label}</span>
             </a>
           )

@@ -42,6 +42,110 @@ button, a, [role="button"], summary { cursor: pointer; }
   100% { transform: translateX(400%); }
 }
 
+/* ============================================================
+   SIGNATURE — the measurement block
+   ============================================================
+
+   Every figure on this site carries its provenance. A bare "60.1%" is a
+   claim; "60.1% · top-1 · 24 classes · EfficientNet-B3 / WikiArt" is a
+   result. The distinction is the whole positioning of this portfolio, so
+   it gets encoded in the type rather than stated in prose.
+
+   Structure:
+     <div class="measure">
+       <span class="measure-value">60.1<span class="measure-unit">%</span></span>
+       <span class="measure-rule"></span>
+       <span class="measure-provenance">top-1 · 24 classes · WikiArt</span>
+     </div>
+
+   The hairline rule is load-bearing: it separates the assertion from its
+   evidence, which is exactly the relationship being shown.
+   ============================================================ */
+
+.measure {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.measure-value {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
+  line-height: 0.95;
+  letter-spacing: var(--tracking-display);
+  color: hsl(var(--foreground));
+  font-variant-numeric: tabular-nums;
+}
+
+/* Units sit smaller and dimmer so the figure itself carries the emphasis. */
+.measure-unit {
+  font-size: 0.5em;
+  font-weight: 400;
+  color: hsl(var(--primary));
+  margin-left: 0.1em;
+  letter-spacing: 0;
+}
+
+.measure-rule {
+  width: 2rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary) / 0.9),
+    hsl(var(--primary) / 0)
+  );
+}
+
+.measure-provenance {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  color: hsl(var(--muted-foreground));
+  text-wrap: balance;
+}
+
+/* Inline variant for use inside body copy and cards. */
+.measure-inline {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.measure-inline > strong {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: hsl(var(--foreground));
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* Section eyebrow — mono, wide-tracked, sits above headings.
+   Reads as a channel label on an instrument rather than a decorative kicker. */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: hsl(var(--primary));
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.5rem;
+  height: 1px;
+  background: hsl(var(--primary) / 0.55);
+}
+
 
 /* Self-hosted fonts — eliminates Google Fonts CDN round trips */
 @font-face {
@@ -97,6 +201,15 @@ button, a, [role="button"], summary { cursor: pointer; }
 @theme {
   --font-sans: "DM Sans", system-ui, sans-serif;
   --font-display: "Space Grotesk", system-ui, sans-serif;
+  /* Data/utility face. System stack — no download, and every OS ships a good
+     one. Used for figures, provenance, and anything that reads as readout. */
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "JetBrains Mono",
+    "Roboto Mono", Menlo, Consolas, monospace;
+
+  /* Display scale. Tight tracking at the top end — Space Grotesk opens up at
+     large sizes and needs pulling back to stay architectural rather than soft. */
+  --tracking-display: -0.035em;
+  --tracking-eyebrow: 0.18em;
 }
 
 /* ============================================
@@ -111,26 +224,26 @@ button, a, [role="button"], summary { cursor: pointer; }
    ============================================ */
 
 @layer base {
-  /* ========== PROFILE: CYBER (Default) - Cyan/Purple ========== */
+  /* ========== PROFILE: EMBER (Default) - Warm Orange/Teal ========== */
   :root {
-    --background: 220 6% 96%;
-    --foreground: 240 10% 4%;
-    --muted: 220 6% 86%;
-    --muted-foreground: 240 5% 28%;
-    --primary: 187 74% 28%;
+    --background: 33 45% 97%;
+    --foreground: 20 20% 10%;
+    --muted: 30 30% 91%;
+    --muted-foreground: 20 15% 36%;
+    --primary: 22 82% 40%;
     --primary-foreground: 0 0% 100%;
-    --accent: 270 70% 38%;
+    --accent: 181 100% 24%;
     --accent-foreground: 0 0% 100%;
-    --border: 240 6% 85%;
+    --border: 30 22% 82%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 4%;
+    --card-foreground: 20 20% 10%;
     /* Gradient colors for chat/buttons */
-    --gradient-from: 187 86% 53%; /* cyan-400 */
-    --gradient-to: 270 91% 65%;   /* purple-500 */
+    --gradient-from: 24 88% 52%;  /* ember orange */
+    --gradient-to: 181 100% 29%;  /* deep teal */
     /* Semantic accent colors */
     --gold: 43 76% 38%;
     --success: 142 72% 29%;
-    --tool: 187 72% 30%;
+    --tool: 22 82% 40%;
     --linkedin: 210 91% 40%;       /* #0A66C2 */
     --codeblock: 210 17% 95%;      /* #F1F5F9 - slate-100 */
     --codeblock-text: 215 25% 17%; /* #1E293B - slate-800 */
@@ -140,30 +253,36 @@ button, a, [role="button"], summary { cursor: pointer; }
     --code-number: 30 70% 45%;     /* amber */
     --code-heading: 190 60% 35%;   /* teal */
     --code-var: 270 50% 45%;       /* purple */
-    --hero-orb-primary: 187 74% 28% / 0.15;
-    --hero-orb-accent: 270 70% 38% / 0.12;
-    --dot-grid: 240 5% 35% / 0.25;
+    --hero-orb-primary: 24 88% 52% / 0.16;
+    --hero-orb-accent: 181 100% 29% / 0.12;
+    --dot-grid: 25 15% 35% / 0.25;
   }
 
   /* Dark mode via system preference — CSS-first, no JS needed = 0ms flash */
   @media (prefers-color-scheme: dark) {
     :root:not(.light) {
-      --background: 240 6% 10%;
-      --foreground: 0 0% 93%;
-      --muted: 240 4% 14%;
-      --muted-foreground: 240 5% 65%;
-      --primary: 187 86% 53%;
-      --primary-foreground: 240 10% 4%;
-      --accent: 270 91% 78%;
-      --accent-foreground: 0 0% 100%;
-      --border: 240 4% 20%;
-      --card: 240 5% 13%;
-      --card-foreground: 0 0% 93%;
-      --gradient-from: 187 86% 53%;
-      --gradient-to: 270 91% 78%;
-      --gold: 45 97% 49%;
-      --success: 142 71% 45%;
-      --tool: 187 92% 50%;
+      /* INSTRUMENT — cool near-black + amber readout.
+         Warm black with orange reads as startup marketing. Cooling the base
+         and pushing the signal from orange to amber recontextualises the same
+         hue family as an instrument readout: terminal, oscilloscope, LED. */
+      --background: 222 20% 7%;
+      --foreground: 210 22% 95%;
+      --muted: 220 16% 12%;
+      /* 68% L clears WCAG AA against the base — the previous 64% warm value
+         sat just under 4.5:1 and this text carries dates and captions. */
+      --muted-foreground: 215 16% 68%;
+      --primary: 38 95% 62%;
+      --primary-foreground: 222 25% 8%;
+      --accent: 191 85% 58%;
+      --accent-foreground: 222 25% 8%;
+      --border: 220 14% 19%;
+      --card: 221 18% 10%;
+      --card-foreground: 210 22% 95%;
+      --gradient-from: 38 95% 62%;
+      --gradient-to: 191 85% 52%;
+      --gold: 44 96% 60%;
+      --success: 152 62% 50%;
+      --tool: 38 95% 62%;
       --linkedin: 210 88% 71%;
       --codeblock: 215 19% 5%;       /* #0D1117 - GitHub Dark */
       --codeblock-text: 213 14% 90%; /* #E6EDF3 */
@@ -173,35 +292,36 @@ button, a, [role="button"], summary { cursor: pointer; }
       --code-number: 30 85% 65%;     /* #E3B341 */
       --code-heading: 210 100% 75%;  /* #79C0FF */
       --code-var: 270 70% 75%;       /* #D2A8FF */
-      --hero-orb-primary: 187 86% 53% / 0.08;
-      --hero-orb-accent: 270 91% 70% / 0.10;
-      --dot-grid: 240 5% 65% / 0.15;
+      --hero-orb-primary: 38 95% 62% / 0.09;
+      --hero-orb-accent: 191 85% 55% / 0.08;
+      --dot-grid: 215 20% 70% / 0.13;
     }
   }
 
   /* Manual dark override (user toggled) */
   .dark {
-    --background: 240 6% 10%;       /* #18181b - soft dark like VS Code */
-    --foreground: 0 0% 93%;         /* off-white, easier on eyes */
-    --muted: 240 4% 14%;            /* slightly lighter for hierarchy */
-    --muted-foreground: 240 5% 65%;
-    --primary: 187 86% 53%;
-    --primary-foreground: 240 10% 4%;
-    --accent: 270 91% 70%;
-    --accent-foreground: 0 0% 100%;
-    --border: 240 4% 20%;           /* more visible borders */
-    --card: 240 5% 13%;             /* elevated above background */
-    --card-foreground: 0 0% 93%;
-    --gradient-from: 187 86% 53%;
-    --gradient-to: 270 91% 78%;
+    /* Must mirror the prefers-color-scheme block above exactly. */
+    --background: 222 20% 7%;       /* cool instrument black */
+    --foreground: 210 22% 95%;
+    --muted: 220 16% 12%;
+    --muted-foreground: 215 16% 68%;
+    --primary: 38 95% 62%;          /* amber readout */
+    --primary-foreground: 222 25% 8%;
+    --accent: 191 85% 58%;          /* secondary data channel */
+    --accent-foreground: 222 25% 8%;
+    --border: 220 14% 19%;
+    --card: 221 18% 10%;            /* elevated above background */
+    --card-foreground: 210 22% 95%;
+    --gradient-from: 38 95% 62%;
+    --gradient-to: 191 85% 52%;
     /* Semantic accent colors */
-    --gold: 45 97% 49%;
-    --success: 142 71% 45%;
-    --tool: 187 92% 50%;
+    --gold: 44 96% 60%;
+    --success: 152 62% 50%;
+    --tool: 38 95% 62%;
     --linkedin: 210 88% 71%;       /* #70B5F9 - lighter for dark bg */
-    --hero-orb-primary: 187 86% 53% / 0.08;
-    --hero-orb-accent: 270 91% 70% / 0.10;
-    --dot-grid: 240 5% 65% / 0.15;
+    --hero-orb-primary: 38 95% 62% / 0.09;
+    --hero-orb-accent: 191 85% 55% / 0.08;
+    --dot-grid: 215 20% 70% / 0.13;
     --codeblock: 215 19% 5%;       /* #0D1117 - GitHub Dark */
     --codeblock-text: 213 14% 90%; /* #E6EDF3 */
     --code-keyword: 210 100% 75%;  /* #79C0FF */
@@ -214,26 +334,26 @@ button, a, [role="button"], summary { cursor: pointer; }
 
   /* Manual light override (user toggled when system is dark) */
   .light {
-    --background: 220 6% 96%;
-    --foreground: 240 10% 4%;
-    --muted: 220 6% 86%;
-    --muted-foreground: 240 5% 28%;
-    --primary: 187 74% 28%;
+    --background: 33 45% 97%;
+    --foreground: 20 20% 10%;
+    --muted: 30 30% 91%;
+    --muted-foreground: 20 15% 36%;
+    --primary: 22 82% 40%;
     --primary-foreground: 0 0% 100%;
-    --accent: 270 70% 38%;
+    --accent: 181 100% 24%;
     --accent-foreground: 0 0% 100%;
-    --border: 240 6% 85%;
+    --border: 30 22% 82%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 4%;
-    --gradient-from: 187 86% 53%;
-    --gradient-to: 270 91% 65%;
+    --card-foreground: 20 20% 10%;
+    --gradient-from: 24 88% 52%;
+    --gradient-to: 181 100% 29%;
     --gold: 43 76% 38%;
     --success: 142 72% 29%;
-    --tool: 187 72% 30%;
+    --tool: 22 82% 40%;
     --linkedin: 210 91% 40%;
-    --hero-orb-primary: 187 74% 28% / 0.15;
-    --hero-orb-accent: 270 70% 38% / 0.12;
-    --dot-grid: 240 5% 35% / 0.25;
+    --hero-orb-primary: 24 88% 52% / 0.16;
+    --hero-orb-accent: 181 100% 29% / 0.12;
+    --dot-grid: 25 15% 35% / 0.25;
   }
 
   /* ========== PROFILE: WARM - Orange/Teal ========== */

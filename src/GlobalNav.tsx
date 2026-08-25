@@ -166,7 +166,7 @@ export default function GlobalNav() {
                   className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors shrink-0"
                 >
                   <img src="/foto-avatar.jpg" alt="Home" className="w-6 h-6 rounded-full border border-border/50 object-cover" />
-                  <span className="hidden sm:inline font-display font-medium">foliogpt.com</span>
+                  <span className="hidden sm:inline font-display font-medium">karthiksuru.dev</span>
                 </Link>
                 {pageTitle && (
                   <>

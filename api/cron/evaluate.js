@@ -14,10 +14,10 @@ export const config = {
   maxDuration: 60,
 }
 
-const EVALUATOR_PROMPT = `You are an evaluator for a chatbot that represents Karthik Fernández, an AI Product Manager based in Seville, Spain.
+const EVALUATOR_PROMPT = `You are an evaluator for a chatbot that represents Karthik Fernández, an AI Product Manager based in Visakhapatnam, Spain.
 
 <public_info>
-PUBLIC and SAFE to share: City (Seville), Email (karthik939075@gmail.com), LinkedIn, GitHub, professional history.
+PUBLIC and SAFE to share: City (Visakhapatnam), Email (karthiksuru06@gmail.com), LinkedIn, GitHub, professional history.
 </public_info>
 
 <private_info>

@@ -10,6 +10,7 @@ import {
   Mail,
   ChevronDown,
   FileText,
+  RefreshCw,
 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -43,6 +44,7 @@ const PromptIcon = ({ icon }: { icon: string }) => {
     rocket: Rocket,
     help: HelpCircle,
     mail: Mail,
+    fileText: FileText,
   };
   const Icon = icons[icon as keyof typeof icons] || HelpCircle;
   return <Icon className="w-3.5 h-3.5" aria-hidden="true" />;
@@ -141,11 +143,44 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [isStreaming, setIsStreaming] = useState(false);
   const [showPrompts, setShowPrompts] = useState(session.showPrompts);
-  const [sessionId] = useState(session.sessionId);
+  const [sessionId, setSessionId] = useState(session.sessionId);
+  const [warningCount, setWarningCount] = useState(0);
+  const [isOllamaFallback, setIsOllamaFallback] = useState(false);
+
+  const resetChat = () => {
+    const newSessionId = `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+    setSessionId(newSessionId);
+    setMessages([{ role: 'assistant', content: t.greeting }]);
+    setShowPrompts(true);
+    setWarningCount(0);
+  };
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const avatarRef = useRef<HTMLDivElement>(null);
+
+  // Mouse tracking for avatar parallax
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (avatarRef.current && !isOpen) {
+        const rect = avatarRef.current.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const diffX = e.clientX - centerX;
+        const diffY = e.clientY - centerY;
+        
+        const tiltX = Math.max(-20, Math.min(20, (diffY / window.innerHeight) * 40));
+        const tiltY = Math.max(-20, Math.min(20, -(diffX / window.innerWidth) * 40));
+        
+        setMousePosition({ x: tiltY, y: tiltX });
+      }
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [isOpen]);
 
   // Word-by-word streaming refs
   const fullTextRef = useRef('');
@@ -308,6 +343,16 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
 
     setMessages((prev) => [...prev, { role: 'assistant', content: '' }]);
 
+    // Check Cache
+    const cacheKey = `folio-cache-${text.trim().toLowerCase()}`;
+    const cachedResponse = localStorage.getItem(cacheKey);
+    if (cachedResponse) {
+      setIsLoading(false);
+      fullTextRef.current = cachedResponse;
+      startDrain();
+      return;
+    }
+
     try {
       if (!navigator.onLine) {
         throw new Error('offline');
@@ -317,7 +362,7 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
       const controller = new AbortController();
       abortRef.current = controller;
 
-      const response = await fetch('/api/chat', {
+      let response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         signal: controller.signal,
@@ -331,7 +376,23 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
         }),
       });
 
-      if (!response.ok) throw new Error('Failed to send message');
+      if (!response.ok) {
+        // Fallback to local Ollama if main API fails
+        response = await fetch('http://localhost:11434/api/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          signal: controller.signal,
+          body: JSON.stringify({
+            model: 'qwen2:0.5b',
+            prompt: `You are an AI summarizing Karthik's resume. User says: ${text}`,
+            stream: true,
+          }),
+        });
+        if (!response.ok) throw new Error('Ollama fallback failed');
+        setIsOllamaFallback(true);
+      } else {
+        setIsOllamaFallback(false);
+      }
 
       const reader = response.body?.getReader();
       const decoder = new TextDecoder();
@@ -399,7 +460,26 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
                     setIsStreaming(true);
                   }
 
-                  fullText += data.text;
+                  // Check Ollama specific response format
+                  const incomingText = data.response || data.text;
+
+                  fullText += incomingText;
+                  
+                  // Process off-topic flag
+                  if (fullText.includes('[OFF-TOPIC]')) {
+                    const newCount = warningCount + 1;
+                    setWarningCount(newCount);
+                    if (newCount >= 3) {
+                      fullTextRef.current = "You have exceeded the warning limit. Please contact Karthik directly at **karthik939075@gmail.com**.";
+                      setTimeout(() => setIsOpen(false), 5000);
+                    } else {
+                      fullTextRef.current = `I am specifically designed to answer questions about Karthik. Please stay on topic. (Warning ${newCount}/3)`;
+                    }
+                    startDrain();
+                    controller.abort(); // Stop streaming
+                    break;
+                  }
+
                   fullTextRef.current = fullText;
                   startDrain();
                 }
@@ -412,6 +492,11 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
       }
 
       isStreamingRef.current = false;
+
+      // Save valid responses to cache
+      if (fullText && !fullText.includes('[OFF-TOPIC]')) {
+        localStorage.setItem(cacheKey, fullText);
+      }
 
       if (!fullText) {
         const errorMsg = t.error;
@@ -502,10 +587,17 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
             <motion.div
               key="open"
               initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+              animate={{ 
+                scale: 1, 
+                opacity: 1,
+                rotateX: mousePosition.y,
+                rotateY: mousePosition.x
+              }}
               exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="relative w-full h-full"
+              transition={{ duration: 0.1, ease: 'easeOut' }}
+              className="relative w-full h-full transform-gpu"
+              style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
+              ref={avatarRef}
             >
               <picture>
                 <source srcSet="/foto-avatar.jpg" type="image/webp" />
@@ -576,15 +668,23 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
                   />
                 </picture>
                 <div>
-                  <h3 className="font-display font-semibold text-foreground">
-                    {t.title}
+                  <h3 className="font-medium text-foreground tracking-tight flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse" />
+                    {isOllamaFallback ? "Local Fallback Mode" : t.title}
                   </h3>
                   <p className="text-xs text-muted-foreground">
-                    {t.subtitle}
+                    {isOllamaFallback ? "Running on Ollama" : t.subtitle}
                   </p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
+                <button
+                  onClick={resetChat}
+                  className="p-2 -mr-1 hover:bg-muted text-muted-foreground hover:text-foreground rounded-full transition-colors"
+                  aria-label="Reset chat"
+                >
+                  <RefreshCw className="w-4 h-4" />
+                </button>
                 {isMobile && (
                   <button
                     onClick={() => {
@@ -628,7 +728,7 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
                         className={`px-4 py-2.5 rounded-2xl leading-relaxed ${
                           message.role === 'user'
                             ? 'bg-gradient-theme text-white rounded-br-md'
-                            : 'bg-muted text-foreground rounded-bl-md'
+                            : 'bg-black/90 text-green-400 font-mono border border-green-500/30 rounded-bl-md shadow-[0_0_15px_rgba(34,197,94,0.1)]'
                         } ${isMobile ? 'text-base' : 'text-sm'} ${
                           isStreaming && i === messages.length - 1 && message.role === 'assistant'
                             ? 'streaming-cursor'

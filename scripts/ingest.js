@@ -30,33 +30,12 @@ if (!HUGGINGFACE_API_KEY) {
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
-const ARTICLE_SLUGS = {
-  'n8n-for-pms':          { en: 'n8n-for-pms' },
-  'jacobo':               { en: 'ai-agent-jacobo' },
-  'business-os':          { en: 'business-os-for-airtable' },
-  'programmatic-seo':     { en: 'programmatic-seo' },
-  'self-healing-chatbot': { en: 'self-healing-chatbot' },
-  'career-ops':          { en: 'career-ops-system' },
-};
+const ARTICLE_SLUGS = {};
 
-const ARTICLE_ROUTES = {
-  'n8n-for-pms':          { page_path_en: '/n8n-for-pms' },
-  'jacobo':               { page_path_en: '/ai-agent-jacobo' },
-  'business-os':          { page_path_en: '/business-os-for-airtable' },
-  'programmatic-seo':     { page_path_en: '/programmatic-seo' },
-  'self-healing-chatbot': { page_path_en: '/self-healing-chatbot' },
-  'career-ops':          { page_path_en: '/career-ops-system' },
-};
+const ARTICLE_ROUTES = {};
 
-// 6 files to ingest
-const ARTICLES_REGISTRY = [
-  { id: 'n8n-for-pms', i18nFile: 'src/n8n-i18n.ts', exportName: 'n8nContent' },
-  { id: 'jacobo', i18nFile: 'src/jacobo-i18n.ts', exportName: 'jacoboContent' },
-  { id: 'business-os', i18nFile: 'src/business-os-i18n.ts', exportName: 'businessOsContent' },
-  { id: 'programmatic-seo', i18nFile: 'src/pseo-i18n.ts', exportName: 'pseoContent' },
-  { id: 'self-healing-chatbot', i18nFile: 'src/chatbot-i18n.ts', exportName: 'chatbotContent' },
-  { id: 'career-ops', i18nFile: 'src/career-ops-i18n.ts', exportName: 'careerOpsContent' },
-];
+// No articles to ingest yet — add entries as articles are authored.
+const ARTICLES_REGISTRY = [];
 
 /**
  * Transpiles a TS file to JS and returns evaluated module
@@ -272,6 +251,89 @@ function extractChunks(obj, articleId, lang) {
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
+/**
+ * Parses the leading `---` frontmatter block of a markdown file.
+ * Deliberately minimal — flat `key: value` pairs only, which is all the
+ * résumé format needs. Avoids pulling in a YAML dependency.
+ */
+function parseFrontmatter(raw) {
+  const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
+  if (!match) return { meta: {}, body: raw };
+
+  const meta = {};
+  for (const line of match[1].split(/\r?\n/)) {
+    const idx = line.indexOf(':');
+    if (idx === -1) continue;
+    meta[line.slice(0, idx).trim()] = line.slice(idx + 1).trim();
+  }
+  return { meta, body: raw.slice(match[0].length) };
+}
+
+/**
+ * Loads every résumé in content/resumes/ and chunks each by `##` section.
+ *
+ * One chunk per section rather than per file: a recruiter asking "what backend
+ * work has he done" should retrieve the Experience section, not a whole résumé
+ * that buries it. Section granularity is what makes the retrieval useful.
+ *
+ * Each chunk carries the domain, so questions that name a specialism surface
+ * the résumé written for it.
+ */
+function loadResumeChunks() {
+  const dir = path.join(projectRoot, 'content', 'resumes');
+  if (!fs.existsSync(dir)) {
+    console.log('ℹ️  No content/resumes/ directory — skipping résumé ingestion.');
+    return [];
+  }
+
+  const files = fs.readdirSync(dir).filter(
+    (f) => f.endsWith('.md') && f.toLowerCase() !== 'readme.md'
+  );
+
+  const chunks = [];
+
+  for (const file of files) {
+    const raw = fs.readFileSync(path.join(dir, file), 'utf8');
+    const { meta, body } = parseFrontmatter(raw);
+
+    const domain = meta.domain || path.basename(file, '.md');
+    const label = meta.label || domain;
+
+    // Split on level-2 headings, keeping the heading with its content.
+    const sections = body.split(/\n(?=##\s)/g);
+    let sectionCount = 0;
+
+    for (const section of sections) {
+      const text = section.trim();
+      if (!text) continue;
+
+      const headingMatch = text.match(/^##\s+(.+)/);
+      const heading = headingMatch ? headingMatch[1].trim() : 'Overview';
+
+      // Prefixing the domain into the embedded text meaningfully improves
+      // retrieval for queries that name a specialism — the embedding
+      // otherwise has no signal that this section belongs to that résumé.
+      const content = `Résumé (${label}) — ${heading}\n\n${text}`;
+
+      chunks.push({
+        content,
+        metadata: {
+          source: 'resume',
+          domain,
+          label,
+          section_id: heading.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+          summary: meta.summary || '',
+        },
+      });
+      sectionCount++;
+    }
+
+    console.log(`  - ${file}: ${sectionCount} sections (domain: ${domain})`);
+  }
+
+  return chunks;
+}
+
 async function main() {
   console.log("🚀 Starting folio-gpt RAG Ingestion Pipeline...");
   
@@ -302,7 +364,21 @@ async function main() {
     }
   }
 
+  // 2b. Domain résumés
+  console.log('\n📄 Loading domain résumés from content/resumes/...');
+  const resumeChunks = loadResumeChunks();
+  allChunks.push(...resumeChunks);
+  console.log(`  → ${resumeChunks.length} résumé chunks.`);
+
   console.log(`\n📚 Total chunks extracted: ${allChunks.length}`);
+
+  if (allChunks.length === 0) {
+    console.warn(
+      '\n⚠️  Nothing to ingest. The vector store has been CLEARED and will be empty.\n' +
+        '   The chatbot will answer from chatbot-prompt.txt alone — which is safe,\n' +
+        '   but it loses retrieval. Add résumés to content/resumes/ and re-run.'
+    );
+  }
   console.log("⚡ Generating embeddings and uploading chunks sequentially to Supabase...\n");
 
   let successCount = 0;

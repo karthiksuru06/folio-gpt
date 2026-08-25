@@ -5,18 +5,12 @@ import { aboutContent, type AboutLang } from './about-i18n'
 
 // `rel: 'me'` is the IndieAuth standard for declaring profiles/sites the person controls.
 // Used here for cross-domain entity ownership signals (parsed by Mastodon, Bluesky, KG crawlers).
+// Only profiles verifiably belonging to Karthik. `rel="me"` is an identity
+// claim — linking a profile that isn't yours asserts that it is.
 const SOCIAL_LINKS: { name: string; url: string; rel?: string }[] = [
-  { name: 'Career-Ops', url: 'https://career-ops.org', rel: 'me noopener noreferrer' },
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/suru-karthik-923766321', rel: 'me noopener noreferrer' },
   { name: 'GitHub', url: 'https://github.com/karthiksuru06', rel: 'me noopener noreferrer' },
-  { name: 'YouTube', url: 'https://www.youtube.com/@foliogpt_io', rel: 'me noopener noreferrer' },
-  { name: 'X / Twitter', url: 'https://x.com/foliogpt', rel: 'me noopener noreferrer' },
-  { name: 'Dev.to', url: 'https://dev.to/foliogpt', rel: 'me noopener noreferrer' },
-  { name: 'Substack', url: 'https://foliogpt.substack.com', rel: 'me noopener noreferrer' },
-  { name: 'Stack Overflow', url: 'https://stackoverflow.com/users/32541743', rel: 'me noopener noreferrer' },
-  { name: 'ORCID', url: 'https://orcid.org/0009-0006-2192-7210', rel: 'me noopener noreferrer' },
-  { name: 'Crunchbase', url: 'https://www.crunchbase.com/person/santiago-fernandez-de-valderrama' },
-  { name: 'Wikidata', url: 'https://www.wikidata.org/wiki/Q138710224' },
+  { name: 'Email', url: 'mailto:karthiksuru06@gmail.com', rel: 'me' },
 ]
 
 export default function AboutPage({ lang = 'en' }: { lang?: AboutLang }) {
@@ -33,12 +27,11 @@ export default function AboutPage({ lang = 'en' }: { lang?: AboutLang }) {
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement
     if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical) }
-    canonical.href = `https://foliogpt.com/${t.slug}`
+    canonical.href = `https://karthiksuru.dev/${t.slug}`
 
     const hreflangs = [
-      { lang: 'en', href: 'https://foliogpt.com/sobre-mi' },
-      { lang: 'en', href: 'https://foliogpt.com/about' },
-      { lang: 'x-default', href: 'https://foliogpt.com/sobre-mi' },
+      { lang: 'en', href: 'https://karthiksuru.dev/about' },
+      { lang: 'x-default', href: 'https://karthiksuru.dev/about' },
     ]
     document.querySelectorAll('link[hreflang]').forEach(el => el.remove())
     for (const hl of hreflangs) {
@@ -93,7 +86,7 @@ export default function AboutPage({ lang = 'en' }: { lang?: AboutLang }) {
         </header>
 
         {/* Manifesto */}
-        <blockquote cite="https://foliogpt.com/career-ops" className="mb-10 border-l-4 border-primary pl-6 pr-4 py-3 text-xl md:text-2xl italic font-display leading-snug text-foreground/90">
+        <blockquote className="mb-10 border-l-4 border-primary pl-6 pr-4 py-3 text-xl md:text-2xl italic font-display leading-snug text-foreground/90">
           {t.manifesto}
         </blockquote>
 

@@ -51,7 +51,7 @@ export const aboutContent = {
       { q: 'What is Suru\'s technical toolkit?', a: 'His toolkit includes Python, TypeScript, Flask, Jupyter, Machine Learning, Network Security (Scapy), Data Visualization, Artificial Intelligence, and Orchestration.' }
     ],
     connectHeading: 'Connect',
-    email: 'karthik939075@gmail.com',
+    email: 'karthiksuru06@gmail.com',
   },
 } as const
 

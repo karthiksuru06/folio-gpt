@@ -52,8 +52,8 @@ export function useArticleSeo(opts: ArticleSeoOpts) {
       publishedTime, modifiedTime, articleTags, jsonLd, xDefaultSlug,
     } = opts
 
-    const url = `https://foliogpt.com/${slug}`
-    const altUrl = `https://foliogpt.com/${altSlug}`
+    const url = `https://karthiksuru.dev/${slug}`
+    const altUrl = `https://karthiksuru.dev/${altSlug}`
     const altLang = 'es'
     const defaultSlug = xDefaultSlug ?? (altSlug)
 
@@ -69,7 +69,7 @@ export function useArticleSeo(opts: ArticleSeoOpts) {
     upsertMeta('property', 'og:url', url)
     upsertMeta('property', 'og:title', title)
     upsertMeta('property', 'og:description', description)
-    upsertMeta('property', 'og:site_name', 'foliogpt.com')
+    upsertMeta('property', 'og:site_name', 'karthiksuru.dev')
     upsertMeta('property', 'og:locale', 'en_US')
     upsertMeta('property', 'og:locale:alternate', 'es_ES')
     upsertMeta('property', 'article:published_time', publishedTime)
@@ -92,7 +92,7 @@ export function useArticleSeo(opts: ArticleSeoOpts) {
     for (const { hreflang, href } of [
       { hreflang: lang, href: url },
       { hreflang: altLang, href: altUrl },
-      { hreflang: 'x-default', href: `https://foliogpt.com/${defaultSlug}` },
+      { hreflang: 'x-default', href: `https://karthiksuru.dev/${defaultSlug}` },
     ]) {
       const link = document.createElement('link')
       link.rel = 'alternate'
@@ -133,7 +133,7 @@ export function useHomeSeo({ lang, title, description }: { lang: string; title: 
     document.querySelector('meta[property="og:description"]')?.setAttribute('content', description)
     document.querySelector('meta[property="og:locale"]')?.setAttribute('content', lang === 'en' ? 'en_US' : 'es_ES')
 
-    const canonical = lang === 'en' ? 'https://foliogpt.com/en' : 'https://foliogpt.com/'
+    const canonical = lang === 'en' ? 'https://karthiksuru.dev/en' : 'https://karthiksuru.dev/'
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonical)
     document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonical)
 

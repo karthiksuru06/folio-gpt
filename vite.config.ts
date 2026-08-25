@@ -5,6 +5,14 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://folio-gpt.vercel.app',
+        changeOrigin: true,
+      },
+    },
+  },
   build: {
     target: 'es2022',
     cssCodeSplit: true,
