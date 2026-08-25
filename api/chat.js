@@ -203,7 +203,7 @@ export default async function handler(req) {
     })
   } catch (error) {
     console.error('Chat API outer error:', error)
-    return new Response(JSON.stringify({ error: 'Error processing request' }), {
+    return new Response(JSON.stringify({ error: error.toString(), stack: error.stack }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     })
