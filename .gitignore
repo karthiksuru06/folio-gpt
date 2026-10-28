@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Env files (keys live in Vercel)
+.env
+.env.local
+.env.*.local
+
+# Editor/OS noise
+.DS_Store
+*.log
