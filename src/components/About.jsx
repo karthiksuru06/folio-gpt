@@ -8,13 +8,13 @@ const highlights = [
     icon: Brain,
     title: 'Applied AI',
     description: 'LLM integration, RAG pipelines, and agent systems that run in production',
-    color: '#0aff60',
+    color: '#C8FF3D',
   },
   {
     icon: Server,
     title: 'Backend Engineering',
     description: 'FastAPI services, Postgres and vector stores, containerised deployment',
-    color: '#00f3ff',
+    color: '#C8FF3D',
   },
   {
     icon: Microscope,
@@ -47,10 +47,10 @@ const About = () => {
         >
           <div className="flex items-center gap-4 mb-4">
             <span className="data-label">01</span>
-            <h2 className="font-mono text-3xl md:text-4xl font-bold text-white">
+            <h2 className="font-display text-4xl md:text-5xl text-white">
               ABOUT
             </h2>
-            <div className="h-px flex-1 bg-gradient-to-r from-[#00f3ff]/30 to-transparent" />
+            <div className="h-px flex-1 bg-gradient-to-r from-[#C8FF3D]/30 to-transparent" />
           </div>
         </motion.div>
 
@@ -62,7 +62,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-3"
           >
-            <div className="bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 shadow-2xl rounded-3xl p-10">
+            <div className="bg-[#0B0B0D]/80 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 shadow-2xl rounded-3xl p-10">
               {/* Terminal Header */}
               <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/5">
                 <div className="flex gap-1.5">
@@ -79,8 +79,8 @@ const About = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.2 }}
                 >
-                  <span className="text-[#00f3ff] font-mono">{'>'}</span>{' '}
-                  I'm an <span className="text-[#0aff60] font-medium">AI Engineer</span> who likes
+                  <span className="text-[#C8FF3D] font-mono">{'>'}</span>{' '}
+                  I'm an <span className="text-[#C8FF3D] font-medium">AI Engineer</span> who likes
                   the unglamorous half of the job — the retrieval that returns the right chunk, the
                   API that doesn't fall over, the evaluation that tells you whether any of it
                   actually worked.
@@ -91,7 +91,7 @@ const About = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.3 }}
                 >
-                  <span className="text-[#00f3ff] font-mono">{'>'}</span>{' '}
+                  <span className="text-[#C8FF3D] font-mono">{'>'}</span>{' '}
                   Most of my work has come out of three engagements at{' '}
                   <span className="text-white font-medium">RCTS, IIIT Hyderabad</span> — building ML
                   models for social-impact research and the API layers that put them in front of
@@ -103,7 +103,7 @@ const About = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.4 }}
                 >
-                  <span className="text-[#00f3ff] font-mono">{'>'}</span>{' '}
+                  <span className="text-[#C8FF3D] font-mono">{'>'}</span>{' '}
                   Outside that I build things end to end: retrieval systems over private document
                   corpora, agent workflows with human approval gates, and computer-vision models
                   trained and benchmarked properly rather than left in a notebook.
@@ -115,7 +115,7 @@ const About = () => {
                   transition={{ delay: 0.5 }}
                   className="text-gray-500 text-sm"
                 >
-                  <span className="text-[#0aff60] font-mono">{'>'}</span>{' '}
+                  <span className="text-[#C8FF3D] font-mono">{'>'}</span>{' '}
                   Final year of a CS degree at KIET Kakinada, graduating May 2027. Currently
                   going deeper on PyTorch, MLOps, and distributed systems.
                 </motion.p>
@@ -126,7 +126,7 @@ const About = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.6 }}
-                className="mt-8 p-5 rounded-xl bg-[#050505] border border-white/5 font-mono text-sm"
+                className="mt-8 p-5 rounded-xl bg-[#0B0B0D] border border-white/5 font-mono text-sm"
               >
                 <div className="text-gray-500 mb-3">{'// now.json'}</div>
                 <div className="space-y-1">
@@ -134,21 +134,21 @@ const About = () => {
                     <span className="text-[#8b5cf6]">{'{'}</span>
                   </div>
                   <div className="ml-4">
-                    <span className="text-[#00f3ff]">"building"</span>
+                    <span className="text-[#C8FF3D]">"building"</span>
                     <span className="text-gray-500">: </span>
-                    <span className="text-[#0aff60]">"Yukthi — governed AI agents for SMBs"</span>
+                    <span className="text-[#C8FF3D]">"Yukthi — governed AI agents for SMBs"</span>
                     <span className="text-gray-500">,</span>
                   </div>
                   <div className="ml-4">
-                    <span className="text-[#00f3ff]">"learning"</span>
+                    <span className="text-[#C8FF3D]">"learning"</span>
                     <span className="text-gray-500">: </span>
-                    <span className="text-[#0aff60]">["PyTorch", "MLOps", "Advanced DSA"]</span>
+                    <span className="text-[#C8FF3D]">["PyTorch", "MLOps", "Advanced DSA"]</span>
                     <span className="text-gray-500">,</span>
                   </div>
                   <div className="ml-4">
-                    <span className="text-[#00f3ff]">"open_to"</span>
+                    <span className="text-[#C8FF3D]">"open_to"</span>
                     <span className="text-gray-500">: </span>
-                    <span className="text-[#0aff60]">"AI / Backend Engineering roles"</span>
+                    <span className="text-[#C8FF3D]">"AI / Backend Engineering roles"</span>
                   </div>
                   <div>
                     <span className="text-[#8b5cf6]">{'}'}</span>
@@ -172,7 +172,7 @@ const About = () => {
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                 whileHover={{ x: 8, scale: 1.02 }}
-                className="bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 rounded-2xl p-6 group cursor-default shadow-lg"
+                className="bg-[#0B0B0D]/80 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 rounded-2xl p-6 group cursor-default shadow-lg"
               >
                 <div className="flex items-start gap-4">
                   <div
@@ -188,7 +188,7 @@ const About = () => {
                     />
                   </div>
                   <div>
-                    <h3 className="font-mono font-semibold text-white mb-1 group-hover:text-[#00f3ff] transition-colors">
+                    <h3 className="font-mono font-semibold text-white mb-1 group-hover:text-[#C8FF3D] transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-gray-500 text-sm leading-relaxed">
@@ -212,7 +212,7 @@ const About = () => {
                 { value: '2027', label: 'Graduating' },
                 { value: 'IIIT-H', label: 'ML Certified' },
               ].map((stat, i) => (
-                <div key={i} className="bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 hover:border-[#00f3ff]/30 transition-all duration-300 rounded-2xl p-5 text-center shadow-lg">
+                <div key={i} className="bg-[#0B0B0D]/80 backdrop-blur-xl border border-white/10 hover:border-[#C8FF3D]/30 transition-all duration-300 rounded-2xl p-5 text-center shadow-lg">
                   <div className="font-mono text-3xl font-bold gradient-text">{stat.value}</div>
                   <div className="text-gray-400 font-semibold text-xs mt-2 tracking-widest uppercase">{stat.label}</div>
                 </div>

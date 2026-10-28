@@ -13,7 +13,7 @@ const hexToRgba = (hex, alpha) => {
   return `rgba(${r}, ${g}, ${b}, ${alpha})`
 }
 
-const PARTICLE_COLORS = ['#0aff60', '#00f3ff']
+const PARTICLE_COLORS = ['#C8FF3D', '#C8FF3D']
 
 /**
  * Particle count is derived from viewport area, but capped. The link-drawing
@@ -229,7 +229,7 @@ const ParticleBackground = () => {
     // with vestibular disorders, and the background carries no information.
     const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')
     if (reduceMotion?.matches) {
-      ctx.fillStyle = '#050505'
+      ctx.fillStyle = '#0B0B0D'
       ctx.fillRect(0, 0, width, height)
       drawGrid()
       return () => {
@@ -265,27 +265,27 @@ const ParticleBackground = () => {
       <div
         className="fixed inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at center, transparent 0%, #050505 70%)',
+          background: 'radial-gradient(ellipse at center, transparent 0%, #0B0B0D 70%)',
           opacity: 0.6,
         }}
       />
 
       {/* Corner Accents */}
       <div className="fixed top-0 left-0 w-64 h-64 pointer-events-none">
-        <div className="absolute top-0 left-0 w-px h-32 bg-gradient-to-b from-[#00f3ff]/30 to-transparent" />
-        <div className="absolute top-0 left-0 h-px w-32 bg-gradient-to-r from-[#00f3ff]/30 to-transparent" />
+        <div className="absolute top-0 left-0 w-px h-32 bg-gradient-to-b from-[#C8FF3D]/30 to-transparent" />
+        <div className="absolute top-0 left-0 h-px w-32 bg-gradient-to-r from-[#C8FF3D]/30 to-transparent" />
       </div>
       <div className="fixed top-0 right-0 w-64 h-64 pointer-events-none">
-        <div className="absolute top-0 right-0 w-px h-32 bg-gradient-to-b from-[#0aff60]/30 to-transparent" />
-        <div className="absolute top-0 right-0 h-px w-32 bg-gradient-to-l from-[#0aff60]/30 to-transparent" />
+        <div className="absolute top-0 right-0 w-px h-32 bg-gradient-to-b from-[#C8FF3D]/30 to-transparent" />
+        <div className="absolute top-0 right-0 h-px w-32 bg-gradient-to-l from-[#C8FF3D]/30 to-transparent" />
       </div>
       <div className="fixed bottom-0 left-0 w-64 h-64 pointer-events-none">
-        <div className="absolute bottom-0 left-0 w-px h-32 bg-gradient-to-t from-[#0aff60]/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 h-px w-32 bg-gradient-to-r from-[#0aff60]/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-px h-32 bg-gradient-to-t from-[#C8FF3D]/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 h-px w-32 bg-gradient-to-r from-[#C8FF3D]/30 to-transparent" />
       </div>
       <div className="fixed bottom-0 right-0 w-64 h-64 pointer-events-none">
-        <div className="absolute bottom-0 right-0 w-px h-32 bg-gradient-to-t from-[#00f3ff]/30 to-transparent" />
-        <div className="absolute bottom-0 right-0 h-px w-32 bg-gradient-to-l from-[#00f3ff]/30 to-transparent" />
+        <div className="absolute bottom-0 right-0 w-px h-32 bg-gradient-to-t from-[#C8FF3D]/30 to-transparent" />
+        <div className="absolute bottom-0 right-0 h-px w-32 bg-gradient-to-l from-[#C8FF3D]/30 to-transparent" />
       </div>
     </>
   )

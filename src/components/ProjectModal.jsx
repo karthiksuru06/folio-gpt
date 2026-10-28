@@ -105,7 +105,7 @@ const ProjectModal = ({ project, onClose }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
-      className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-4 sm:p-6 bg-[#050505]/95 backdrop-blur-xl overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-4 sm:p-6 bg-[#0B0B0D]/95 backdrop-blur-xl overflow-y-auto"
     >
       <motion.div
         ref={panelRef}
@@ -120,14 +120,14 @@ const ProjectModal = ({ project, onClose }) => {
         className="glass-card rounded-2xl max-w-3xl w-full my-auto max-h-none sm:max-h-[90vh] sm:overflow-y-auto"
       >
         {/* Header */}
-        <div className="relative h-44 sm:h-52 bg-gradient-to-br from-[#00f3ff]/20 to-[#0aff60]/10 overflow-hidden rounded-t-2xl">
-          <div className="absolute inset-0 bg-[#050505]/50" />
+        <div className="relative h-44 sm:h-52 bg-gradient-to-br from-[#C8FF3D]/20 to-[#C8FF3D]/10 overflow-hidden rounded-t-2xl">
+          <div className="absolute inset-0 bg-[#0B0B0D]/50" />
 
           <div className="absolute inset-0 overflow-hidden opacity-30" aria-hidden="true">
             {Array.from({ length: 20 }, (_, i) => (
               <div
                 key={i}
-                className="absolute w-full h-px bg-[#00f3ff]/20"
+                className="absolute w-full h-px bg-[#C8FF3D]/20"
                 style={{ top: `${i * 5}%` }}
               />
             ))}
@@ -139,15 +139,15 @@ const ProjectModal = ({ project, onClose }) => {
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
             aria-label="Close project details"
-            className="absolute top-4 right-4 z-20 w-10 h-10 rounded-lg bg-[#050505]/80 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-[#00f3ff]/50 transition-all"
+            className="absolute top-4 right-4 z-20 w-10 h-10 rounded-lg bg-[#0B0B0D]/80 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-[#C8FF3D]/50 transition-all"
           >
             <X size={20} aria-hidden="true" />
           </motion.button>
 
           <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
             <div className="flex items-end gap-4">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#050505]/80 border border-[#00f3ff]/30 flex items-center justify-center flex-shrink-0">
-                <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#00f3ff]" aria-hidden="true" />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#0B0B0D]/80 border border-[#C8FF3D]/30 flex items-center justify-center flex-shrink-0">
+                <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#C8FF3D]" aria-hidden="true" />
               </div>
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -178,7 +178,7 @@ const ProjectModal = ({ project, onClose }) => {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-[#00f3ff]/30 text-gray-300 hover:text-white transition-all"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-[#C8FF3D]/30 text-gray-300 hover:text-white transition-all"
                 >
                   <Github size={18} aria-hidden="true" />
                   <span className="text-sm font-mono">Source</span>
@@ -189,7 +189,7 @@ const ProjectModal = ({ project, onClose }) => {
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#00f3ff]/10 border border-[#00f3ff]/30 text-[#00f3ff] hover:bg-[#00f3ff]/20 transition-all"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#C8FF3D]/10 border border-[#C8FF3D]/30 text-[#C8FF3D] hover:bg-[#C8FF3D]/20 transition-all"
                 >
                   <ExternalLink size={18} aria-hidden="true" />
                   <span className="text-sm font-mono">Live Demo</span>
@@ -202,14 +202,14 @@ const ProjectModal = ({ project, onClose }) => {
             <p className="text-gray-400 leading-relaxed">{project.problem}</p>
           </Section>
 
-          <Section icon={Lightbulb} title="THE SOLUTION" tint="#0aff60" show={!!project.solution}>
+          <Section icon={Lightbulb} title="THE SOLUTION" tint="#C8FF3D" show={!!project.solution}>
             <p className="text-gray-400 leading-relaxed">{project.solution}</p>
           </Section>
 
           <Section
             icon={Network}
             title="ARCHITECTURE"
-            tint="#00f3ff"
+            tint="#C8FF3D"
             show={!!project.architecture}
           >
             <p className="text-gray-400 leading-relaxed">{project.architecture}</p>
@@ -256,7 +256,7 @@ const ProjectModal = ({ project, onClose }) => {
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1.5 text-sm font-mono text-[#00f3ff] bg-[#00f3ff]/10 border border-[#00f3ff]/20 rounded-md"
+                  className="px-3 py-1.5 text-sm font-mono text-[#C8FF3D] bg-[#C8FF3D]/10 border border-[#C8FF3D]/20 rounded-md"
                 >
                   {tech}
                 </span>
@@ -264,19 +264,19 @@ const ProjectModal = ({ project, onClose }) => {
             </div>
           </Section>
 
-          <Section icon={TrendingUp} title="OUTCOME" tint="#00f3ff" show={!!project.impact}>
-            <div className="p-4 rounded-xl bg-gradient-to-r from-[#00f3ff]/10 to-[#0aff60]/5 border border-[#00f3ff]/20">
+          <Section icon={TrendingUp} title="OUTCOME" tint="#C8FF3D" show={!!project.impact}>
+            <div className="p-4 rounded-xl bg-gradient-to-r from-[#C8FF3D]/10 to-[#C8FF3D]/5 border border-[#C8FF3D]/20">
               <p className="text-gray-200 font-medium leading-relaxed">{project.impact}</p>
             </div>
           </Section>
 
           {/* Clone command */}
           {project.github && (
-            <div className="p-4 rounded-xl bg-[#050505] border border-white/5">
+            <div className="p-4 rounded-xl bg-[#0B0B0D] border border-white/5">
               <div className="flex items-center justify-between gap-4">
                 <div className="font-mono text-xs sm:text-sm min-w-0 overflow-x-auto">
                   <span className="text-gray-500">$ </span>
-                  <span className="text-[#0aff60]">git clone </span>
+                  <span className="text-[#C8FF3D]">git clone </span>
                   <span className="text-gray-400 whitespace-nowrap">{project.github}</span>
                 </div>
                 <motion.button
@@ -284,7 +284,7 @@ const ProjectModal = ({ project, onClose }) => {
                   whileTap={{ scale: 0.95 }}
                   onClick={handleCopy}
                   aria-label="Copy clone command"
-                  className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-[#00f3ff] hover:border-[#00f3ff]/30 transition-all flex-shrink-0"
+                  className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-[#C8FF3D] hover:border-[#C8FF3D]/30 transition-all flex-shrink-0"
                 >
                   {copied ? <Check size={16} /> : <Copy size={16} />}
                 </motion.button>

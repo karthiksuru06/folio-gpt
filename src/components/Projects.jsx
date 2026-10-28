@@ -76,7 +76,7 @@ const TiltCard = ({ children, onClick, label }) => {
       className="relative h-full w-full rounded-2xl cursor-pointer perspective-1000"
     >
       <div 
-        className="absolute inset-0 z-0 scale-105 rounded-2xl bg-gradient-to-br from-[#00f3ff]/20 to-[#0aff60]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className="absolute inset-0 z-0 scale-105 rounded-2xl bg-gradient-to-br from-[#C8FF3D]/20 to-[#C8FF3D]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{ transform: "translateZ(-50px)" }}
       />
       {children}
@@ -99,21 +99,21 @@ const ProjectCard = ({ project, onClick, index, isInView }) => {
         label={`${project.title} — view case study`}
       >
         <div 
-          className="h-full bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden flex flex-col group-hover:border-[#00f3ff]/30 transition-colors duration-500"
+          className="h-full bg-[#0B0B0D]/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden flex flex-col group-hover:border-[#C8FF3D]/30 transition-colors duration-500"
           style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }}
         >
           {/* Project Header */}
           <div className="h-40 bg-white/5 relative overflow-hidden p-6 border-b border-white/5">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#00f3ff]/5 to-transparent opacity-50" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#C8FF3D]/5 to-transparent opacity-50" />
             
             {/* Soft mesh overlay */}
             <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMCIvPgo8cGF0aCBkPSJNMCAweDh2OEgweiIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIwLjA1Ii8+Cjwvc3ZnPg==')]" />
 
             <motion.div
               style={{ transform: "translateZ(40px)" }}
-              className="relative w-12 h-12 rounded-xl bg-[#0a0a0c] border border-white/10 flex items-center justify-center mb-4 shadow-xl"
+              className="relative w-12 h-12 rounded-xl bg-[#0B0B0D] border border-white/10 flex items-center justify-center mb-4 shadow-xl"
             >
-              <Icon className="w-6 h-6 text-[#0ff] group-hover:text-[#0aff60] transition-colors" />
+              <Icon className="w-6 h-6 text-[#0ff] group-hover:text-[#C8FF3D] transition-colors" />
             </motion.div>
 
             <motion.h3 
@@ -128,8 +128,8 @@ const ProjectCard = ({ project, onClick, index, isInView }) => {
               className="absolute top-4 right-4 flex flex-col items-end gap-1.5"
             >
               {project.demo && (
-                <span className="px-2 py-1 text-[9px] uppercase tracking-widest font-mono text-[#0aff60] bg-[#0aff60]/10 border border-[#0aff60]/25 rounded-full flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0aff60] animate-pulse" />
+                <span className="px-2 py-1 text-[9px] uppercase tracking-widest font-mono text-[#C8FF3D] bg-[#C8FF3D]/10 border border-[#C8FF3D]/25 rounded-full flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF3D] animate-pulse" />
                   Live
                 </span>
               )}
@@ -225,7 +225,7 @@ const Projects = ({ onProjectClick }) => {
           <span className="text-[#0ff] font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
             Case Studies
           </span>
-          <h2 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight">
+          <h2 className="font-display text-5xl md:text-6xl text-white tracking-tight">
             Selected{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-200">
               Projects

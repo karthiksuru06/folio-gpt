@@ -75,7 +75,7 @@ const Navbar = () => {
           isScrolled ? "top-4" : "top-8"
         )}
       >
-        <div className="bg-[#0a0a0c]/80 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] rounded-full px-6 py-3 flex items-center justify-between">
+        <div className="bg-[#0B0B0D]/80 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] rounded-full px-6 py-3 flex items-center justify-between">
           
           {/* Logo */}
           <motion.a
@@ -84,7 +84,7 @@ const Navbar = () => {
             className="flex items-center gap-3 group relative z-10"
             whileHover={{ scale: 1.05 }}
           >
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#00f3ff]/20 to-[#0aff60]/20 border border-white/10 flex items-center justify-center group-hover:border-[#00f3ff]/50 transition-all shadow-inner">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#C8FF3D]/20 to-[#C8FF3D]/20 border border-white/10 flex items-center justify-center group-hover:border-[#C8FF3D]/50 transition-all shadow-inner">
               <Terminal className="w-4 h-4 text-[#0ff]" aria-hidden="true" />
             </div>
             <span className="hidden lg:block font-mono text-sm font-bold tracking-widest text-white">
@@ -176,7 +176,7 @@ const Navbar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-[#050505]/95 backdrop-blur-2xl"
+              className="absolute inset-0 bg-[#0B0B0D]/95 backdrop-blur-2xl"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
@@ -186,7 +186,7 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 bottom-0 w-[80%] max-w-sm bg-[#0a0a0c] border-l border-white/10 shadow-2xl flex flex-col"
+              className="absolute right-0 top-0 bottom-0 w-[80%] max-w-sm bg-[#0B0B0D] border-l border-white/10 shadow-2xl flex flex-col"
             >
               <div className="flex flex-col h-full p-6">
                 {/* Header */}

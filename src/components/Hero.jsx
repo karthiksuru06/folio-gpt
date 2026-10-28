@@ -30,7 +30,7 @@ const Hero = () => {
       <div className="aurora-bg" />
       
       {/* Front-layer glow mask to blend it deeply into the background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#050505_100%)] pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#0B0B0D_100%)] pointer-events-none z-0" />
 
       <motion.div 
         variants={containerVariants}
@@ -42,8 +42,8 @@ const Hero = () => {
         <motion.div variants={itemVariants} className="mb-8 flex justify-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00f3ff] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00f3ff]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C8FF3D] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C8FF3D]"></span>
             </span>
             <span className="text-xs font-mono text-gray-300 uppercase tracking-widest">
               {availability.headline}
@@ -53,7 +53,7 @@ const Hero = () => {
 
         {/* Hero Typography */}
         <motion.div variants={itemVariants} className="mb-6">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter leading-none">
+          <h1 className="font-display hero-title text-white">
             <span className="text-white block">{identity.first}</span>
             <span className="gradient-text block mt-2">{identity.last}</span>
           </h1>
@@ -62,7 +62,7 @@ const Hero = () => {
         <motion.div variants={itemVariants} className="mb-4">
           <p className="text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">
             <span className="text-white font-medium">AI Engineer</span> building production LLM
-            systems, <span className="text-[#0aff60] font-medium">RAG pipelines</span>, and the
+            systems, <span className="text-[#C8FF3D] font-medium">RAG pipelines</span>, and the
             full-stack products around them.
           </p>
         </motion.div>
@@ -82,7 +82,7 @@ const Hero = () => {
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-[#00f3ff] to-[#0aff60] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#C8FF3D] to-[#C8FF3D] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out" />
             <span className="relative z-10 flex items-center gap-3 group-hover:text-black transition-colors duration-300">
               View Projects
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -99,7 +99,7 @@ const Hero = () => {
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             <span className="flex items-center gap-3">
-              <FileText className="w-5 h-5 text-gray-400 group-hover:text-[#00f3ff] transition-colors duration-300" />
+              <FileText className="w-5 h-5 text-gray-400 group-hover:text-[#C8FF3D] transition-colors duration-300" />
               Download Résumé
             </span>
           </motion.a>

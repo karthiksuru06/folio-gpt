@@ -56,7 +56,7 @@ export const experience = [
     title: 'Summer Research Intern',
     organization: 'RCTS, IIIT Hyderabad',
     period: 'Jun 2026',
-    color: '#00f3ff',
+    color: '#C8FF3D',
     description:
       'Third engagement with the Raj Reddy Center for Technology & Society, building on prior work in applied ML for social-impact research.',
     highlights: [
@@ -70,7 +70,7 @@ export const experience = [
     title: 'Winter Research Intern',
     organization: 'RCTS, IIIT Hyderabad',
     period: 'Dec 2025',
-    color: '#0aff60',
+    color: '#C8FF3D',
     description:
       'Month-long intensive focused on applied machine learning and data pipeline engineering for ongoing research projects.',
     highlights: [
@@ -150,7 +150,7 @@ export const skillGroups = [
   {
     title: 'Languages',
     icon: 'Code2',
-    color: '#00f3ff',
+    color: '#C8FF3D',
     colSpan: 'md:col-span-1',
     blurb: 'Python first, with a working foundation across compiled and typed languages.',
     skills: [
@@ -165,7 +165,7 @@ export const skillGroups = [
   {
     title: 'Artificial Intelligence',
     icon: 'Brain',
-    color: '#0aff60',
+    color: '#C8FF3D',
     colSpan: 'md:col-span-2',
     blurb:
       'Where most of my recent work sits — getting language models to do something useful and reliable in production.',
@@ -214,7 +214,7 @@ export const skillGroups = [
   {
     title: 'Frontend',
     icon: 'Layout',
-    color: '#00f3ff',
+    color: '#C8FF3D',
     colSpan: 'md:col-span-1',
     blurb: 'Interfaces for the systems I build, not pixel-pushing for its own sake.',
     skills: [
@@ -229,7 +229,7 @@ export const skillGroups = [
   {
     title: 'Data & Infrastructure',
     icon: 'Database',
-    color: '#0aff60',
+    color: '#C8FF3D',
     colSpan: 'md:col-span-2',
     blurb: 'Storage, deployment, and the plumbing between them.',
     skills: [
@@ -253,14 +253,14 @@ export const techChains = [
   {
     id: 'backend',
     label: 'Production Backend',
-    color: '#00f3ff',
+    color: '#C8FF3D',
     description: 'The path from a Python function to an API somebody depends on.',
     steps: ['Python', 'FastAPI', 'PostgreSQL', 'Docker', 'CI/CD', 'Production API'],
   },
   {
     id: 'ai',
     label: 'Applied AI',
-    color: '#0aff60',
+    color: '#C8FF3D',
     description: 'How a language model becomes a system that answers from your own data.',
     steps: ['Python', 'Embeddings', 'ChromaDB', 'RAG', 'LLM', 'AI Agents'],
   },

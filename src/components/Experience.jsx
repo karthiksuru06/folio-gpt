@@ -31,7 +31,7 @@ const TimelineItem = ({ item }) => {
         className="relative z-20 hidden md:flex"
       >
         <div 
-          className="w-16 h-16 rounded-full flex items-center justify-center bg-[#0a0a0c] border-2 shadow-2xl"
+          className="w-16 h-16 rounded-full flex items-center justify-center bg-[#0B0B0D] border-2 shadow-2xl"
           style={{ borderColor: item.color, boxShadow: `0 0 20px ${item.color}20` }}
         >
           <div className="absolute inset-0 rounded-full animate-ping opacity-20" style={{ backgroundColor: item.color }} />
@@ -46,7 +46,7 @@ const TimelineItem = ({ item }) => {
         transition={{ duration: 0.6, delay: 0.3 }}
         className="flex-1"
       >
-        <div className="bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 rounded-3xl p-8 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+        <div className="bg-[#0B0B0D]/80 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 rounded-3xl p-8 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <div>
@@ -156,7 +156,7 @@ const Experience = () => {
           className="mb-24 text-center"
         >
           <span className="text-[#0ff] font-mono text-sm tracking-[0.3em] uppercase mb-4 block">Career & Research</span>
-          <h2 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight">
+          <h2 className="font-display text-5xl md:text-7xl text-white tracking-tight">
             Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-200">Journey</span>
           </h2>
         </motion.div>
@@ -168,7 +168,7 @@ const Experience = () => {
           
           {/* Glowing Animated Line */}
           <motion.div 
-            className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#0ff] via-[#0aff60] to-[#8b5cf6] rounded-full hidden md:block origin-top shadow-[0_0_15px_rgba(0,243,255,0.5)]"
+            className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#0ff] via-[#C8FF3D] to-[#8b5cf6] rounded-full hidden md:block origin-top shadow-[0_0_15px_rgba(0,243,255,0.5)]"
             style={{ scaleY }}
           />
 

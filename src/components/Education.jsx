@@ -4,8 +4,8 @@ import { GraduationCap, Award, Trophy, BadgeCheck } from 'lucide-react'
 import { education, achievements } from '../data/profile'
 
 const tierStyles = {
-  national: { icon: Trophy, color: '#00f3ff', label: 'National' },
-  institutional: { icon: Award, color: '#0aff60', label: 'Institutional' },
+  national: { icon: Trophy, color: '#C8FF3D', label: 'National' },
+  institutional: { icon: Award, color: '#C8FF3D', label: 'Institutional' },
   certification: { icon: BadgeCheck, color: '#8b5cf6', label: 'Certification' },
 }
 
@@ -26,7 +26,7 @@ const Education = () => {
           <span className="text-[#0ff] font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
             Background
           </span>
-          <h2 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight">
+          <h2 className="font-display text-5xl md:text-6xl text-white tracking-tight">
             Education &amp; Recognition
           </h2>
         </motion.div>
@@ -35,7 +35,7 @@ const Education = () => {
           {/* Education */}
           <div className="space-y-5">
             <h3 className="flex items-center gap-3 text-sm font-mono uppercase tracking-widest text-gray-500 mb-2">
-              <GraduationCap className="w-4 h-4 text-[#00f3ff]" aria-hidden="true" />
+              <GraduationCap className="w-4 h-4 text-[#C8FF3D]" aria-hidden="true" />
               Education
             </h3>
 
@@ -45,17 +45,17 @@ const Education = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-2xl border border-white/10 bg-[#0a0a0c]/70 backdrop-blur-xl p-6 hover:border-white/20 transition-colors"
+                className="rounded-2xl border border-white/10 bg-[#0B0B0D]/70 backdrop-blur-xl p-6 hover:border-white/20 transition-colors"
               >
                 <div className="flex items-start justify-between gap-4 flex-wrap mb-2">
                   <h4 className="text-lg font-bold text-white leading-snug">{item.degree}</h4>
                   {item.status === 'current' && (
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest text-[#0aff60] bg-[#0aff60]/10 border border-[#0aff60]/25 flex-shrink-0">
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest text-[#C8FF3D] bg-[#C8FF3D]/10 border border-[#C8FF3D]/25 flex-shrink-0">
                       In progress
                     </span>
                   )}
                 </div>
-                <p className="text-[#00f3ff] text-sm font-medium">{item.institution}</p>
+                <p className="text-[#C8FF3D] text-sm font-medium">{item.institution}</p>
                 <p className="text-gray-500 text-xs font-mono mt-1 mb-3">
                   {item.period} · {item.specialization}
                 </p>
@@ -67,7 +67,7 @@ const Education = () => {
           {/* Achievements */}
           <div className="space-y-5">
             <h3 className="flex items-center gap-3 text-sm font-mono uppercase tracking-widest text-gray-500 mb-2">
-              <Trophy className="w-4 h-4 text-[#0aff60]" aria-hidden="true" />
+              <Trophy className="w-4 h-4 text-[#C8FF3D]" aria-hidden="true" />
               Achievements
             </h3>
 
@@ -82,7 +82,7 @@ const Education = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
                   whileHover={{ x: 4 }}
-                  className="rounded-2xl border border-white/10 bg-[#0a0a0c]/70 backdrop-blur-xl p-6 hover:border-white/20 transition-colors"
+                  className="rounded-2xl border border-white/10 bg-[#0B0B0D]/70 backdrop-blur-xl p-6 hover:border-white/20 transition-colors"
                 >
                   <div className="flex items-start gap-4">
                     <div

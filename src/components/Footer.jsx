@@ -16,8 +16,8 @@ const Footer = () => {
   const y = useTransform(scrollYProgress, [0, 1], [150, 0])
 
   return (
-    <footer ref={containerRef} className="relative overflow-hidden bg-[#050505] pt-32 pb-16">
-      <div className="absolute inset-0 bg-gradient-to-t from-[#00f3ff]/5 via-transparent to-transparent pointer-events-none" />
+    <footer ref={containerRef} className="relative overflow-hidden bg-[#0B0B0D] pt-32 pb-16">
+      <div className="absolute inset-0 bg-gradient-to-t from-[#C8FF3D]/5 via-transparent to-transparent pointer-events-none" />
 
       <motion.div style={{ y }} className="max-w-7xl mx-auto px-6 relative z-10">
         
@@ -48,11 +48,11 @@ const Footer = () => {
           {/* Brand Info */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00f3ff]/20 to-[#0aff60]/20 border border-[#00f3ff]/30 flex items-center justify-center shadow-lg">
-                <Terminal className="w-6 h-6 text-[#00f3ff]" aria-hidden="true" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C8FF3D]/20 to-[#C8FF3D]/20 border border-[#C8FF3D]/30 flex items-center justify-center shadow-lg">
+                <Terminal className="w-6 h-6 text-[#C8FF3D]" aria-hidden="true" />
               </div>
               <div className="font-mono font-bold text-lg tracking-widest">
-                <span className="text-[#00f3ff]">KARTHIK</span>
+                <span className="text-[#C8FF3D]">KARTHIK</span>
                 <span className="text-gray-600">.</span>
                 <span className="text-white">SURU</span>
               </div>
@@ -98,10 +98,10 @@ const Footer = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-gray-400 hover:text-[#00f3ff] transition-colors font-medium relative group w-max"
+                  className="text-gray-400 hover:text-[#C8FF3D] transition-colors font-medium relative group w-max"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00f3ff] group-hover:w-full transition-all duration-300" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#C8FF3D] group-hover:w-full transition-all duration-300" />
                 </a>
               ))}
             </div>

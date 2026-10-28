@@ -7,13 +7,13 @@ import { cn } from '../utils/cn'
 const statusMeta = {
   solid: {
     icon: CheckCircle2,
-    color: '#0aff60',
+    color: '#C8FF3D',
     label: 'Solid',
     hint: 'Comfortable building with this today',
   },
   active: {
     icon: CircleDot,
-    color: '#00f3ff',
+    color: '#C8FF3D',
     label: 'Learning now',
     hint: 'Actively deepening',
   },
@@ -50,7 +50,7 @@ const RoadmapNode = ({ item, index, isInView, isLast }) => {
       <span
         className="relative z-10 w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
         style={{
-          backgroundColor: '#0a0a0c',
+          backgroundColor: '#0B0B0D',
           border: `1px solid ${meta.color}44`,
         }}
       >
@@ -94,7 +94,7 @@ const Learning = () => {
           <span className="text-[#0ff] font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
             Now
           </span>
-          <h2 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight">
+          <h2 className="font-display text-5xl md:text-6xl text-white tracking-tight">
             What I'm{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-200">
               Working On
@@ -108,9 +108,9 @@ const Learning = () => {
 
         <div ref={ref} className="grid lg:grid-cols-5 gap-6">
           {/* Roadmap */}
-          <div className="lg:col-span-2 rounded-3xl border border-white/10 bg-[#0a0a0c]/70 backdrop-blur-xl p-8">
+          <div className="lg:col-span-2 rounded-3xl border border-white/10 bg-[#0B0B0D]/70 backdrop-blur-xl p-8">
             <h3 className="flex items-center gap-3 text-sm font-mono uppercase tracking-widest text-gray-500 mb-7">
-              <Compass className="w-4 h-4 text-[#00f3ff]" aria-hidden="true" />
+              <Compass className="w-4 h-4 text-[#C8FF3D]" aria-hidden="true" />
               Learning path
             </h3>
 
@@ -152,10 +152,10 @@ const Learning = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                className="rounded-2xl border border-white/10 bg-[#0a0a0c]/70 backdrop-blur-xl p-7 hover:border-white/20 transition-colors flex-1"
+                className="rounded-2xl border border-white/10 bg-[#0B0B0D]/70 backdrop-blur-xl p-7 hover:border-white/20 transition-colors flex-1"
               >
                 <div className="flex items-baseline gap-3 mb-3">
-                  <span className="font-mono text-xs text-[#00f3ff]/60">
+                  <span className="font-mono text-xs text-[#C8FF3D]/60">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <h4 className="text-lg font-bold text-white tracking-tight">{item.title}</h4>

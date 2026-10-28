@@ -18,7 +18,7 @@ function App() {
   const [selectedProject, setSelectedProject] = useState(null)
 
   return (
-    <div className="min-h-screen bg-[#050505] relative">
+    <div className="min-h-screen bg-[#0B0B0D] relative">
       <a href="#main" className="skip-link">
         Skip to content
       </a>

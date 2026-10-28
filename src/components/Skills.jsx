@@ -144,7 +144,7 @@ const ChainRail = ({ chain, isInView, index }) => (
     initial={{ opacity: 0, y: 20 }}
     animate={isInView ? { opacity: 1, y: 0 } : {}}
     transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-    className="rounded-2xl border border-white/5 bg-[#0a0a0c]/60 backdrop-blur-xl p-6 hover:border-white/15 transition-colors"
+    className="rounded-2xl border border-white/5 bg-[#0B0B0D]/60 backdrop-blur-xl p-6 hover:border-white/15 transition-colors"
   >
     <div className="flex items-baseline gap-3 mb-1 flex-wrap">
       <span
@@ -209,7 +209,7 @@ const Skills = () => {
           <span className="text-[#0ff] font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
             Toolkit
           </span>
-          <h2 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight">
+          <h2 className="font-display text-5xl md:text-6xl text-white tracking-tight">
             Technical{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-200">
               Skills
@@ -224,7 +224,7 @@ const Skills = () => {
           <div className="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             {Object.entries(tierMeta).map(([key, meta]) => (
               <div key={key} className="flex items-center gap-2">
-                <TierDots tier={key} color="#00f3ff" />
+                <TierDots tier={key} color="#C8FF3D" />
                 <span className="text-xs text-gray-500">
                   <span className="text-gray-300 font-medium">{meta.label}</span> — {meta.hint}
                 </span>

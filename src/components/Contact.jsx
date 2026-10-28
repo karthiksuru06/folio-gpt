@@ -4,8 +4,8 @@ import { Send, Mail, Github, Linkedin, FileText, MapPin, Zap, AlertCircle } from
 import { identity, availability } from '../data/profile'
 
 const socialLinks = [
-  { name: 'GitHub', icon: Github, url: identity.github, handle: identity.githubHandle, color: '#00f3ff' },
-  { name: 'LinkedIn', icon: Linkedin, url: identity.linkedin, handle: identity.linkedinHandle, color: '#0aff60' },
+  { name: 'GitHub', icon: Github, url: identity.github, handle: identity.githubHandle, color: '#C8FF3D' },
+  { name: 'LinkedIn', icon: Linkedin, url: identity.linkedin, handle: identity.linkedinHandle, color: '#C8FF3D' },
   { name: 'Email', icon: Mail, url: `mailto:${identity.email}`, handle: identity.email, color: '#8b5cf6' },
   { name: 'Résumé', icon: FileText, url: identity.resume, handle: 'PDF', color: '#ff006e' },
 ]
@@ -88,7 +88,7 @@ const Contact = () => {
           className="mb-20 text-center"
         >
           <span className="text-[#0ff] font-mono text-sm tracking-[0.3em] uppercase mb-4 block">Let's Connect</span>
-          <h2 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight">
+          <h2 className="font-display text-5xl md:text-7xl text-white tracking-tight">
             Initiate <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-200">Contact</span>
           </h2>
         </motion.div>
@@ -104,19 +104,19 @@ const Contact = () => {
             className="flex flex-col gap-6"
           >
             {/* Live Status Card */}
-            <div className="bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-[#0aff60]/30 transition-colors shadow-2xl relative overflow-hidden group">
+            <div className="bg-[#0B0B0D]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-[#C8FF3D]/30 transition-colors shadow-2xl relative overflow-hidden group">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(10,255,96,0.1)_0%,transparent_50%)] pointer-events-none" />
               
               <div className="flex items-center gap-3 mb-6 relative z-10">
-                <Zap className="w-5 h-5 text-[#0aff60]" />
+                <Zap className="w-5 h-5 text-[#C8FF3D]" />
                 <span className="font-mono text-sm tracking-widest text-gray-500 uppercase">Availability Profile</span>
               </div>
               
-              <div className="p-5 rounded-2xl bg-[#050505] border border-white/5 relative z-10 shadow-inner">
+              <div className="p-5 rounded-2xl bg-[#0B0B0D] border border-white/5 relative z-10 shadow-inner">
                 <div className="flex items-center gap-4">
                   <span className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0aff60] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-[#0aff60]"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C8FF3D] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-[#C8FF3D]"></span>
                   </span>
                   <span className="text-white font-semibold text-lg tracking-wide">
                     {availability.headline}
@@ -139,7 +139,7 @@ const Contact = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label={`${link.name}: ${link.handle}`}
-                  className="bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-6 flex flex-col items-center justify-center gap-3 group hover:border-white/30 transition-all shadow-lg"
+                  className="bg-[#0B0B0D]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-6 flex flex-col items-center justify-center gap-3 group hover:border-white/30 transition-all shadow-lg"
                 >
                   <div
                     className="w-12 h-12 rounded-full flex items-center justify-center shadow-inner transition-transform group-hover:scale-110"
@@ -175,7 +175,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form onSubmit={handleSubmit} className="bg-[#0a0a0c]/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 relative overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+            <form onSubmit={handleSubmit} className="bg-[#0B0B0D]/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 relative overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]">
               {/* Top Bar */}
               <div className="flex items-center gap-3 mb-8 pb-4 border-b border-white/10">
                 <div className="flex gap-2">
@@ -195,11 +195,11 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     maxLength={100}
-                    className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-transparent focus:border-[#00f3ff] focus:bg-white/10 transition-all outline-none peer"
+                    className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-transparent focus:border-[#C8FF3D] focus:bg-white/10 transition-all outline-none peer"
                     id="name"
                     placeholder="Name"
                   />
-                  <label htmlFor="name" className="absolute left-5 -top-2.5 bg-[#0a0a0c] px-2 text-xs font-mono text-gray-500 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-600 peer-placeholder-shown:top-4 peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-[#00f3ff] transition-all">
+                  <label htmlFor="name" className="absolute left-5 -top-2.5 bg-[#0B0B0D] px-2 text-xs font-mono text-gray-500 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-600 peer-placeholder-shown:top-4 peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-[#C8FF3D] transition-all">
                     IDENTIFIER
                   </label>
                 </div>
@@ -211,11 +211,11 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-transparent focus:border-[#00f3ff] focus:bg-white/10 transition-all outline-none peer"
+                    className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-transparent focus:border-[#C8FF3D] focus:bg-white/10 transition-all outline-none peer"
                     id="email"
                     placeholder="Email"
                   />
-                  <label htmlFor="email" className="absolute left-5 -top-2.5 bg-[#0a0a0c] px-2 text-xs font-mono text-gray-500 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-600 peer-placeholder-shown:top-4 peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-[#00f3ff] transition-all">
+                  <label htmlFor="email" className="absolute left-5 -top-2.5 bg-[#0B0B0D] px-2 text-xs font-mono text-gray-500 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-600 peer-placeholder-shown:top-4 peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-[#C8FF3D] transition-all">
                     RETURN_ADDRESS
                   </label>
                 </div>
@@ -228,11 +228,11 @@ const Contact = () => {
                     required
                     maxLength={2000}
                     rows={5}
-                    className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-transparent focus:border-[#00f3ff] focus:bg-white/10 transition-all outline-none resize-none peer"
+                    className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-transparent focus:border-[#C8FF3D] focus:bg-white/10 transition-all outline-none resize-none peer"
                     id="message"
                     placeholder="Message"
                   />
-                  <label htmlFor="message" className="absolute left-5 -top-2.5 bg-[#0a0a0c] px-2 text-xs font-mono text-gray-500 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-600 peer-placeholder-shown:top-4 peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-[#00f3ff] transition-all">
+                  <label htmlFor="message" className="absolute left-5 -top-2.5 bg-[#0B0B0D] px-2 text-xs font-mono text-gray-500 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-600 peer-placeholder-shown:top-4 peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-[#C8FF3D] transition-all">
                     PAYLOAD
                   </label>
                 </div>
@@ -250,10 +250,10 @@ const Contact = () => {
                       <span className="font-mono uppercase tracking-widest text-sm">Transmitting</span>
                     </>
                   ) : submitted ? (
-                    <span className="font-mono uppercase tracking-widest text-[#0aff60] text-sm">Transmission Successful</span>
+                    <span className="font-mono uppercase tracking-widest text-[#C8FF3D] text-sm">Transmission Successful</span>
                   ) : (
                     <>
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#00f3ff]/20 to-[#0aff60]/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#C8FF3D]/20 to-[#C8FF3D]/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                       <Send size={18} className="group-hover:text-black transition-colors z-10" />
                       <span className="font-mono uppercase tracking-widest text-sm group-hover:text-black transition-colors z-10">
                         Send Message
