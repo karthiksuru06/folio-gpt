@@ -17,7 +17,7 @@ const Section = ({ icon: Icon, title, tint, children, show = true }) => {
         >
           <Icon className="w-5 h-5" style={{ color: tint }} aria-hidden="true" />
         </div>
-        <h3 className="font-mono font-semibold text-white text-lg">{title}</h3>
+        <h3 className="font-mono font-semibold text-ink text-lg">{title}</h3>
       </div>
       <div className="sm:ml-[52px]">{children}</div>
     </section>
@@ -105,7 +105,7 @@ const ProjectModal = ({ project, onClose }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
-      className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-4 sm:p-6 bg-[#0B0B0D]/95 backdrop-blur-xl overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-4 sm:p-6 bg-paper/95 backdrop-blur-xl overflow-y-auto"
     >
       <motion.div
         ref={panelRef}
@@ -120,14 +120,14 @@ const ProjectModal = ({ project, onClose }) => {
         className="glass-card rounded-2xl max-w-3xl w-full my-auto max-h-none sm:max-h-[90vh] sm:overflow-y-auto"
       >
         {/* Header */}
-        <div className="relative h-44 sm:h-52 bg-gradient-to-br from-[#C8FF3D]/20 to-[#C8FF3D]/10 overflow-hidden rounded-t-2xl">
-          <div className="absolute inset-0 bg-[#0B0B0D]/50" />
+        <div className="relative h-44 sm:h-52 bg-gradient-to-br from-accent-fill/20 to-accent-fill/10 overflow-hidden rounded-t-2xl">
+          <div className="absolute inset-0 bg-surface/50" />
 
           <div className="absolute inset-0 overflow-hidden opacity-30" aria-hidden="true">
             {Array.from({ length: 20 }, (_, i) => (
               <div
                 key={i}
-                className="absolute w-full h-px bg-[#C8FF3D]/20"
+                className="absolute w-full h-px bg-accent-fill/20"
                 style={{ top: `${i * 5}%` }}
               />
             ))}
@@ -139,28 +139,28 @@ const ProjectModal = ({ project, onClose }) => {
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
             aria-label="Close project details"
-            className="absolute top-4 right-4 z-20 w-10 h-10 rounded-lg bg-[#0B0B0D]/80 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-[#C8FF3D]/50 transition-all"
+            className="absolute top-4 right-4 z-20 w-10 h-10 rounded-lg bg-surface/80 border border-ink/10 flex items-center justify-center text-ink-soft hover:text-ink hover:border-accent/50 transition-all"
           >
             <X size={20} aria-hidden="true" />
           </motion.button>
 
           <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
             <div className="flex items-end gap-4">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#0B0B0D]/80 border border-[#C8FF3D]/30 flex items-center justify-center flex-shrink-0">
-                <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#C8FF3D]" aria-hidden="true" />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-surface/80 border border-accent/30 flex items-center justify-center flex-shrink-0">
+                <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-accent" aria-hidden="true" />
               </div>
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2 mb-2">
                   {project.featured && <span className="protocol-tag text-[10px]">FEATURED</span>}
                   {project.status && (
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest text-gray-300 bg-white/10 border border-white/15">
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest text-ink bg-ink/10 border border-ink/15">
                       {project.status}
                     </span>
                   )}
                 </div>
                 <h2
                   id="project-modal-title"
-                  className="font-mono text-2xl md:text-3xl font-bold text-white leading-tight"
+                  className="font-mono text-2xl md:text-3xl font-bold text-ink leading-tight"
                 >
                   {project.title}
                 </h2>
@@ -178,7 +178,7 @@ const ProjectModal = ({ project, onClose }) => {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-[#C8FF3D]/30 text-gray-300 hover:text-white transition-all"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-ink/5 border border-ink/10 hover:border-accent/30 text-ink hover:text-ink transition-all"
                 >
                   <Github size={18} aria-hidden="true" />
                   <span className="text-sm font-mono">Source</span>
@@ -189,7 +189,7 @@ const ProjectModal = ({ project, onClose }) => {
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#C8FF3D]/10 border border-[#C8FF3D]/30 text-[#C8FF3D] hover:bg-[#C8FF3D]/20 transition-all"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-accent-fill/10 border border-accent/30 text-accent hover:bg-accent-fill/20 transition-all"
                 >
                   <ExternalLink size={18} aria-hidden="true" />
                   <span className="text-sm font-mono">Live Demo</span>
@@ -199,11 +199,11 @@ const ProjectModal = ({ project, onClose }) => {
           )}
 
           <Section icon={Target} title="THE PROBLEM" tint="#f87171" show={!!project.problem}>
-            <p className="text-gray-400 leading-relaxed">{project.problem}</p>
+            <p className="text-ink-soft leading-relaxed">{project.problem}</p>
           </Section>
 
           <Section icon={Lightbulb} title="THE SOLUTION" tint="#C8FF3D" show={!!project.solution}>
-            <p className="text-gray-400 leading-relaxed">{project.solution}</p>
+            <p className="text-ink-soft leading-relaxed">{project.solution}</p>
           </Section>
 
           <Section
@@ -212,7 +212,7 @@ const ProjectModal = ({ project, onClose }) => {
             tint="#C8FF3D"
             show={!!project.architecture}
           >
-            <p className="text-gray-400 leading-relaxed">{project.architecture}</p>
+            <p className="text-ink-soft leading-relaxed">{project.architecture}</p>
           </Section>
 
           <Section
@@ -223,7 +223,7 @@ const ProjectModal = ({ project, onClose }) => {
           >
             <ul className="space-y-2.5">
               {project.features?.map((feature) => (
-                <li key={feature} className="flex items-start gap-3 text-gray-400 text-sm">
+                <li key={feature} className="flex items-start gap-3 text-ink-soft text-sm">
                   <span className="text-[#8b5cf6] mt-0.5 flex-shrink-0" aria-hidden="true">
                     ▸
                   </span>
@@ -243,7 +243,7 @@ const ProjectModal = ({ project, onClose }) => {
               {project.challenges?.map((c) => (
                 <li
                   key={c}
-                  className="text-gray-400 text-sm leading-relaxed bg-white/[0.03] border border-white/5 rounded-xl p-4"
+                  className="text-ink-soft text-sm leading-relaxed bg-ink/[0.03] border border-ink/5 rounded-xl p-4"
                 >
                   {c}
                 </li>
@@ -256,7 +256,7 @@ const ProjectModal = ({ project, onClose }) => {
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1.5 text-sm font-mono text-[#C8FF3D] bg-[#C8FF3D]/10 border border-[#C8FF3D]/20 rounded-md"
+                  className="px-3 py-1.5 text-sm font-mono text-accent bg-accent-fill/10 border border-accent/20 rounded-md"
                 >
                   {tech}
                 </span>
@@ -265,26 +265,26 @@ const ProjectModal = ({ project, onClose }) => {
           </Section>
 
           <Section icon={TrendingUp} title="OUTCOME" tint="#C8FF3D" show={!!project.impact}>
-            <div className="p-4 rounded-xl bg-gradient-to-r from-[#C8FF3D]/10 to-[#C8FF3D]/5 border border-[#C8FF3D]/20">
-              <p className="text-gray-200 font-medium leading-relaxed">{project.impact}</p>
+            <div className="p-4 rounded-xl bg-gradient-to-r from-accent-fill/10 to-accent-fill/5 border border-accent/20">
+              <p className="text-ink font-medium leading-relaxed">{project.impact}</p>
             </div>
           </Section>
 
           {/* Clone command */}
           {project.github && (
-            <div className="p-4 rounded-xl bg-[#0B0B0D] border border-white/5">
+            <div className="p-4 rounded-xl bg-surface border border-ink/5">
               <div className="flex items-center justify-between gap-4">
                 <div className="font-mono text-xs sm:text-sm min-w-0 overflow-x-auto">
-                  <span className="text-gray-500">$ </span>
-                  <span className="text-[#C8FF3D]">git clone </span>
-                  <span className="text-gray-400 whitespace-nowrap">{project.github}</span>
+                  <span className="text-ink-faint">$ </span>
+                  <span className="text-accent">git clone </span>
+                  <span className="text-ink-soft whitespace-nowrap">{project.github}</span>
                 </div>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleCopy}
                   aria-label="Copy clone command"
-                  className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-[#C8FF3D] hover:border-[#C8FF3D]/30 transition-all flex-shrink-0"
+                  className="p-2 rounded-lg bg-ink/5 border border-ink/10 text-ink-soft hover:text-accent hover:border-accent/30 transition-all flex-shrink-0"
                 >
                   {copied ? <Check size={16} /> : <Copy size={16} />}
                 </motion.button>

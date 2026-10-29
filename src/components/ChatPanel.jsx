@@ -29,8 +29,8 @@ function Bubble({ role, children }) {
       <div
         className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-relaxed whitespace-pre-wrap ${
           mine
-            ? 'bg-white/10 text-[#F4F1EA] rounded-br-sm'
-            : 'bg-[#141414] border border-white/10 text-[#c8c8c8] rounded-bl-sm'
+            ? 'bg-ink/10 text-ink rounded-br-sm'
+            : 'bg-surface-2 border border-ink/10 text-ink rounded-bl-sm'
         }`}
       >
         {children}
@@ -132,10 +132,11 @@ export default function ChatPanel() {
     <>
       <button
         type="button"
+        id="chat-trigger"
         onClick={() => setOpen(o => !o)}
         aria-label={open ? 'Close chat' : 'Open chat'}
         aria-expanded={open}
-        className="fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[#C8FF3D]/30 bg-[#101010] text-[#C8FF3D] shadow-lg transition-colors hover:bg-[#1a1a1a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8FF3D]/60"
+        className="fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-accent-fill text-on-accent shadow-lg transition-colors hover:bg-accent-fill/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       >
         {open ? <X size={20} /> : <MessageCircle size={20} />}
       </button>
@@ -144,11 +145,11 @@ export default function ChatPanel() {
         <div
           role="dialog"
           aria-label="Chat with the portfolio assistant"
-          className="fixed bottom-20 right-5 z-50 flex h-[30rem] w-[calc(100vw-2.5rem)] max-w-sm flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0B0B0D] shadow-2xl"
+          className="fixed bottom-20 right-5 z-50 flex h-[30rem] w-[calc(100vw-2.5rem)] max-w-sm flex-col overflow-hidden rounded-2xl border border-ink/10 bg-surface shadow-2xl"
         >
-          <div className="border-b border-white/10 px-4 py-3">
-            <p className="font-display text-lg leading-tight text-[#F4F1EA]">Ask about Karthik</p>
-            <p className="text-xs text-[#8a8a8a]">Answers come from his resume - no guessing.</p>
+          <div className="border-b border-ink/10 px-4 py-3">
+            <p className="font-display text-lg leading-tight text-ink">Ask about Karthik</p>
+            <p className="text-xs text-ink-faint">Answers come from his resume - no guessing.</p>
           </div>
 
           <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-3">
@@ -159,12 +160,12 @@ export default function ChatPanel() {
             )}
             {turns.map((t, i) => <Bubble key={i} role={t.role}>{t.text}</Bubble>)}
             {busy && turns.at(-1)?.role === 'user' && (
-              <p className="text-xs italic text-[#6f6f6f]">thinking...</p>
+              <p className="text-xs italic text-ink-faint">thinking...</p>
             )}
           </div>
 
           {/* Prebuilt questions: always visible, scrollable row */}
-          <div className="border-t border-white/10 px-3 pt-2">
+          <div className="border-t border-ink/10 px-3 pt-2">
             <div className="flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none]">
               {visible.map(q => (
                 <button
@@ -172,7 +173,7 @@ export default function ChatPanel() {
                   type="button"
                   disabled={busy}
                   onClick={() => send(q)}
-                  className="whitespace-nowrap rounded-full border border-[#C8FF3D]/25 px-3 py-1.5 text-xs text-[#C8FF3D]/90 transition-colors hover:bg-[#C8FF3D]/10 disabled:opacity-40"
+                  className="whitespace-nowrap rounded-full border border-accent/25 px-3 py-1.5 text-xs text-accent/90 transition-colors hover:bg-accent-fill/10 disabled:opacity-40"
                 >
                   {q}
                 </button>
@@ -182,7 +183,7 @@ export default function ChatPanel() {
               <button
                 type="button"
                 onClick={() => setShowAll(v => !v)}
-                className="mb-1 text-[11px] text-[#6f6f6f] underline-offset-2 hover:text-[#8a8a8a] hover:underline"
+                className="mb-1 text-[11px] text-ink-faint underline-offset-2 hover:text-ink-soft hover:underline"
               >
                 {showAll ? 'fewer questions' : `+${SUGGESTIONS.length - 4} more questions`}
               </button>
@@ -191,7 +192,7 @@ export default function ChatPanel() {
 
           <form
             onSubmit={(e) => { e.preventDefault(); send() }}
-            className="flex items-center gap-2 border-t border-white/10 px-3 py-2"
+            className="flex items-center gap-2 border-t border-ink/10 px-3 py-2"
           >
             <input
               value={input}
@@ -199,13 +200,13 @@ export default function ChatPanel() {
               maxLength={600}
               placeholder="Ask a question..."
               aria-label="Chat message"
-              className="flex-1 bg-transparent px-2 py-1.5 text-sm text-[#F4F1EA] placeholder:text-[#6f6f6f] focus:outline-none"
+              className="flex-1 bg-transparent px-2 py-1.5 text-sm text-ink placeholder:text-ink-faint focus:outline-none"
             />
             <button
               type="submit"
               disabled={busy || !input.trim()}
               aria-label="Send message"
-              className="rounded-lg p-2 text-[#C8FF3D] transition-colors hover:bg-[#C8FF3D]/10 disabled:opacity-40"
+              className="rounded-lg p-2 text-accent transition-colors hover:bg-accent-fill/10 disabled:opacity-40"
             >
               <Send size={16} />
             </button>

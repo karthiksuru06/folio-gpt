@@ -24,7 +24,7 @@ const TierDots = ({ tier, color }) => {
           key={i}
           className="w-1.5 h-1.5 rounded-full transition-colors duration-300"
           style={{
-            backgroundColor: i < dots ? color : 'rgba(255,255,255,0.12)',
+            backgroundColor: i < dots ? color : 'rgb(var(--c-ink) / 0.15)',
             boxShadow: i < dots ? `0 0 6px ${color}66` : 'none',
           }}
         />
@@ -38,16 +38,16 @@ const SkillRow = ({ skill, color, delay, isInView }) => (
     initial={{ opacity: 0, y: 8 }}
     animate={isInView ? { opacity: 1, y: 0 } : {}}
     transition={{ duration: 0.4, delay }}
-    className="group/skill relative flex items-center justify-between gap-3 py-2 border-b border-white/5 last:border-b-0"
+    className="group/skill relative flex items-center justify-between gap-3 py-2 border-b border-ink/5 last:border-b-0"
   >
     <div className="min-w-0">
-      <span className="text-gray-200 text-sm font-medium block truncate">{skill.name}</span>
-      <span className="text-gray-500 text-[11px] leading-tight block truncate opacity-0 max-h-0 group-hover/skill:opacity-100 group-hover/skill:max-h-8 transition-all duration-300">
+      <span className="text-ink text-sm font-medium block truncate">{skill.name}</span>
+      <span className="text-ink-faint text-[11px] leading-tight block truncate opacity-0 max-h-0 group-hover/skill:opacity-100 group-hover/skill:max-h-8 transition-all duration-300">
         {skill.note}
       </span>
     </div>
     <div className="flex items-center gap-2 flex-shrink-0">
-      <span className="text-[10px] font-mono uppercase tracking-wider text-gray-600 hidden sm:block">
+      <span className="text-[10px] font-mono uppercase tracking-wider text-ink-faint hidden sm:block">
         {tierMeta[skill.tier].label}
       </span>
       <TierDots tier={skill.tier} color={color} />
@@ -100,8 +100,8 @@ const BentoCard = ({ category, index, isInView }) => {
           <Icon className="w-5 h-5" style={{ color: category.color }} />
         </div>
         <div className="min-w-0">
-          <h3 className="text-xl font-bold text-white tracking-tight">{category.title}</h3>
-          <p className="text-gray-500 text-xs leading-relaxed mt-1">{category.blurb}</p>
+          <h3 className="text-xl font-bold text-ink tracking-tight">{category.title}</h3>
+          <p className="text-ink-faint text-xs leading-relaxed mt-1">{category.blurb}</p>
         </div>
       </div>
 
@@ -123,7 +123,7 @@ const BentoCard = ({ category, index, isInView }) => {
           onClick={() => setExpanded((v) => !v)}
           aria-expanded={expanded}
           aria-controls={panelId}
-          className="relative z-10 mt-4 flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-gray-500 hover:text-white transition-colors self-start"
+          className="relative z-10 mt-4 flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-ink-faint hover:text-ink transition-colors self-start"
         >
           {expanded ? 'Show less' : `+${category.skills.length - COLLAPSED} more`}
           <ChevronDown
@@ -144,7 +144,7 @@ const ChainRail = ({ chain, isInView, index }) => (
     initial={{ opacity: 0, y: 20 }}
     animate={isInView ? { opacity: 1, y: 0 } : {}}
     transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-    className="rounded-2xl border border-white/5 bg-[#0B0B0D]/60 backdrop-blur-xl p-6 hover:border-white/15 transition-colors"
+    className="rounded-2xl border border-ink/5 bg-surface/60 backdrop-blur-xl p-6 hover:border-ink/15 transition-colors"
   >
     <div className="flex items-baseline gap-3 mb-1 flex-wrap">
       <span
@@ -158,7 +158,7 @@ const ChainRail = ({ chain, isInView, index }) => (
         {chain.label}
       </span>
     </div>
-    <p className="text-gray-500 text-sm mb-5 leading-relaxed">{chain.description}</p>
+    <p className="text-ink-faint text-sm mb-5 leading-relaxed">{chain.description}</p>
 
     <ol className="flex flex-wrap items-center gap-x-1 gap-y-2">
       {chain.steps.map((step, i) => {
@@ -169,8 +169,8 @@ const ChainRail = ({ chain, isInView, index }) => (
               className={cn(
                 'px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors',
                 isLast
-                  ? 'text-black font-semibold'
-                  : 'text-gray-300 bg-white/5 border border-white/10'
+                  ? 'text-on-accent font-semibold'
+                  : 'text-ink bg-ink/5 border border-ink/10'
               )}
               style={isLast ? { backgroundColor: chain.color } : undefined}
             >
@@ -206,16 +206,16 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="text-[#0ff] font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
+          <span className="text-accent font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
             Toolkit
           </span>
-          <h2 className="font-display text-5xl md:text-6xl text-white tracking-tight">
+          <h2 className="font-display text-5xl md:text-6xl text-ink tracking-tight">
             Technical{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-200">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-ink-faint to-ink">
               Skills
             </span>
           </h2>
-          <p className="text-gray-500 mt-5 max-w-xl mx-auto leading-relaxed">
+          <p className="text-ink-faint mt-5 max-w-xl mx-auto leading-relaxed">
             Grouped by what I actually reach for, and how confident I am in each. No percentages —
             those are made up everywhere you see them.
           </p>
@@ -225,8 +225,8 @@ const Skills = () => {
             {Object.entries(tierMeta).map(([key, meta]) => (
               <div key={key} className="flex items-center gap-2">
                 <TierDots tier={key} color="#C8FF3D" />
-                <span className="text-xs text-gray-500">
-                  <span className="text-gray-300 font-medium">{meta.label}</span> — {meta.hint}
+                <span className="text-xs text-ink-faint">
+                  <span className="text-ink font-medium">{meta.label}</span> — {meta.hint}
                 </span>
               </div>
             ))}
@@ -247,10 +247,10 @@ const Skills = () => {
             transition={{ duration: 0.6 }}
             className="mb-10 text-center"
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+            <h3 className="text-2xl md:text-3xl font-bold text-ink tracking-tight">
               How the pieces fit together
             </h3>
-            <p className="text-gray-500 mt-3 max-w-lg mx-auto text-sm leading-relaxed">
+            <p className="text-ink-faint mt-3 max-w-lg mx-auto text-sm leading-relaxed">
               Individual technologies matter less than the paths between them. These are the stacks
               I've actually carried end to end.
             </p>

@@ -13,12 +13,15 @@ import Footer from './components/Footer'
 import ProjectModal from './components/ProjectModal'
 import ParticleBackground from './components/ParticleBackground'
 import ChatPanel from './components/ChatPanel'
+import GuidanceTour from './components/GuidanceTour'
 
 function App() {
   const [selectedProject, setSelectedProject] = useState(null)
+  // Bumped by the navbar guide button; GuidanceTour replays on any change.
+  const [guideSignal, setGuideSignal] = useState(0)
 
   return (
-    <div className="min-h-screen bg-[#0B0B0D] relative">
+    <div className="min-h-screen bg-paper relative">
       <a href="#main" className="skip-link">
         Skip to content
       </a>
@@ -26,7 +29,7 @@ function App() {
       {/* id is used by ProjectModal to hide the page from assistive tech
           while the dialog is open. The modal renders outside this div. */}
       <div id="app-shell" className="relative z-10">
-        <Navbar />
+        <Navbar onReplayGuide={() => setGuideSignal((n) => n + 1)} />
         <main id="main">
           <Hero />
           <About />
@@ -48,6 +51,7 @@ function App() {
         )}
       </AnimatePresence>
       <ChatPanel />
+      <GuidanceTour replaySignal={guideSignal} />
     </div>
   )
 }

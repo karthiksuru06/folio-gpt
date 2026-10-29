@@ -40,6 +40,15 @@ the canvas. Each layer is blind to the others.
 is bounded at 120 regardless of viewport, distances are compared squared to keep
 `Math.sqrt` out of the hot loop, and the loop suspends on `visibilitychange`.
 
+**Theming is one token layer, not two codebases.** Light is the default landing
+theme; `.dark` on `<html>` swaps CSS-variable RGB triplets in `index.css`, and
+every component only uses semantic utilities (`bg-surface`, `text-ink`,
+`text-accent`) that resolve through them — so the hero markup is byte-identical
+in both skins. `public/theme-init.js` applies the stored theme before first
+paint (same-origin, so `CSP script-src 'self'` holds), and the first-visit
+guide tour (`GuidanceTour.jsx`, replayable from the navbar) points at the
+toggle so visitors see both skins without hunting for it.
+
 ## Configuration
 
 | Variable | Required | Notes |

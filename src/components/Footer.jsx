@@ -16,8 +16,8 @@ const Footer = () => {
   const y = useTransform(scrollYProgress, [0, 1], [150, 0])
 
   return (
-    <footer ref={containerRef} className="relative overflow-hidden bg-[#0B0B0D] pt-32 pb-16">
-      <div className="absolute inset-0 bg-gradient-to-t from-[#C8FF3D]/5 via-transparent to-transparent pointer-events-none" />
+    <footer ref={containerRef} className="relative overflow-hidden bg-surface pt-32 pb-16">
+      <div className="absolute inset-0 bg-gradient-to-t from-accent-fill/5 via-transparent to-transparent pointer-events-none" />
 
       <motion.div style={{ y }} className="max-w-7xl mx-auto px-6 relative z-10">
         
@@ -35,7 +35,7 @@ const Footer = () => {
             href={`mailto:${identity.email}`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-black font-semibold text-lg hover:bg-gray-200 transition-colors shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-ink text-paper font-semibold text-lg hover:bg-ink/80 transition-colors shadow-[0_8px_30px_rgb(0_0_0_/_0.15)]"
           >
             Get in touch
             <ArrowUpRight className="w-5 h-5" aria-hidden="true" />
@@ -43,21 +43,21 @@ const Footer = () => {
         </div>
 
         {/* Main Footer Content */}
-        <div className="grid md:grid-cols-2 gap-12 mb-16 pb-16 border-b border-white/10">
+        <div className="grid md:grid-cols-2 gap-12 mb-16 pb-16 border-b border-ink/10">
           
           {/* Brand Info */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C8FF3D]/20 to-[#C8FF3D]/20 border border-[#C8FF3D]/30 flex items-center justify-center shadow-lg">
-                <Terminal className="w-6 h-6 text-[#C8FF3D]" aria-hidden="true" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-fill/20 to-accent-fill/20 border border-accent/30 flex items-center justify-center shadow-lg">
+                <Terminal className="w-6 h-6 text-accent" aria-hidden="true" />
               </div>
               <div className="font-mono font-bold text-lg tracking-widest">
-                <span className="text-[#C8FF3D]">KARTHIK</span>
-                <span className="text-gray-600">.</span>
-                <span className="text-white">SURU</span>
+                <span className="text-accent">KARTHIK</span>
+                <span className="text-ink-faint">.</span>
+                <span className="text-ink">SURU</span>
               </div>
             </div>
-            <p className="text-gray-400 max-w-sm mb-8 leading-relaxed">
+            <p className="text-ink-soft max-w-sm mb-8 leading-relaxed">
               AI Engineer building production LLM systems and the full-stack products around them.
               Currently open to AI and backend engineering roles.
             </p>
@@ -75,8 +75,8 @@ const Footer = () => {
                   target={social.url.startsWith('mailto:') ? undefined : '_blank'}
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  whileHover={{ y: -5, backgroundColor: 'rgba(255,255,255,0.1)' }}
-                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 shadow-md"
+                  whileHover={{ y: -5, backgroundColor: 'rgba(120, 120, 128, 0.12)' }}
+                  className="w-12 h-12 rounded-2xl bg-ink/5 border border-ink/10 flex items-center justify-center text-ink-soft hover:text-ink transition-all duration-300 shadow-md"
                 >
                   <social.icon size={20} aria-hidden="true" />
                 </motion.a>
@@ -87,7 +87,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="grid grid-cols-2 gap-8 md:text-right md:justify-end">
             <div className="flex flex-col gap-4 md:items-end">
-              <span className="text-white font-semibold mb-2">Navigation</span>
+              <span className="text-ink font-semibold mb-2">Navigation</span>
               {[
                 { label: 'Home', href: '#hero' },
                 { label: 'About', href: '#about' },
@@ -98,18 +98,18 @@ const Footer = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-gray-400 hover:text-[#C8FF3D] transition-colors font-medium relative group w-max"
+                  className="text-ink-soft hover:text-accent transition-colors font-medium relative group w-max"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#C8FF3D] group-hover:w-full transition-all duration-300" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-fill group-hover:w-full transition-all duration-300" />
                 </a>
               ))}
             </div>
             <div className="flex flex-col gap-4 md:items-end">
-              <span className="text-white font-semibold mb-2">Reach Out</span>
+              <span className="text-ink font-semibold mb-2">Reach Out</span>
               <a
                 href={`mailto:${identity.email}`}
-                className="text-gray-400 hover:text-white transition-colors font-medium"
+                className="text-ink-soft hover:text-ink transition-colors font-medium"
               >
                 Email
               </a>
@@ -117,7 +117,7 @@ const Footer = () => {
                 href={identity.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors font-medium"
+                className="text-ink-soft hover:text-ink transition-colors font-medium"
               >
                 LinkedIn
               </a>
@@ -125,7 +125,7 @@ const Footer = () => {
                 href={identity.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors font-medium"
+                className="text-ink-soft hover:text-ink transition-colors font-medium"
               >
                 GitHub
               </a>
@@ -133,7 +133,7 @@ const Footer = () => {
                 href={identity.resume}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors font-medium"
+                className="text-ink-soft hover:text-ink transition-colors font-medium"
               >
                 Résumé
               </a>
@@ -143,11 +143,11 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <p className="text-gray-500 text-xs font-mono uppercase tracking-widest">
+          <p className="text-ink-faint text-xs font-mono uppercase tracking-widest">
             &copy; {currentYear} KARTHIK SURU. ALL RIGHTS RESERVED.
           </p>
 
-          <p className="text-gray-500 text-xs font-mono uppercase tracking-widest">
+          <p className="text-ink-faint text-xs font-mono uppercase tracking-widest">
             BUILT WITH REACT, TAILWIND &amp; FRAMER MOTION
           </p>
         </div>

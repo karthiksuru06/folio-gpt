@@ -2,6 +2,7 @@ import React from 'react'
 import { MotionConfig } from 'framer-motion'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import { ThemeProvider } from './hooks/useTheme.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -13,7 +14,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       stagger, hover-scale, and 3D tilt still plays at full motion.
     */}
     <MotionConfig reducedMotion="user">
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </MotionConfig>
   </React.StrictMode>,
 )

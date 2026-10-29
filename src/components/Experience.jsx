@@ -31,7 +31,7 @@ const TimelineItem = ({ item }) => {
         className="relative z-20 hidden md:flex"
       >
         <div 
-          className="w-16 h-16 rounded-full flex items-center justify-center bg-[#0B0B0D] border-2 shadow-2xl"
+          className="w-16 h-16 rounded-full flex items-center justify-center bg-surface border-2 shadow-2xl"
           style={{ borderColor: item.color, boxShadow: `0 0 20px ${item.color}20` }}
         >
           <div className="absolute inset-0 rounded-full animate-ping opacity-20" style={{ backgroundColor: item.color }} />
@@ -46,7 +46,7 @@ const TimelineItem = ({ item }) => {
         transition={{ duration: 0.6, delay: 0.3 }}
         className="flex-1"
       >
-        <div className="bg-[#0B0B0D]/80 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 rounded-3xl p-8 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+        <div className="bg-surface/80 backdrop-blur-xl border border-ink/10 hover:border-ink/20 transition-all duration-300 rounded-3xl p-8 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <div>
@@ -61,21 +61,21 @@ const TimelineItem = ({ item }) => {
                 >
                   {item.type}
                 </span>
-                <span className="text-[#0ff] font-semibold text-sm">{item.organization}</span>
+                <span className="text-accent font-semibold text-sm">{item.organization}</span>
               </div>
-              <h3 className="font-bold text-2xl md:text-3xl text-white tracking-tight">
+              <h3 className="font-bold text-2xl md:text-3xl text-ink tracking-tight">
                 {item.title}
               </h3>
             </div>
             
-            <div className="flex items-center gap-2 text-gray-500 text-sm font-mono bg-white/5 px-4 py-2 rounded-full border border-white/5">
+            <div className="flex items-center gap-2 text-ink-faint text-sm font-mono bg-ink/5 px-4 py-2 rounded-full border border-ink/5">
               <Calendar size={14} />
               <span>{item.period}</span>
             </div>
           </div>
 
           {/* Description */}
-          <p className="text-gray-400 mb-6 leading-relaxed text-sm md:text-base">
+          <p className="text-ink-soft mb-6 leading-relaxed text-sm md:text-base">
             {item.description}
           </p>
 
@@ -87,7 +87,7 @@ const TimelineItem = ({ item }) => {
                 initial={{ opacity: 0, x: -10 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.5 + i * 0.1 }}
-                className="flex items-start gap-4 text-gray-300 text-sm bg-white/5 p-3 rounded-xl border border-white/5"
+                className="flex items-start gap-4 text-ink text-sm bg-ink/5 p-3 rounded-xl border border-ink/5"
               >
                 <div className="mt-1" style={{ color: item.color }}>{'✧'}</div>
                 <span className="leading-relaxed">{highlight}</span>
@@ -97,8 +97,8 @@ const TimelineItem = ({ item }) => {
 
           {/* PRs (if any) */}
           {item.prs && (
-            <div className="mt-8 pt-6 border-t border-white/5">
-              <span className="text-xs uppercase tracking-widest font-mono text-gray-500 mb-4 block">Key Contributions</span>
+            <div className="mt-8 pt-6 border-t border-ink/5">
+              <span className="text-xs uppercase tracking-widest font-mono text-ink-faint mb-4 block">Key Contributions</span>
               <div className="flex flex-wrap gap-3">
                 {item.prs.map((pr, i) => (
                   pr.url ? (
@@ -107,20 +107,20 @@ const TimelineItem = ({ item }) => {
                       href={pr.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.1)' }}
-                      className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2 rounded-lg transition-colors"
+                      whileHover={{ scale: 1.02, backgroundColor: 'rgba(120, 120, 128, 0.12)' }}
+                      className="flex items-center gap-3 bg-ink/5 border border-ink/10 px-4 py-2 rounded-lg transition-colors"
                     >
                       <GitMerge size={14} className="text-[#8b5cf6]" />
-                      <span className="text-gray-400 font-mono text-xs">{pr.number}</span>
+                      <span className="text-ink-soft font-mono text-xs">{pr.number}</span>
                     </motion.a>
                   ) : (
                     <motion.div
                       key={i}
-                      whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.1)' }}
-                      className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2 rounded-lg cursor-default transition-colors"
+                      whileHover={{ scale: 1.02, backgroundColor: 'rgba(120, 120, 128, 0.12)' }}
+                      className="flex items-center gap-3 bg-ink/5 border border-ink/10 px-4 py-2 rounded-lg cursor-default transition-colors"
                     >
                       <GitMerge size={14} className="text-[#8b5cf6]" />
-                      <span className="text-gray-400 font-mono text-xs">{pr.number}</span>
+                      <span className="text-ink-soft font-mono text-xs">{pr.number}</span>
                     </motion.div>
                   )
                 ))}
@@ -155,20 +155,20 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
           className="mb-24 text-center"
         >
-          <span className="text-[#0ff] font-mono text-sm tracking-[0.3em] uppercase mb-4 block">Career & Research</span>
-          <h2 className="font-display text-5xl md:text-7xl text-white tracking-tight">
-            Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-200">Journey</span>
+          <span className="text-accent font-mono text-sm tracking-[0.3em] uppercase mb-4 block">Career & Research</span>
+          <h2 className="font-display text-5xl md:text-7xl text-ink tracking-tight">
+            Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-ink-faint to-ink">Journey</span>
           </h2>
         </motion.div>
 
         {/* Timeline Container */}
         <div ref={containerRef} className="relative">
           {/* Background Track Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-1 bg-white/5 rounded-full hidden md:block" />
+          <div className="absolute left-8 top-0 bottom-0 w-1 bg-ink/5 rounded-full hidden md:block" />
           
           {/* Glowing Animated Line */}
           <motion.div 
-            className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#0ff] via-[#C8FF3D] to-[#8b5cf6] rounded-full hidden md:block origin-top shadow-[0_0_15px_rgba(0,243,255,0.5)]"
+            className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-accent via-accent-fill to-accent rounded-full hidden md:block origin-top shadow-[0_0_15px_rgba(200,255,61,0.35)]"
             style={{ scaleY }}
           />
 

@@ -1,19 +1,24 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { useTheme } from '../hooks/useTheme.jsx'
 
 /**
- * Converts a 6-digit hex colour string to an rgba() string.
- * Used at particle creation time so we never string-replace inside the
- * animation loop, which runs up to 60× per second.
+ * Converts a CSS `--c-*` triplet ("200 255 61") to a 6-digit hex string.
+ * Canvas 2D has no notion of CSS variables, so the palette is resolved once
+ * per theme change (never in the animation loop) and threaded through as
+ * plain colour strings.
  */
-const hexToRgba = (hex, alpha) => {
-  const r = parseInt(hex.slice(1, 3), 16)
-  const g = parseInt(hex.slice(3, 5), 16)
-  const b = parseInt(hex.slice(5, 7), 16)
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`
+const tripletToHex = (triplet, fallback) => {
+  const parts = triplet.trim().split(/\s+/).map(Number)
+  if (parts.length !== 3 || parts.some(Number.isNaN)) return fallback
+  return '#' + parts.map((n) => Math.max(0, Math.min(255, n)).toString(16).padStart(2, '0')).join('')
 }
 
-const PARTICLE_COLORS = ['#C8FF3D', '#C8FF3D']
+const tripletToRgb = (triplet, fallback) => {
+  const parts = triplet.trim().split(/\s+/).map(Number)
+  if (parts.length !== 3 || parts.some(Number.isNaN)) return fallback
+  return parts
+}
 
 /**
  * Particle count is derived from viewport area, but capped. The link-drawing
@@ -35,15 +40,51 @@ const ParticleBackground = () => {
   // Store mouse position in a ref — no state — so reading it inside the
   // animation loop never triggers a re-render or re-runs the effect.
   const mouseRef = useRef({ x: -9999, y: -9999 })
+  const { theme } = useTheme()
 
   const { scrollY } = useScroll()
   const gridOpacity = useTransform(scrollY, [0, 500], [1, 0.3])
+
+  // Resolve the theme's palette from the CSS tokens (single source of truth
+  // lives in index.css). Re-runs on theme flip; the effect below re-inits the
+  // canvas with the new colours.
+  const palette = useMemo(() => {
+    if (typeof document === 'undefined') {
+      return {
+        paper: [11, 11, 13],
+        accent: [200, 255, 61],
+        accentHex: '#C8FF3D',
+        // Slightly stronger ambient lines on paper: bright lime at the dark
+        // theme's 1.5% alpha is invisible on white.
+        gridAlpha: 0.015,
+        dotAlpha: 0.04,
+        linkAlpha: 0.08,
+        particleAlphaBase: 0.1,
+      }
+    }
+    const css = getComputedStyle(document.documentElement)
+    const paper = tripletToRgb(css.getPropertyValue('--c-paper'), [11, 11, 13])
+    const accent = tripletToRgb(css.getPropertyValue('--c-accent'), [200, 255, 61])
+    const dark = theme === 'dark'
+    return {
+      paper,
+      accent,
+      accentHex: tripletToHex(css.getPropertyValue('--c-accent'), '#C8FF3D'),
+      gridAlpha: dark ? 0.015 : 0.05,
+      dotAlpha: dark ? 0.04 : 0.12,
+      linkAlpha: dark ? 0.08 : 0.16,
+      particleAlphaBase: dark ? 0.1 : 0.22,
+    }
+  }, [theme])
 
   useEffect(() => {
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
     let animationFrameId
     let particles = []
+
+    const rgba = (rgb, alpha) => `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${alpha})`
+    const accentHex = palette.accentHex
 
     // Logical (CSS) pixel dimensions. The backing store is scaled by DPR
     // separately so the canvas isn't blurry on high-density displays.
@@ -74,24 +115,22 @@ const ParticleBackground = () => {
         MAX_PARTICLES
       )
       for (let i = 0; i < count; i++) {
-        const hex = PARTICLE_COLORS[Math.random() > 0.7 ? 0 : 1]
         particles.push({
           x: Math.random() * width,
           y: Math.random() * height,
           size: Math.random() * 1.5 + 0.5,
           speedX: (Math.random() - 0.5) * 0.3,
           speedY: (Math.random() - 0.5) * 0.3,
-          opacity: Math.random() * 0.4 + 0.1,
-          hex,
+          opacity: Math.random() * 0.4 + palette.particleAlphaBase,
           // Pre-compute glow colour once at creation — avoids string ops in loop
-          glowRgba: hexToRgba(hex, 0.15),
+          glowRgba: rgba(palette.accent, 0.15),
         })
       }
     }
 
     const drawGrid = () => {
       const gridSize = 80
-      ctx.strokeStyle = 'rgba(0, 243, 255, 0.015)'
+      ctx.strokeStyle = rgba(palette.accent, palette.gridAlpha)
       ctx.lineWidth = 1
 
       // One path for every line, one stroke call — batching this way avoids
@@ -107,7 +146,7 @@ const ParticleBackground = () => {
       }
       ctx.stroke()
 
-      ctx.fillStyle = 'rgba(0, 243, 255, 0.04)'
+      ctx.fillStyle = rgba(palette.accent, palette.dotAlpha)
       ctx.beginPath()
       for (let x = 0; x < width; x += gridSize) {
         for (let y = 0; y < height; y += gridSize) {
@@ -133,7 +172,7 @@ const ParticleBackground = () => {
           if (distSq < LINK_DISTANCE_SQ) {
             const dist = Math.sqrt(distSq)
             ctx.beginPath()
-            ctx.strokeStyle = `rgba(0, 243, 255, ${0.08 * (1 - dist / LINK_DISTANCE)})`
+            ctx.strokeStyle = rgba(palette.accent, palette.linkAlpha * (1 - dist / LINK_DISTANCE))
             ctx.moveTo(a.x, a.y)
             ctx.lineTo(b.x, b.y)
             ctx.stroke()
@@ -143,7 +182,8 @@ const ParticleBackground = () => {
     }
 
     const animate = () => {
-      ctx.fillStyle = 'rgba(5, 5, 5, 0.15)'
+      // Trail fade: repaints with the page colour so particles smear softly.
+      ctx.fillStyle = rgba(palette.paper, 0.15)
       ctx.fillRect(0, 0, width, height)
 
       drawGrid()
@@ -175,7 +215,7 @@ const ParticleBackground = () => {
         ctx.globalAlpha = p.opacity
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-        ctx.fillStyle = p.hex
+        ctx.fillStyle = accentHex
         ctx.fill()
 
         // Radial glow — uses pre-computed rgba so no string ops here
@@ -229,7 +269,7 @@ const ParticleBackground = () => {
     // with vestibular disorders, and the background carries no information.
     const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')
     if (reduceMotion?.matches) {
-      ctx.fillStyle = '#0B0B0D'
+      ctx.fillStyle = rgba(palette.paper, 1)
       ctx.fillRect(0, 0, width, height)
       drawGrid()
       return () => {
@@ -249,9 +289,9 @@ const ParticleBackground = () => {
       window.removeEventListener('mousemove', handleMouseMove)
       document.removeEventListener('visibilitychange', handleVisibility)
     }
-    // Empty deps: intentional — this effect runs once and is self-contained.
-    // Mouse position is read via mouseRef; resize is handled by a named listener.
-  }, [])
+    // `theme` is the only input that must re-init the canvas (palette swap);
+    // mouse position flows through a ref, resize through a named listener.
+  }, [theme, palette])
 
   return (
     <>
@@ -261,31 +301,28 @@ const ParticleBackground = () => {
         className="fixed inset-0 pointer-events-none"
       />
 
-      {/* Vignette */}
+      {/* Vignette — fades to the page colour via the .bg-vignette token class */}
       <div
-        className="fixed inset-0 pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at center, transparent 0%, #0B0B0D 70%)',
-          opacity: 0.6,
-        }}
+        className="bg-vignette fixed inset-0 pointer-events-none"
+        style={{ opacity: 0.6 }}
       />
 
       {/* Corner Accents */}
       <div className="fixed top-0 left-0 w-64 h-64 pointer-events-none">
-        <div className="absolute top-0 left-0 w-px h-32 bg-gradient-to-b from-[#C8FF3D]/30 to-transparent" />
-        <div className="absolute top-0 left-0 h-px w-32 bg-gradient-to-r from-[#C8FF3D]/30 to-transparent" />
+        <div className="absolute top-0 left-0 w-px h-32 bg-gradient-to-b from-accent-fill/30 to-transparent" />
+        <div className="absolute top-0 left-0 h-px w-32 bg-gradient-to-r from-accent-fill/30 to-transparent" />
       </div>
       <div className="fixed top-0 right-0 w-64 h-64 pointer-events-none">
-        <div className="absolute top-0 right-0 w-px h-32 bg-gradient-to-b from-[#C8FF3D]/30 to-transparent" />
-        <div className="absolute top-0 right-0 h-px w-32 bg-gradient-to-l from-[#C8FF3D]/30 to-transparent" />
+        <div className="absolute top-0 right-0 w-px h-32 bg-gradient-to-b from-accent-fill/30 to-transparent" />
+        <div className="absolute top-0 right-0 h-px w-32 bg-gradient-to-l from-accent-fill/30 to-transparent" />
       </div>
       <div className="fixed bottom-0 left-0 w-64 h-64 pointer-events-none">
-        <div className="absolute bottom-0 left-0 w-px h-32 bg-gradient-to-t from-[#C8FF3D]/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 h-px w-32 bg-gradient-to-r from-[#C8FF3D]/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-px h-32 bg-gradient-to-t from-accent-fill/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 h-px w-32 bg-gradient-to-r from-accent-fill/30 to-transparent" />
       </div>
       <div className="fixed bottom-0 right-0 w-64 h-64 pointer-events-none">
-        <div className="absolute bottom-0 right-0 w-px h-32 bg-gradient-to-t from-[#C8FF3D]/30 to-transparent" />
-        <div className="absolute bottom-0 right-0 h-px w-32 bg-gradient-to-l from-[#C8FF3D]/30 to-transparent" />
+        <div className="absolute bottom-0 right-0 w-px h-32 bg-gradient-to-t from-accent-fill/30 to-transparent" />
+        <div className="absolute bottom-0 right-0 h-px w-32 bg-gradient-to-l from-accent-fill/30 to-transparent" />
       </div>
     </>
   )

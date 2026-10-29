@@ -2,6 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Theme tokens.
+ *
+ * Light is the default landing theme; `.dark` on <html> overrides. Values are
+ * RGB triplets so Tailwind's `<alpha-value>` (bg-ink/10) works. `accent` is the
+ * readable brand colour (dark lime on paper, bright lime on graphite) used for
+ * text/icons/borders; `accent-fill` is the always-bright lime for pills & dots
+ * that carry `on-accent` (near-black) text in both themes.
+ *
+ * The no-flash initialiser lives in public/theme-init.js (loaded from
+ * index.html under CSP script-src 'self') and reads localStorage before paint.
+ */
+:root {
+  color-scheme: light;
+
+  --c-paper: 251 250 245;
+  --c-surface: 255 255 255;
+  --c-surface-2: 244 242 236;
+  --c-ink: 23 23 26;
+  --c-ink-soft: 82 82 91;
+  --c-ink-faint: 120 120 128;
+  --c-line: 23 23 26;
+  --c-accent: 77 124 7;
+  --c-accent-fill: 200 255 61;
+  --c-on-accent: 11 11 13;
+  --c-error: 190 18 60;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --c-paper: 11 11 13;
+  --c-surface: 21 21 24;
+  --c-surface-2: 28 28 32;
+  --c-ink: 244 241 234;
+  --c-ink-soft: 161 161 170;
+  --c-ink-faint: 113 113 122;
+  --c-line: 244 241 234;
+  --c-accent: 200 255 61;
+  --c-accent-fill: 200 255 61;
+  --c-on-accent: 11 11 13;
+  --c-error: 255 107 138;
+}
+
 /* Self-hosted display fonts (Editorial Dark identity) */
 @font-face {
   font-family: 'Instrument Serif';
@@ -49,8 +93,8 @@ html {
 }
 
 body {
-  background-color: #0B0B0D;
-  color: #F4F1EA;
+  background-color: rgb(var(--c-paper));
+  color: rgb(var(--c-ink));
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
 }
@@ -72,215 +116,57 @@ body::before {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B0B0D;
+  background: rgb(var(--c-paper));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #C8FF3D, #C8FF3D);
+  background: rgb(var(--c-accent-fill));
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #C8FF3D, #C8FF3D);
-}
-
-/* Terminal Text Effect */
-.terminal-text {
-  font-family: 'JetBrains Mono', monospace;
-  text-shadow: 0 0 10px currentColor;
+  background: rgb(var(--c-accent-fill));
 }
 
 /* Glassmorphism 2.0 */
 .glass {
-  background: rgba(5, 5, 5, 0.8);
+  background: rgb(var(--c-surface-2) / 0.8);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgb(var(--c-line) / 0.08);
 }
 
 .glass-card {
-  background: rgba(5, 5, 5, 0.6);
+  background: rgb(var(--c-surface-2) / 0.6);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgb(var(--c-line) / 0.08);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card:hover {
-  border-color: rgba(0, 243, 255, 0.2);
+  border-color: rgb(var(--c-accent) / 0.3);
   box-shadow:
-    0 0 30px rgba(0, 243, 255, 0.1),
-    inset 0 0 30px rgba(0, 243, 255, 0.02);
-}
-
-/* Neon Glow Effects */
-.neon-cyan {
-  color: #C8FF3D;
-  text-shadow: 0 0 5px #C8FF3D, 0 0 10px #C8FF3D, 0 0 20px #C8FF3D, 0 0 40px #C8FF3D;
-}
-
-.neon-green {
-  color: #C8FF3D;
-  text-shadow: 0 0 5px #C8FF3D, 0 0 10px #C8FF3D, 0 0 20px #C8FF3D;
-}
-
-.glow-cyan {
-  box-shadow: 0 0 20px rgba(0, 243, 255, 0.3), 0 0 40px rgba(0, 243, 255, 0.1);
-}
-
-.glow-green {
-  box-shadow: 0 0 20px rgba(10, 255, 96, 0.3), 0 0 40px rgba(10, 255, 96, 0.1);
-}
-
-/* Scanning Effect */
-.scan-effect {
-  position: relative;
-  overflow: hidden;
-}
-
-.scan-effect::after {
-  content: '';
-  position: absolute;
-  top: -100%;
-  left: 0;
-  right: 0;
-  height: 100%;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(0, 243, 255, 0.03) 50%,
-    transparent 100%
-  );
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.scan-effect:hover::after {
-  opacity: 1;
-  animation: scan 1.5s ease-in-out infinite;
-}
-
-@keyframes scan {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(200%); }
-}
-
-/* Grid Background */
-.grid-bg {
-  background-image:
-    linear-gradient(rgba(0, 243, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 243, 255, 0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
+    0 0 30px rgb(var(--c-accent) / 0.12),
+    inset 0 0 30px rgb(var(--c-accent) / 0.03);
 }
 
 /* Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, #C8FF3D, #C8FF3D);
+  background: linear-gradient(135deg, rgb(var(--c-accent)), rgb(var(--c-accent-fill)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
-.gradient-text-reverse {
-  background: linear-gradient(135deg, #C8FF3D, #C8FF3D);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Button Styles */
-.btn-primary {
-  background: linear-gradient(135deg, #C8FF3D, #C8FF3D);
-  color: #0B0B0D;
-  font-weight: 600;
-  padding: 14px 36px;
-  border-radius: 6px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  letter-spacing: 0.05em;
-}
-
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #C8FF3D, #C8FF3D);
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 40px rgba(0, 243, 255, 0.4), 0 0 60px rgba(10, 255, 96, 0.2);
-}
-
-.btn-primary:hover::before {
-  opacity: 1;
-}
-
-.btn-primary span {
-  position: relative;
-  z-index: 1;
-}
-
-.btn-secondary {
-  background: transparent;
-  border: 1px solid rgba(0, 243, 255, 0.5);
-  color: #C8FF3D;
-  font-weight: 500;
-  padding: 14px 36px;
-  border-radius: 6px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  letter-spacing: 0.05em;
-}
-
-.btn-secondary:hover {
-  background: rgba(0, 243, 255, 0.1);
-  border-color: #C8FF3D;
-  box-shadow: 0 0 30px rgba(0, 243, 255, 0.2), inset 0 0 20px rgba(0, 243, 255, 0.05);
-}
-
-/* Skill Progress Bar */
-.skill-bar {
-  height: 3px;
-  background: rgba(0, 243, 255, 0.1);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.skill-bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #C8FF3D, #C8FF3D);
-  border-radius: 2px;
-  position: relative;
-}
-
-.skill-bar-fill::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
 /* Selection */
 ::selection {
-  background: rgba(0, 243, 255, 0.3);
-  color: #fff;
+  background: rgb(var(--c-accent) / 0.3);
+  color: rgb(var(--c-ink));
 }
 
 /* Focus Styles — only for keyboard users, never on mouse click. */
 :focus-visible {
-  outline: 2px solid #C8FF3D;
+  outline: 2px solid rgb(var(--c-accent));
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -294,8 +180,8 @@ body::before {
   z-index: 200;
   padding: 12px 24px;
   border-radius: 0 0 12px 12px;
-  background: #C8FF3D;
-  color: #0B0B0D;
+  background: rgb(var(--c-accent-fill));
+  color: rgb(var(--c-on-accent));
   font-weight: 600;
   font-size: 0.875rem;
   transition: transform 0.2s ease;
@@ -311,7 +197,7 @@ body::before {
   font-size: 0.65rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(0, 243, 255, 0.6);
+  color: rgb(var(--c-accent) / 0.8);
 }
 
 /* Protocol Tag */
@@ -319,26 +205,16 @@ body::before {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.7rem;
   padding: 4px 12px;
-  background: rgba(0, 243, 255, 0.1);
-  border: 1px solid rgba(0, 243, 255, 0.3);
+  background: rgb(var(--c-accent) / 0.1);
+  border: 1px solid rgb(var(--c-accent) / 0.3);
   border-radius: 2px;
-  color: #C8FF3D;
+  color: rgb(var(--c-accent));
 }
 
-/* Cyber Border Animation */
-@keyframes borderGlow {
-  0%, 100% { border-color: rgba(0, 243, 255, 0.3); }
-  50% { border-color: rgba(10, 255, 96, 0.3); }
-}
-
-.cyber-border {
-  animation: borderGlow 4s ease-in-out infinite;
-}
-
-/* Parallax Container */
-.parallax-container {
-  perspective: 1000px;
-  transform-style: preserve-3d;
+/* Vignette: fades to the page colour so the fixed particle canvas blends into
+   whichever theme is active. Used by ParticleBackground. */
+.bg-vignette {
+  background: radial-gradient(ellipse at center, transparent 0%, rgb(var(--c-paper)) 70%);
 }
 
 /* Premium Aurora Background */
@@ -349,9 +225,9 @@ body::before {
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(ellipse at 100% 0%, rgba(0, 243, 255, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 0% 100%, rgba(10, 255, 96, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    radial-gradient(ellipse at 100% 0%, rgb(var(--c-accent) / 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 0% 100%, rgb(var(--c-accent-fill) / 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgb(139 92 246 / 0.1) 0%, transparent 50%);
   filter: blur(80px);
   z-index: 0;
   pointer-events: none;
@@ -364,22 +240,10 @@ body::before {
   100% { transform: scale(0.9) translate(-2%, -2%); }
 }
 
-/* Premium Bento Grid Utilities */
-.bento-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .bento-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
+/* Bento Card */
 .bento-card {
-  background: rgba(10, 10, 12, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgb(var(--c-surface) / 0.7);
+  border: 1px solid rgb(var(--c-line) / 0.08);
   border-radius: 1.5rem;
   padding: 2rem;
   display: flex;
@@ -396,7 +260,7 @@ body::before {
   inset: 0;
   border-radius: 1.5rem;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  background: linear-gradient(135deg, rgb(var(--c-line) / 0.12), rgb(var(--c-line) / 0));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -404,7 +268,7 @@ body::before {
 }
 
 .bento-card:hover {
-  border-color: rgba(0, 243, 255, 0.3);
+  border-color: rgb(var(--c-accent) / 0.35);
 }
 
 /*
@@ -436,10 +300,5 @@ body::before {
 
   .aurora-bg {
     animation: none;
-  }
-
-  .scan-effect:hover::after {
-    animation: none;
-    opacity: 0;
   }
 }

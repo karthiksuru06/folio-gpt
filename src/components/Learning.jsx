@@ -50,7 +50,7 @@ const RoadmapNode = ({ item, index, isInView, isLast }) => {
       <span
         className="relative z-10 w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
         style={{
-          backgroundColor: '#0B0B0D',
+          backgroundColor: 'rgb(var(--c-paper))',
           border: `1px solid ${meta.color}44`,
         }}
       >
@@ -61,7 +61,7 @@ const RoadmapNode = ({ item, index, isInView, isLast }) => {
         <span
           className={cn(
             'font-medium',
-            item.status === 'next' ? 'text-gray-500' : 'text-gray-200'
+            item.status === 'next' ? 'text-ink-faint' : 'text-ink'
           )}
         >
           {item.name}
@@ -91,16 +91,16 @@ const Learning = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="text-[#0ff] font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
+          <span className="text-accent font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
             Now
           </span>
-          <h2 className="font-display text-5xl md:text-6xl text-white tracking-tight">
+          <h2 className="font-display text-5xl md:text-6xl text-ink tracking-tight">
             What I'm{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-200">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-ink-faint to-ink">
               Working On
             </span>
           </h2>
-          <p className="text-gray-500 mt-5 max-w-xl mx-auto leading-relaxed">
+          <p className="text-ink-faint mt-5 max-w-xl mx-auto leading-relaxed">
             An honest map of where I am rather than a list of everything I've touched. The
             distinction between "solid" and "up next" is the useful part.
           </p>
@@ -108,9 +108,9 @@ const Learning = () => {
 
         <div ref={ref} className="grid lg:grid-cols-5 gap-6">
           {/* Roadmap */}
-          <div className="lg:col-span-2 rounded-3xl border border-white/10 bg-[#0B0B0D]/70 backdrop-blur-xl p-8">
-            <h3 className="flex items-center gap-3 text-sm font-mono uppercase tracking-widest text-gray-500 mb-7">
-              <Compass className="w-4 h-4 text-[#C8FF3D]" aria-hidden="true" />
+          <div className="lg:col-span-2 rounded-3xl border border-ink/10 bg-surface/70 backdrop-blur-xl p-8">
+            <h3 className="flex items-center gap-3 text-sm font-mono uppercase tracking-widest text-ink-faint mb-7">
+              <Compass className="w-4 h-4 text-accent" aria-hidden="true" />
               Learning path
             </h3>
 
@@ -126,7 +126,7 @@ const Learning = () => {
               ))}
             </ol>
 
-            <div className="mt-8 pt-6 border-t border-white/5 flex flex-wrap gap-x-5 gap-y-2">
+            <div className="mt-8 pt-6 border-t border-ink/5 flex flex-wrap gap-x-5 gap-y-2">
               {Object.entries(statusMeta).map(([key, meta]) => (
                 <div key={key} className="flex items-center gap-1.5">
                   <span
@@ -134,7 +134,7 @@ const Learning = () => {
                     style={{ backgroundColor: meta.color }}
                     aria-hidden="true"
                   />
-                  <span className="text-[11px] text-gray-500">{meta.hint}</span>
+                  <span className="text-[11px] text-ink-faint">{meta.hint}</span>
                 </div>
               ))}
             </div>
@@ -142,7 +142,7 @@ const Learning = () => {
 
           {/* Philosophy */}
           <div className="lg:col-span-3 flex flex-col gap-5">
-            <h3 className="text-sm font-mono uppercase tracking-widest text-gray-500">
+            <h3 className="text-sm font-mono uppercase tracking-widest text-ink-faint">
               How I approach the work
             </h3>
 
@@ -152,15 +152,15 @@ const Learning = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                className="rounded-2xl border border-white/10 bg-[#0B0B0D]/70 backdrop-blur-xl p-7 hover:border-white/20 transition-colors flex-1"
+                className="rounded-2xl border border-ink/10 bg-surface/70 backdrop-blur-xl p-7 hover:border-ink/20 transition-colors flex-1"
               >
                 <div className="flex items-baseline gap-3 mb-3">
-                  <span className="font-mono text-xs text-[#C8FF3D]/60">
+                  <span className="font-mono text-xs text-accent/60">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <h4 className="text-lg font-bold text-white tracking-tight">{item.title}</h4>
+                  <h4 className="text-lg font-bold text-ink tracking-tight">{item.title}</h4>
                 </div>
-                <p className="text-gray-400 leading-relaxed">{item.body}</p>
+                <p className="text-ink-soft leading-relaxed">{item.body}</p>
               </motion.article>
             ))}
           </div>

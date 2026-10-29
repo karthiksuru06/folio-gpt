@@ -76,7 +76,7 @@ const TiltCard = ({ children, onClick, label }) => {
       className="relative h-full w-full rounded-2xl cursor-pointer perspective-1000"
     >
       <div 
-        className="absolute inset-0 z-0 scale-105 rounded-2xl bg-gradient-to-br from-[#C8FF3D]/20 to-[#C8FF3D]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className="absolute inset-0 z-0 scale-105 rounded-2xl bg-gradient-to-br from-accent-fill/20 to-accent-fill/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{ transform: "translateZ(-50px)" }}
       />
       {children}
@@ -99,26 +99,26 @@ const ProjectCard = ({ project, onClick, index, isInView }) => {
         label={`${project.title} — view case study`}
       >
         <div 
-          className="h-full bg-[#0B0B0D]/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden flex flex-col group-hover:border-[#C8FF3D]/30 transition-colors duration-500"
+          className="h-full bg-surface/80 backdrop-blur-xl border border-ink/10 rounded-2xl overflow-hidden flex flex-col group-hover:border-accent/30 transition-colors duration-500"
           style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }}
         >
           {/* Project Header */}
-          <div className="h-40 bg-white/5 relative overflow-hidden p-6 border-b border-white/5">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#C8FF3D]/5 to-transparent opacity-50" />
+          <div className="h-40 bg-ink/5 relative overflow-hidden p-6 border-b border-ink/5">
+            <div className="absolute inset-0 bg-gradient-to-br from-accent-fill/5 to-transparent opacity-50" />
             
             {/* Soft mesh overlay */}
             <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMCIvPgo8cGF0aCBkPSJNMCAweDh2OEgweiIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIwLjA1Ii8+Cjwvc3ZnPg==')]" />
 
             <motion.div
               style={{ transform: "translateZ(40px)" }}
-              className="relative w-12 h-12 rounded-xl bg-[#0B0B0D] border border-white/10 flex items-center justify-center mb-4 shadow-xl"
+              className="relative w-12 h-12 rounded-xl bg-surface border border-ink/10 flex items-center justify-center mb-4 shadow-xl"
             >
-              <Icon className="w-6 h-6 text-[#0ff] group-hover:text-[#C8FF3D] transition-colors" />
+              <Icon className="w-6 h-6 text-accent group-hover:text-accent transition-colors" />
             </motion.div>
 
             <motion.h3 
               style={{ transform: "translateZ(30px)" }}
-              className="relative font-bold text-xl text-white tracking-tight"
+              className="relative font-bold text-xl text-ink tracking-tight"
             >
               {project.title}
             </motion.h3>
@@ -128,13 +128,13 @@ const ProjectCard = ({ project, onClick, index, isInView }) => {
               className="absolute top-4 right-4 flex flex-col items-end gap-1.5"
             >
               {project.demo && (
-                <span className="px-2 py-1 text-[9px] uppercase tracking-widest font-mono text-[#C8FF3D] bg-[#C8FF3D]/10 border border-[#C8FF3D]/25 rounded-full flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF3D] animate-pulse" />
+                <span className="px-2 py-1 text-[9px] uppercase tracking-widest font-mono text-accent bg-accent-fill/10 border border-accent/25 rounded-full flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent-fill animate-pulse" />
                   Live
                 </span>
               )}
               {project.featured && (
-                <span className="px-2 py-1 text-[9px] uppercase tracking-widest font-mono text-[#0ff] bg-[#0ff]/10 border border-[#0ff]/20 rounded-full">
+                <span className="px-2 py-1 text-[9px] uppercase tracking-widest font-mono text-accent bg-accent/10 border border-accent/20 rounded-full">
                   Featured
                 </span>
               )}
@@ -145,7 +145,7 @@ const ProjectCard = ({ project, onClick, index, isInView }) => {
           <div className="p-6 flex flex-col flex-grow">
             <motion.p 
               style={{ transform: "translateZ(20px)" }}
-              className="text-gray-400 text-sm mb-6 flex-grow leading-relaxed"
+              className="text-ink-soft text-sm mb-6 flex-grow leading-relaxed"
             >
               {project.shortDesc}
             </motion.p>
@@ -153,12 +153,12 @@ const ProjectCard = ({ project, onClick, index, isInView }) => {
             {/* Tech Stack Tags */}
             <motion.div style={{ transform: "translateZ(25px)" }} className="flex flex-wrap gap-2 mb-6">
               {project.techStack.slice(0, 3).map((tech) => (
-                <span key={tech} className="px-2 py-1 text-[10px] uppercase font-mono tracking-wider text-gray-300 bg-white/5 rounded-md border border-white/5">
+                <span key={tech} className="px-2 py-1 text-[10px] uppercase font-mono tracking-wider text-ink bg-ink/5 rounded-md border border-ink/5">
                   {tech}
                 </span>
               ))}
               {project.techStack.length > 3 && (
-                <span className="px-2 py-1 text-[10px] font-mono text-gray-500">
+                <span className="px-2 py-1 text-[10px] font-mono text-ink-faint">
                   +{project.techStack.length - 3}
                 </span>
               )}
@@ -167,7 +167,7 @@ const ProjectCard = ({ project, onClick, index, isInView }) => {
             {/* Links */}
             <motion.div 
               style={{ transform: "translateZ(30px)" }}
-              className="flex items-center justify-between pt-4 border-t border-white/5"
+              className="flex items-center justify-between pt-4 border-t border-ink/5"
             >
               <div className="flex gap-4">
                 {project.github && (
@@ -177,7 +177,7 @@ const ProjectCard = ({ project, onClick, index, isInView }) => {
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
                     aria-label={`${project.title} — view source on GitHub`}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-ink-soft hover:text-ink transition-colors"
                   >
                     <Github size={18} aria-hidden="true" />
                   </a>
@@ -189,13 +189,13 @@ const ProjectCard = ({ project, onClick, index, isInView }) => {
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
                     aria-label={`${project.title} — open live demo`}
-                    className="text-gray-400 hover:text-[#0ff] transition-colors"
+                    className="text-ink-soft hover:text-accent transition-colors"
                   >
                     <ExternalLink size={18} aria-hidden="true" />
                   </a>
                 )}
               </div>
-              <span className="text-[#0ff] text-xs font-mono font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+              <span className="text-accent text-xs font-mono font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
                 Details <ArrowRight size={14} />
               </span>
             </motion.div>
@@ -222,16 +222,16 @@ const Projects = ({ onProjectClick }) => {
           transition={{ duration: 0.6 }}
           className="mb-20 text-center"
         >
-          <span className="text-[#0ff] font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
+          <span className="text-accent font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
             Case Studies
           </span>
-          <h2 className="font-display text-5xl md:text-6xl text-white tracking-tight">
+          <h2 className="font-display text-5xl md:text-6xl text-ink tracking-tight">
             Selected{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-200">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-ink-faint to-ink">
               Projects
             </span>
           </h2>
-          <p className="text-gray-500 mt-5 max-w-xl mx-auto leading-relaxed">
+          <p className="text-ink-faint mt-5 max-w-xl mx-auto leading-relaxed">
             Each one opens into the problem it solved, how it was built, and what broke along the
             way. Click through — the interesting part is usually the constraint.
           </p>
@@ -261,7 +261,7 @@ const Projects = ({ onProjectClick }) => {
             href={identity.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-white/25 transition-all font-medium"
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-xl border border-ink/10 bg-ink/5 text-ink hover:text-ink hover:border-ink/25 transition-all font-medium"
           >
             <Github size={18} aria-hidden="true" />
             See the rest on GitHub

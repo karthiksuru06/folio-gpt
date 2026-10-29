@@ -30,7 +30,7 @@ const Hero = () => {
       <div className="aurora-bg" />
       
       {/* Front-layer glow mask to blend it deeply into the background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#0B0B0D_100%)] pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgb(var(--c-paper))_100%)] pointer-events-none z-0" />
 
       <motion.div 
         variants={containerVariants}
@@ -40,12 +40,12 @@ const Hero = () => {
       >
         {/* Verification Pill */}
         <motion.div variants={itemVariants} className="mb-8 flex justify-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ink/10 bg-ink/5 backdrop-blur-md">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C8FF3D] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C8FF3D]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-fill opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-fill"></span>
             </span>
-            <span className="text-xs font-mono text-gray-300 uppercase tracking-widest">
+            <span className="text-xs font-mono text-ink uppercase tracking-widest">
               {availability.headline}
             </span>
           </div>
@@ -53,22 +53,22 @@ const Hero = () => {
 
         {/* Hero Typography */}
         <motion.div variants={itemVariants} className="mb-6">
-          <h1 className="font-display hero-title text-white">
-            <span className="text-white block">{identity.first}</span>
+          <h1 className="font-display hero-title text-ink">
+            <span className="text-ink block">{identity.first}</span>
             <span className="gradient-text block mt-2">{identity.last}</span>
           </h1>
         </motion.div>
 
         <motion.div variants={itemVariants} className="mb-4">
-          <p className="text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">
-            <span className="text-white font-medium">AI Engineer</span> building production LLM
-            systems, <span className="text-[#C8FF3D] font-medium">RAG pipelines</span>, and the
+          <p className="text-lg md:text-2xl text-ink-soft max-w-3xl mx-auto font-light leading-relaxed">
+            <span className="text-ink font-medium">AI Engineer</span> building production LLM
+            systems, <span className="text-accent font-medium">RAG pipelines</span>, and the
             full-stack products around them.
           </p>
         </motion.div>
 
         <motion.div variants={itemVariants} className="mb-12">
-          <p className="text-sm md:text-base text-gray-500 font-mono tracking-wide">
+          <p className="text-sm md:text-base text-ink-faint font-mono tracking-wide">
             Python · FastAPI · React · PyTorch — final-year CS, graduating 2027
           </p>
         </motion.div>
@@ -77,13 +77,13 @@ const Hero = () => {
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <motion.a
             href="#projects"
-            className="group relative px-8 py-4 rounded-xl bg-white text-black font-semibold tracking-wide overflow-hidden"
+            className="group relative px-8 py-4 rounded-xl bg-ink text-paper font-semibold tracking-wide overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-[#C8FF3D] to-[#C8FF3D] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out" />
-            <span className="relative z-10 flex items-center gap-3 group-hover:text-black transition-colors duration-300">
+            <div className="absolute inset-0 bg-gradient-to-r from-accent-fill to-accent-fill opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out" />
+            <span className="relative z-10 flex items-center gap-3 group-hover:text-on-accent transition-colors duration-300">
               View Projects
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </span>
@@ -93,13 +93,13 @@ const Hero = () => {
             href={identity.resume}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-8 py-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-white font-semibold tracking-wide"
-            whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+            className="group relative px-8 py-4 rounded-xl border border-ink/10 bg-ink/5 backdrop-blur-sm text-ink font-semibold tracking-wide"
+            whileHover={{ scale: 1.05, backgroundColor: "rgba(120, 120, 128, 0.12)" }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             <span className="flex items-center gap-3">
-              <FileText className="w-5 h-5 text-gray-400 group-hover:text-[#C8FF3D] transition-colors duration-300" />
+              <FileText className="w-5 h-5 text-ink-soft group-hover:text-accent transition-colors duration-300" />
               Download Résumé
             </span>
           </motion.a>
@@ -117,12 +117,12 @@ const Hero = () => {
           ].map((stat) => (
             <motion.div
               key={stat.label}
-              className="p-6 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-md hover:border-white/20 transition-all duration-300"
+              className="p-6 rounded-2xl bg-ink/5 border border-ink/5 backdrop-blur-md hover:border-ink/20 transition-all duration-300"
               whileHover={{ y: -5 }}
             >
               <div className="text-4xl font-bold gradient-text mb-2">{stat.value}</div>
-              <div className="text-white font-medium">{stat.label}</div>
-              <div className="text-sm text-gray-500">{stat.sub}</div>
+              <div className="text-ink font-medium">{stat.label}</div>
+              <div className="text-sm text-ink-faint">{stat.sub}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -134,9 +134,9 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
         >
-          <span className="text-[10px] font-mono tracking-[0.2em] text-gray-500 uppercase">Discover</span>
+          <span className="text-[10px] font-mono tracking-[0.2em] text-ink-faint uppercase">Discover</span>
           <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>
-            <ChevronDown className="w-4 h-4 text-gray-400" />
+            <ChevronDown className="w-4 h-4 text-ink-soft" />
           </motion.div>
         </motion.div>
 

@@ -23,10 +23,10 @@ const Education = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="text-[#0ff] font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
+          <span className="text-accent font-mono text-sm tracking-[0.3em] uppercase mb-4 block">
             Background
           </span>
-          <h2 className="font-display text-5xl md:text-6xl text-white tracking-tight">
+          <h2 className="font-display text-5xl md:text-6xl text-ink tracking-tight">
             Education &amp; Recognition
           </h2>
         </motion.div>
@@ -34,8 +34,8 @@ const Education = () => {
         <div ref={ref} className="grid lg:grid-cols-2 gap-6">
           {/* Education */}
           <div className="space-y-5">
-            <h3 className="flex items-center gap-3 text-sm font-mono uppercase tracking-widest text-gray-500 mb-2">
-              <GraduationCap className="w-4 h-4 text-[#C8FF3D]" aria-hidden="true" />
+            <h3 className="flex items-center gap-3 text-sm font-mono uppercase tracking-widest text-ink-faint mb-2">
+              <GraduationCap className="w-4 h-4 text-accent" aria-hidden="true" />
               Education
             </h3>
 
@@ -45,29 +45,29 @@ const Education = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-2xl border border-white/10 bg-[#0B0B0D]/70 backdrop-blur-xl p-6 hover:border-white/20 transition-colors"
+                className="rounded-2xl border border-ink/10 bg-surface/70 backdrop-blur-xl p-6 hover:border-ink/20 transition-colors"
               >
                 <div className="flex items-start justify-between gap-4 flex-wrap mb-2">
-                  <h4 className="text-lg font-bold text-white leading-snug">{item.degree}</h4>
+                  <h4 className="text-lg font-bold text-ink leading-snug">{item.degree}</h4>
                   {item.status === 'current' && (
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest text-[#C8FF3D] bg-[#C8FF3D]/10 border border-[#C8FF3D]/25 flex-shrink-0">
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest text-accent bg-accent-fill/10 border border-accent/25 flex-shrink-0">
                       In progress
                     </span>
                   )}
                 </div>
-                <p className="text-[#C8FF3D] text-sm font-medium">{item.institution}</p>
-                <p className="text-gray-500 text-xs font-mono mt-1 mb-3">
+                <p className="text-accent text-sm font-medium">{item.institution}</p>
+                <p className="text-ink-faint text-xs font-mono mt-1 mb-3">
                   {item.period} · {item.specialization}
                 </p>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.detail}</p>
+                <p className="text-ink-soft text-sm leading-relaxed">{item.detail}</p>
               </motion.article>
             ))}
           </div>
 
           {/* Achievements */}
           <div className="space-y-5">
-            <h3 className="flex items-center gap-3 text-sm font-mono uppercase tracking-widest text-gray-500 mb-2">
-              <Trophy className="w-4 h-4 text-[#C8FF3D]" aria-hidden="true" />
+            <h3 className="flex items-center gap-3 text-sm font-mono uppercase tracking-widest text-ink-faint mb-2">
+              <Trophy className="w-4 h-4 text-accent" aria-hidden="true" />
               Achievements
             </h3>
 
@@ -82,7 +82,7 @@ const Education = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
                   whileHover={{ x: 4 }}
-                  className="rounded-2xl border border-white/10 bg-[#0B0B0D]/70 backdrop-blur-xl p-6 hover:border-white/20 transition-colors"
+                  className="rounded-2xl border border-ink/10 bg-surface/70 backdrop-blur-xl p-6 hover:border-ink/20 transition-colors"
                 >
                   <div className="flex items-start gap-4">
                     <div
@@ -96,13 +96,13 @@ const Education = () => {
                     </div>
                     <div className="min-w-0">
                       <div className="flex items-baseline gap-2 flex-wrap mb-1">
-                        <h4 className="text-base font-bold text-white leading-snug">{item.title}</h4>
-                        <span className="text-gray-600 font-mono text-xs">{item.year}</span>
+                        <h4 className="text-base font-bold text-ink leading-snug">{item.title}</h4>
+                        <span className="text-ink-faint font-mono text-xs">{item.year}</span>
                       </div>
                       <p className="text-sm font-medium mb-2" style={{ color: style.color }}>
                         {item.issuer}
                       </p>
-                      <p className="text-gray-400 text-sm leading-relaxed">{item.detail}</p>
+                      <p className="text-ink-soft text-sm leading-relaxed">{item.detail}</p>
                     </div>
                   </div>
                 </motion.article>
